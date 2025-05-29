@@ -1,0 +1,774 @@
+% Created 2025-04-30 Wed 12:38
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\author{ChatGPT}
+\date{30 aprile 2025}
+\title{Overview degli argomenti del seminario}
+\begin{document}
+
+\maketitle
+\section{Polish groups}
+\label{polish-groups}
+\subsection{Overview}
+\label{overview}
+A \textbf{Polish group} is a topological group whose topology is separable and
+completely metrizable; equivalently, it is a group equipped with a
+Polish space topology. These groups arise naturally in analysis, algebra
+and logic (for example the real numbers under addition, the unitary
+group of a Hilbert space, or the infinite permutation group
+\(S_\infty\)) and are fundamental in descriptive set theory. They
+provide the setting for rich interactions between group actions and
+definable sets: for instance, any Borel action of a Polish group on a
+Polish space yields Borel or analytic orbit equivalence relations of
+central interest in classification problems.
+\subsection{Detailed Summary}
+\label{detailed-summary}
+\begin{itemize}
+\item \textbf{Definition:} A \emph{topological group} \(G\) is \textbf{Polish} if its topology
+is induced by a complete metric and \(G\) is separable (equivalently,
+second-countable). In particular, every Polish group is a \(G_\delta\)
+subgroup of some completely metrizable group. Classic examples include
+\((\mathbb{R}^n,+)\), any separable Banach space (as an additive
+group), the infinite symmetric group \(S_\infty\) (with the pointwise
+convergence topology), and all compact metrizable groups (which are
+complete).
+
+\item \textbf{Basic properties:} Polish groups have cardinality continuum unless
+trivial. They admit a compatible complete invariant metric. Notably,
+any Polish group can be embedded as a closed subgroup of the unitary
+group of a separable Hilbert space (by Uspenskiĭ's theorem), or of
+\(S_\infty\), making \(S_\infty\) a universal Polish group.
+Topologically, Polish groups are in particular \textbf{Baire spaces} (the
+interior of any countable union of nowhere dense sets is empty), which
+follows from the fact that they are complete metrizable.
+
+\item \textbf{Descriptive set aspects:} Any Polish group \(G\) has an underlying
+standard Borel structure, so one can consider Borel or analytic
+subsets and Borel measurable homomorphisms of \(G\). Actions of Polish
+groups on Polish (or standard Borel) spaces produce equivalence
+relations whose complexity is studied via DST. A key result is
+Effros's theorem: for a continuous action of a Polish group on a
+Polish space, the orbit of any point is an analytic set, and the orbit
+map \(x\mapsto G\cdot x\) is a Borel function into the Effros Borel
+space of closed sets. In fact, “the condition of being Polish is
+essential in classification problems of mathematics and logic” --
+Polish groups naturally unify many examples and appear ubiquitously in
+DST.
+
+\item \textbf{Theorems (Kechris Ch.9):} Kechris develops the theory of Polish
+groups, including the fact that any Polish group is isomorphic (as a
+Borel group) to a closed subgroup of \(S_\infty\). One also has the
+\textbf{Dichotomy Theorem}: for any Borel (or analytic) homomorphism of a
+Polish group, the kernel and image have regular
+descriptive-set-theoretic properties. More generally, results in this
+chapter (9.1--9.3 of Kechris) illustrate that problems about group
+actions (orbit equivalence, ergodicity, invariant measures) for Polish
+groups can often be reduced to questions about well-understood model
+cases. Although we do not reproduce Kechris's proofs here, the core
+idea is that Polishness brings powerful Baire-category and metrization
+tools (like the Open Mapping and Closed Graph Theorems) into play for
+group-theoretic contexts.
+
+\item \textbf{Relevance:} Polish groups form the stage for many structural theorems
+in DST, such as the theory of Borel reducibility of equivalence
+relations (orbit equivalence of Polish-group actions) and the study of
+invariant sets. They connect descriptive set theory to areas like
+group representation, ergodic theory, and logic. The interplay between
+the algebraic structure of \(G\) and its topology (and Borel
+\(\sigma\)-algebra) is key to understanding classification up to isomorphism or
+orbit equivalence in a definable way.
+\end{itemize}
+\section{Standard Borel spaces}
+\label{standard-borel-spaces}
+\subsection{Overview}
+\label{overview-1}
+A \textbf{standard Borel space} is a measurable space isomorphic to the Borel
+\(\sigma\)-algebra of some Polish space
+(\href{https://en.wikipedia.org/wiki/Standard\_Borel\_space\#:\~:text=A\%20measurable\%20space\%20Image\%3A\%20,algebra.\%5B\%201}{Standard
+Borel space - Wikipedia}). Equivalently, it is a set \(X\) with a
+\(\sigma\)-algebra \(\Sigma\) such that there is a topology on \(X\) making it
+Polish and \(\Sigma\) is exactly the collection of Borel sets for that
+topology
+(\href{https://en.wikipedia.org/wiki/Standard\_Borel\_space\#:\~:text=A\%20measurable\%20space\%20Image\%3A\%20,algebra.\%5B\%201}{Standard
+Borel space - Wikipedia}). Standard Borel spaces capture the most
+general setting for “nice” measurability theory: up to isomorphism,
+there is essentially only one uncountable such space (of cardinality
+continuum) and the discrete countable cases
+(\href{https://en.wikipedia.org/wiki/Standard\_Borel\_space\#:\~:text=one\%20of\%20\%281\%29\%20Image\%3A\%20,is\%20reminiscent\%20of\%20Maharam\%27s\%20theorem}{Standard
+Borel space - Wikipedia}).
+\subsection{Detailed Summary}
+\label{detailed-summary-1}
+\begin{itemize}
+\item \textbf{Definition:} Formally, \((X,\Sigma)\) is \textbf{standard Borel} if there
+exists a Polish topology on \(X\) whose Borel \(\sigma\)-algebra is \(\Sigma\)
+(\href{https://en.wikipedia.org/wiki/Standard\_Borel\_space\#:\~:text=A\%20measurable\%20space\%20Image\%3A\%20,algebra.\%5B\%201}{Standard
+Borel space - Wikipedia}). In particular, \(\Sigma\) must be
+countably generated and the space must admit a complete separable
+metric compatible with \(\Sigma\). This notion is independent of the
+specific topology chosen (up to isomorphism).
+
+\item \textbf{Kuratowski's theorem:} A fundamental classification states that if
+\(X\) is an uncountable Polish space, then its Borel space is
+isomorphic (as measurable spaces) to the real line \(\mathbb{R}\), or
+to \(\mathbb{Z}\), or is finite
+(\href{https://en.wikipedia.org/wiki/Standard\_Borel\_space\#:\~:text=Theorem.\%20Let\%20Image\%3A\%20,is\%20reminiscent\%20of\%20Maharam\%27s\%20theorem}{Standard
+Borel space - Wikipedia}). In consequence, \emph{up to Borel isomorphism
+every uncountable standard Borel space has the cardinality of the
+continuum}
+(\href{https://en.wikipedia.org/wiki/Standard\_Borel\_space\#:\~:text=one\%20of\%20\%281\%29\%20Image\%3A\%20,is\%20reminiscent\%20of\%20Maharam\%27s\%20theorem}{Standard
+Borel space - Wikipedia}). Thus any two uncountable standard Borel
+spaces are isomorphic as measurable spaces, which justifies treating
+“the” standard Borel structure on a continuum as unique.
+
+\item \textbf{Properties:} Standard Borel spaces enjoy many convenient properties
+not shared by arbitrary measurable spaces. For instance, any bijection
+between standard Borel spaces that is measurable in one direction is
+automatically an isomorphism (its inverse is measurable)
+(\href{https://en.wikipedia.org/wiki/Standard\_Borel\_space\#:\~:text=,are\%20standard\%20Borel\%20spaces\%20and}{Standard
+Borel space - Wikipedia}). Equivalently, by Suslin's theorem, a set
+that is both analytic and co-analytic in a standard Borel space must
+be Borel, so measurability behaves well under complementation. Also,
+countable products or coproducts of standard Borel spaces remain
+standard Borel
+(\href{https://en.wikipedia.org/wiki/Standard\_Borel\_space\#:\~:text=,it\%20into\%20a\%20\%2059}{Standard
+Borel space - Wikipedia}).
+
+\item \textbf{Theorems (Kechris 12.A--12.C):} Kechris proves (Theorem 12.13) that
+any Borel set in a Polish space \(X\) is the preimage of a Borel set
+in \(\mathbb{R}\) under some Borel bijection from \(X\) onto
+\(\mathbb{R}\) (when \(X\) is uncountable). Equivalently, one can show
+any standard Borel space of size continuum is Borel-isomorphic to
+\((\mathbb{R},\mathcal{B})\). He also establishes the “transfer”
+theorem: most nice properties (analyticity, etc.) are preserved when
+mapping one standard Borel onto another.
+
+\item \textbf{Relevance:} Standard Borel spaces are the natural universe for
+measurable dynamics, ergodic theory, and any area using Borel sets
+abstractly. In DST, one often reduces problems to standard Borel
+spaces since then one can choose convenient Polish topologies. They
+justify statements like “we may assume \(X\) is a complete separable
+metric space” when dealing with Borel sets abstractly. This notion
+underpins uniformization theorems and classification of Borel
+equivalence relations, among other results.
+\end{itemize}
+\section{(Strong) Choquet games and spaces}
+\label{strong-choquet-games-and-spaces}
+\subsection{Overview}
+\label{overview-2}
+\textbf{Choquet games} are two-player topological games that characterize
+Baire-category properties and completeness of metrics. In the \emph{Choquet
+game} \(G(X)\) on a nonempty space \(X\), players I and II alternate
+picking nonempty open sets
+\(U_0\supseteq V_0\supseteq U_1\supseteq V_1\supseteq\cdots\), and
+Player II wins if the intersection \(\bigcap_n U_n\) is nonempty
+(\href{https://en.wikipedia.org/wiki/Choquet\_game\#:\~:text=,wins\%2C\%20otherwise\%20Player\%20II\%20wins}{Choquet
+game - Wikipedia}). A space is \textbf{Choquet} if Player II has a winning
+strategy in \(G(X)\) (equivalently, Player I has \emph{no} winning strategy)
+(\href{https://en.wikipedia.org/wiki/Choquet\_game\#:\~:text=if\%20Player\%20I\%20has\%20no,that\%20are}{Choquet
+game - Wikipedia}). There is a stronger version, the \emph{strong Choquet
+game}, where Player I names a point and a neighborhood each move. In
+fact, a metrizable space is \textbf{strong Choquet} if and only if it is
+completely metrizable (Polish)
+(\href{https://en.wikipedia.org/wiki/Choquet\_game\#:\~:text=All\%20nonempty\%20complete\%20metric\%20spaces,displaystyle}{Choquet
+game - Wikipedia}). Choquet games thus provide a game-theoretic
+characterization of key topological features: Choquet spaces are Baire
+spaces, and \textbf{Polish spaces are exactly the strong Choquet spaces}
+(\href{https://en.wikipedia.org/wiki/Choquet\_game\#:\~:text=All\%20nonempty\%20complete\%20metric\%20spaces,displaystyle}{Choquet
+game - Wikipedia}).
+\subsection{Detailed Summary}
+\label{detailed-summary-2}
+\begin{itemize}
+\item \textbf{Definitions:} In the \emph{Choquet game} on \(X\) (written \(G(X)\)),
+Player I first chooses any nonempty open set \(U_0\subseteq X\), then
+Player II chooses a nonempty open \(V_0\subseteq U_0\), then I chooses
+\(U_1\subseteq V_0\), and so on, always shrinking (possibly with
+\(U_n\supseteq V_n\supseteq U_{n+1}\)). If the intersection
+\(\bigcap_{n}U_n\) is empty, Player I wins; otherwise (the
+intersection is nonempty) Player II wins
+(\href{https://en.wikipedia.org/wiki/Choquet\_game\#:\~:text=,wins\%2C\%20otherwise\%20Player\%20II\%20wins}{Choquet
+game - Wikipedia}). A space \(X\) is called a \textbf{Choquet space} if
+Player II has a (winning) strategy ensuring nonemptiness of the
+intersection. Equivalently, by Oxtoby's theorem, \(X\) is Choquet iff
+Player I has no winning strategy, which is in turn equivalent to \(X\)
+being a Baire space (every countable union of nowhere dense sets has
+empty interior)
+(\href{https://en.wikipedia.org/wiki/Choquet\_game\#:\~:text=if\%20Player\%20I\%20has\%20no,that\%20are}{Choquet
+game - Wikipedia}).
+
+\item \textbf{Strong Choquet game:} The strong version \(G^s(X)\) modifies the play
+so that at stage \(n\) Player I first chooses a point \(x_n\in X\) and
+an open neighborhood \(U_n\) of \(x_n\), then Player II chooses a
+nonempty open \(V_n\subseteq U_n\) containing \(x_n\), with
+\(V_n\subseteq U_n\). Player II wins if \(\{x_n\}\) converges to some
+point (equivalently, the neighborhoods shrink to a point). One shows
+\textbf{every nonempty complete metric space (and every compact Hausdorff
+\(T_2\) space)} is strong Choquet
+(\href{https://en.wikipedia.org/wiki/Choquet\_game\#:\~:text=All\%20nonempty\%20complete\%20metric\%20spaces,displaystyle}{Choquet
+game - Wikipedia}). Conversely, a \emph{separable metrizable}
+(i.e. second-countable) space is Polish (complete metric) if and only
+if it is strong Choquet
+(\href{https://en.wikipedia.org/wiki/Choquet\_game\#:\~:text=All\%20nonempty\%20complete\%20metric\%20spaces,displaystyle}{Choquet
+game - Wikipedia}). Thus strong Choquet is exactly the game-theoretic
+analog of complete metrizability.
+
+\item \textbf{Properties:} Every strong Choquet space is Choquet; but not every
+Choquet space is strong Choquet. Choquet spaces are always Baire: in
+fact \(X\) is Baire iff Player I has no winning strategy in \(G(X)\)
+(\href{https://en.wikipedia.org/wiki/Choquet\_game\#:\~:text=if\%20Player\%20I\%20has\%20no,that\%20are}{Choquet
+game - Wikipedia}). Many classical spaces are Choquet: e.g. any
+complete metric or compact metric space (strong Choquet), and any
+\(G_\delta\) subspace of a complete metric space. The Choquet property
+is hereditary for \(G_\delta\) subsets. In non-metrizable settings,
+Choquet conditions are more subtle (studied by Choquet himself and
+later Becker--Kechris), but in DST one mostly focuses on metrizable
+cases.
+
+\item \textbf{Relevance:} Choquet games connect descriptive set theory to topology:
+many DST arguments use these games to establish the Baire property or
+perfect set property for definable sets. For example, one can prove a
+set is comeager by showing Player I has a winning strategy in a
+Banach--Mazur game (a variant of Choquet game). In classification,
+Choquet games characterize when a definable set is “large” in the
+sense of category. In functional analysis, the Choquet game relates to
+the existence of generic points in Banach spaces. Kechris (Chapter
+8.C--E) uses these games to prove equivalences like: \emph{“A separable
+metrizable space is Polish if and only if it is strong Choquet”}
+(\href{https://en.wikipedia.org/wiki/Choquet\_game\#:\~:text=All\%20nonempty\%20complete\%20metric\%20spaces,displaystyle}{Choquet
+game - Wikipedia}), and \emph{“every Choquet space is Baire”}
+(\href{https://en.wikipedia.org/wiki/Choquet\_game\#:\~:text=if\%20Player\%20I\%20has\%20no,that\%20are}{Choquet
+game - Wikipedia}).
+\end{itemize}
+\section{The Banach--Mazur game}
+\label{the-banachmazur-game}
+\subsection{Overview}
+\label{overview-3}
+The \textbf{Banach--Mazur game} is another two-player game on a topological
+space \(X\), closely related to Choquet games, used to characterize the
+Baire property. In one common version, players alternate choosing nested
+nonempty open sets
+\(U_0\supseteq V_0\supseteq U_1\supseteq V_1\supseteq\cdots\) (just like
+the strong Choquet game, but here Player I wins if the intersection
+contains a point of a predetermined target set \(A\subseteq X\), and
+Player II wins otherwise). A fundamental theorem states that Player I
+has a winning strategy in the Banach--Mazur game with target \(A\) if
+and only if \(A\) is comeager (dense \(G_\delta\)) in some nonempty open
+set, while Player II has a winning strategy if and only if \(A\) is
+meager. Thus determinacy of this game is equivalent to the Baire
+property: in ZF+AD one deduces all sets have the Baire property, and in
+ZFC one uses it to show all \emph{Borel} sets do.
+\subsection{Detailed Summary}
+\label{detailed-summary-3}
+\begin{itemize}
+\item \textbf{Definition:} The classical \emph{Banach--Mazur (B--M) game} \(G^{**}(A)\)
+on a Polish (or any topological) space \(X\) with target
+\(A\subseteq X\) proceeds as follows: Player I chooses any nonempty
+open set \(U_0\), Player II chooses a nonempty open
+\(V_0\subseteq U_0\), then I picks \(U_1\subseteq V_0\), II picks
+\(V_1\subseteq U_1\), etc., continuing indefinitely. After play
+\((U_0,V_0,U_1,V_1,\dots)\), the players look at \(\bigcap_n U_n\). If
+this intersection meets \(A\), then Player I wins; otherwise Player II
+wins. (Equivalently, II wins if
+\(\bigcap_n U_n\subseteq X\setminus A\).)
+
+\item \textbf{Main result:} It is well-known (and used to prove the Baire Category
+Theorem) that
+\[\text{I has a winning strategy in }G^{**}(A)\iff A\text{ is comeager in some nonempty open set,}\]
+\[\text{II has a winning strategy in }G^{**}(A)\iff A\text{ is meager in }X.\]
+In particular, Player I can force landing in \(A\) exactly when \(A\)
+contains a dense \(G_\delta\) in some open set; otherwise \(A\) is
+“small” and Player II can avoid it. The cited result shows the strong
+link between this game and the notion of meager/comeager. In effect,
+\textbf{the Banach--Mazur game determines Baire-category} of sets.
+
+\item \textbf{Consequences:} From this it follows that \textbf{all Borel sets have the
+Baire property}: since Borel determinacy holds for this game in ZF,
+every Borel \(A\) yields one of the two cases, meaning \(A\) differs
+from a \(G_\delta\) set by a meager set. More generally, one derives
+that analytic sets have the Baire property under AD. The game also
+illustrates the “topological determinacy” phenomenon: for many
+definable classes (Borel, analytic), these games are determined,
+linking set-theoretic axioms with regularity properties.
+
+\item \textbf{Relation to Choquet:} The Banach--Mazur game can be seen as a variant
+of the Choquet game where Player I tries to steer the play into a
+given set \(A\). Actually, if \(A=X\) this game is essentially the
+strong Choquet game. Kechris (Chapter 8.H and 21.C) uses it to prove
+that any Borel (indeed any analytic) set has the perfect set or Baire
+properties, and that determinacy of these games for \emph{arbitrary} sets
+would imply strong axioms like AD. The core idea in proofs is to
+construct winning strategies by carefully choosing shrinking open
+sets; one often sketches it as in: e.g. to show I wins when \(A\) is
+comeager, I always plays a basic open in a fixed dense
+\(G_\delta\subseteq A\).
+\end{itemize}
+\section{Games for the Perfect Set Property (PSP)}
+\label{games-for-the-perfect-set-property-psp}
+\subsection{Overview}
+\label{overview-4}
+A set \(A\subseteq X\) in a Polish space is said to have the \textbf{Perfect
+Set Property (PSP)} if either \(A\) is countable or else \(A\) contains
+a nonempty perfect subset (hence of cardinality continuum). The PSP can
+be characterized by a two-player game, often called the “\(\ast\)-game”.
+In this game \(G^*(A)\) (played on a perfect Polish space \(X\)), the
+players alternately choose two disjoint open sets, and Player II selects
+one of them; intuitively II is trying to stay out of \(A\) while I tries
+to force the play into \(A\). The outcome of a play is a single point
+\(x\in X\), and Player I wins if \(x\in A\). A central theorem is:
+\textbf{Player I has a winning strategy in \(G^*(A)\) if and only if \(A\)
+contains a perfect (Cantor) set, and Player II has a winning strategy if
+and only if \(A\) is countable}. Thus determinacy of this game exactly
+captures the PSP: one of the players wins, meaning any set is either
+countable or has a perfect subset.
+\subsection{Detailed Summary}
+\label{detailed-summary-4}
+\begin{itemize}
+\item \textbf{Definition of \(G^*(A)\):} Fix a nonempty perfect Polish space \(X\)
+with a compatible complete metric and a basis \(\{V_n\}\) of nonempty
+open sets. The \emph{\(\ast\)-game} \(G^*(A)\) for \(A\subseteq X\) is
+defined by transfinite “cut-and-choose” moves: First I plays two
+disjoint nonempty basic open sets \(U_0^0,U_1^0\) (of diameter
+\(<1\)). Then II picks one of them (say \(U^1_0\)) and I responds with
+two disjoint open sets \(U_0^1,U_1^1\) of diameter \(<1/2\) contained
+in the chosen set. Then II picks one of \(U_0^1,U_1^1\), and I plays
+two smaller opens of diameter \(<1/4\) inside that, etc. Because \(X\)
+is perfect, this process can continue indefinitely. At the end there
+is a unique point \(x\in X\) in the nested intersection. Player \textbf{I}
+wins if \(x\in A\), and Player \textbf{II} wins otherwise.
+
+\item \textbf{Main theorem:} It can be shown (cf. Kechris 21.A--21.B) that
+
+\begin{itemize}
+\item \emph{I has a winning strategy in \(G^*(A)\)} if and only if \emph{\(A\)
+contains a perfect Cantor-like subset} (hence is uncountable with a
+perfect part).
+\item \emph{II has a winning strategy} if and only if \emph{\(A\) is countable}. In
+other words, \(A\) has PSP (uncountable \(\implies\) contains
+perfect) precisely when \(G^*(A)\) is determined and one of these
+conditions holds. This result is Theorem 8.2 in the lecture notes.
+The proof uses classic strategies: if \(A\) has a perfect subset, I
+can “force” the play to land inside that Cantor set; conversely if
+\(A\) is countable, II can successively avoid enumerated points of
+\(A\).
+\end{itemize}
+
+\item \textbf{Relevance:} This game-theoretic characterization implies immediately
+that \emph{every Borel set has the PSP}: by Martin's theorem all Borel
+games are determined, so for any Borel \(A\) exactly one of I or II
+wins \(G^*(A)\), yielding one of the two outcomes. More conceptually,
+it shows PSP is a “second-order Borel property” and can be derived
+from determinacy. In DST, the PSP and related games connect to large
+cardinals (AD implies all sets of reals have PSP) and to classical
+results like the perfect set theorem for analytic sets. In practice,
+one often uses this game as a tool to prove specific sets are
+uncountable by describing a winning strategy.
+\end{itemize}
+\section{Structural properties of the Borel hierarchy}
+\label{structural-properties-of-the-borel-hierarchy}
+\subsection{Overview}
+\label{overview-5}
+The \textbf{Borel hierarchy} on a Polish space \(X\) consists of the
+pointclasses \(\Sigma^0_\alpha\), \(\Pi^0_\alpha\), and
+\(\Delta^0_\alpha\) indexed by countable ordinals \(\alpha\). Two key
+structural features are: (1) \emph{Strictness}: for any nonempty Polish \(X\)
+and any countable \(\alpha\), the inclusions
+\[\Delta^0_\alpha\;\subsetneq\;\Sigma^0_\alpha\;\subsetneq\;\Delta^0_{\alpha+1}\]
+are all proper
+(\href{https://math.stackexchange.com/questions/509326/borel-hierarchy-doesnt-collapse-before-omega-1\#:\~:text=,0\_\%7B\%5Cxi\%2B1}{descriptive
+set theory - Borel hierarchy doesn't ``collapse'' before \(\omega_1\) -
+Mathematics Stack Exchange}). In particular, no new Borel sets appear
+before reaching height \(\omega_1\) -- the Borel hierarchy runs through
+all countable ordinals. (2) \emph{Cardinality}: each nontrivial class has
+continuum many sets. In fact, every uncountable standard Borel space has
+cardinality \(2^{\aleph_0}\)
+(\href{https://en.wikipedia.org/wiki/Standard\_Borel\_space\#:\~:text=one\%20of\%20\%281\%29\%20Image\%3A\%20,is\%20reminiscent\%20of\%20Maharam\%27s\%20theorem}{Standard
+Borel space - Wikipedia}), so each level of the Borel hierarchy also
+has size continuum in that case.
+\subsection{Detailed Summary}
+\label{detailed-summary-5}
+\begin{itemize}
+\item \textbf{Strictness of levels:} Kechris proves (Theorem 22.4) that for any
+uncountable Polish space \(X\) and any countable ordinal \(\xi\), the
+hierarchy does not collapse:
+\[\Delta^0_\xi(X)\subsetneq\Sigma^0_\xi(X)\subsetneq\Delta^0_{\xi+1}(X)\,. \]
+Equivalently, there are sets in \(\Sigma^0_\xi\setminus\Pi^0_\xi\) and
+in \(\Pi^0_\xi\setminus\Sigma^0_\xi\) at every level
+(\href{https://math.stackexchange.com/questions/509326/borel-hierarchy-doesnt-collapse-before-omega-1\#:\~:text=,0\_\%7B\%5Cxi\%2B1}{descriptive
+set theory - Borel hierarchy doesn't ``collapse'' before \(\omega_1\) -
+Mathematics Stack Exchange}). This means one cannot generate the full
+Borel \(\sigma\)-algebra by fewer than \(\omega_1\) steps of alternate
+countable unions and intersections of open sets. The cited
+MathOverflow answer summarizes: \emph{“for any uncountable Polish space,
+the Borel hierarchy is strict”}
+(\href{https://math.stackexchange.com/questions/509326/borel-hierarchy-doesnt-collapse-before-omega-1\#:\~:text=,0\_\%7B\%5Cxi\%2B1}{descriptive
+set theory - Borel hierarchy doesn't ``collapse'' before \(\omega_1\) -
+Mathematics Stack Exchange}).
+
+\item \textbf{Density of classes:} Another structural fact is that the Borel
+\(\sigma\)-algebra is exhausted only at level \(\omega_1\):
+\(\bigcup_{\alpha<\xi}\Sigma^0_\alpha\neq \mathcal{B}(X)\) for every
+countable \(\xi\)
+(\href{https://math.stackexchange.com/questions/509326/borel-hierarchy-doesnt-collapse-before-omega-1\#:\~:text=,0\_\%7B\%5Cxi\%2B1}{descriptive
+set theory - Borel hierarchy doesn't ``collapse'' before \(\omega_1\) -
+Mathematics Stack Exchange}). This implies e.g. that there are
+arbitrarily high (countable) Borel ranks: for every countable
+\(\alpha\) there exists a Borel set of exact Borel rank \(\alpha\).
+
+\item \textbf{Cardinality:} Since the Borel \(\sigma\)-algebra is generated by a countable
+basis, it has cardinality at most continuum. Conversely, for
+uncountable \(X\) there are continuum many basic opens, so each
+nontrivial class \(\Sigma^0_\alpha(X)\) has cardinality continuum. In
+fact, by Kuratowski's theorem all uncountable Borel sets have
+cardinality \(2^{\aleph_0}\)
+(\href{https://en.wikipedia.org/wiki/Standard\_Borel\_space\#:\~:text=one\%20of\%20\%281\%29\%20Image\%3A\%20,is\%20reminiscent\%20of\%20Maharam\%27s\%20theorem}{Standard
+Borel space - Wikipedia}).
+
+\item \textbf{Separation and reduction:} An important property is that disjoint
+Borel sets in \(\Sigma^0_\xi\) can often be separated by a
+\(\Delta^0_\xi\) set (the Separation Theorem) and one can reduce
+questions about a given Borel set to canonical examples (universal
+\(\Sigma^0_\xi\) sets). While Kechris's section 22.C focuses on these
+structural results (and items like closure under continuous images),
+the key takeaway is that the Borel pointclasses are “as complicated as
+possible” at each level: none of them coincides with another, and each
+level is closed under the natural operations (countable unions for
+\(\Sigma^0\), intersections for \(\Pi^0\)) but otherwise
+distinguished.
+\end{itemize}
+\section{The difference hierarchy}
+\label{the-difference-hierarchy}
+\subsection{Overview}
+\label{overview-6}
+The \textbf{difference hierarchy} is a refinement of the Borel hierarchy that
+decomposes \(\Delta^0_{\alpha+1}\) sets into iterated differences of
+simpler sets. The classic Hausdorff--Kuratowski theorem says that any
+\(\Delta^0_{\alpha+1}\) set can be written as a union of differences of
+a decreasing sequence of \(\Pi^0_\alpha\) sets. In effect, one measures
+the “complexity” of a \(\Delta^0_{\alpha+1}\) set by how many times one
+needs to alternate set-differences at the \(\Pi^0_\alpha\) level. For
+example, every \(F_\sigma\) (\(\Sigma^0_2\)) set is a difference of two
+closed (\(\Pi^0_1\)) sets, etc.
+\subsection{Detailed Summary}
+\label{detailed-summary-6}
+\begin{itemize}
+\item \textbf{Definition:} Formally, for each countable ordinal \(\alpha\) one
+defines the \emph{\(\alpha\)-th difference hierarchy} \(D(\Pi^0_\alpha)\)
+consisting of sets that can be expressed as alternating differences of
+\(\Pi^0_\alpha\) sets. For instance, \(D_2(\Pi^0_\alpha)\) are sets of
+the form \(C_0\setminus C_1\) with \(C_i\in\Pi^0_\alpha\),
+\(D_3(\Pi^0_\alpha)\) are finite unions of two differences of
+\(\Pi^0_\alpha\) sets, etc., extending transfinitely.
+
+\item \textbf{Hausdorff theorem:} The key result (Hausdorff) is that \emph{every}
+\(\Delta^0_{\alpha+1}\) set arises in this way. Precisely:
+
+\begin{quote}
+\textbf{Theorem:} \(B\subseteq X\) is \(\Delta^0_{\alpha+1}\) if and only if
+there is a countable decreasing sequence of \(\Pi^0_\alpha\) sets
+\((C_\beta)_{\beta<\omega_1}\) such that
+\[B \;=\; \bigcup_{\beta\text{ even}} (C_\beta \setminus C_{\beta+1}).\]
+\end{quote}
+
+In other words, \(B\) is a countable union of disjoint “blocks” where
+we alternately subtract one \(\Pi^0_\alpha\) set from another. This
+characterization shows that the difference hierarchy \emph{exhausts} the
+\(\Delta\)-classes.
+
+\item \textbf{Examples:} Concretely, any \(F_\sigma\) set (a \(\Sigma^0_2\) set)
+can be written as \(C_0\setminus C_1\) for closed sets
+\(C_1\subseteq C_0\). Similarly, any Boolean combination of
+\(G_\delta\) sets (a \(\Delta^0_3\) set) is a finite union of
+differences of two \(G_\delta\)'s, etc. The construction in Kechris
+and related notes uses transfinite recursion and the completeness of
+the metric to peel off “layers” of a Borel set.
+
+\item \textbf{Relevance:} The difference hierarchy gives a finer measure of Borel
+complexity than mere class rank. It is fundamental in proofs (via
+transfinite induction) that analyze Borel sets: for example, in Wadge
+theory one often needs to know how to decompose sets. In descriptive
+set theory, it also appears in connection with hierarchies of
+equivalence relations (like the \(\Delta\)-hierarchy of equivalence
+relations) and in determinacy: each level of the difference hierarchy
+corresponds to determinacy of a certain type of game. In summary, the
+difference hierarchy theorem (Hausdorff's theorem) shows exactly how
+\(\Delta^0_{\alpha+1}\) sets are built from \(\Pi^0_\alpha\) sets by
+countably many differences.
+\end{itemize}
+\section{The Baire hierarchy}
+\label{the-baire-hierarchy}
+\subsection{Overview}
+\label{overview-7}
+The \textbf{Baire hierarchy} classifies real-valued functions on a Polish space
+by successive pointwise limits of simpler functions. The \emph{Baire class 0}
+functions are the continuous ones, and in general a function is of
+\emph{Baire class \(\alpha\)} if it can be obtained as a pointwise limit of a
+sequence of functions from lower classes
+(\href{https://en.wikipedia.org/wiki/Baire\_function\#:\~:text=,Baire\%20class\%20less\%20than\%20\%CE\%B1}{Baire
+function - Wikipedia}). Thus Baire class 1 consists of all pointwise
+limits of continuous functions. Classical results (going back to
+Lebesgue) show that this hierarchy is strict: for each countable
+\(\alpha\) there are functions in class \(\alpha+1\) not in any lower
+class, and moreover there exist functions (without AC) not in any Baire
+class
+(\href{https://en.wikipedia.org/wiki/Baire\_function\#:\~:text=Baire\%20class\%20of\%20a\%20countable,not\%20in\%20any\%20Baire\%20class}{Baire
+function - Wikipedia}). In fact, Baire-measurable functions correspond
+exactly to pointwise limits of continuous functions, and this hierarchy
+parallels the Borel hierarchy of level sets.
+\subsection{Detailed Summary}
+\label{detailed-summary-7}
+\begin{itemize}
+\item \textbf{Definition:} A real-valued function \(f:X\to\mathbb{R}\) on a
+topological space \(X\) is said to be \emph{Baire class 0} if it is
+continuous. For a countable ordinal \(\alpha>0\), \(f\) is \emph{Baire
+class \(\alpha\)} if there is a sequence \((f_n)\) of functions of
+class \(<\alpha\) that converge pointwise to \(f\)
+(\href{https://en.wikipedia.org/wiki/Baire\_function\#:\~:text=,Baire\%20class\%20less\%20than\%20\%CE\%B1}{Baire
+function - Wikipedia}). Equivalently, \(f\) is Baire class \(\alpha\)
+if \(f\) can be obtained by \(\alpha\) many iterated pointwise limits
+starting from continuous functions.
+
+\item \textbf{Characterizations:} In metric spaces one has classical
+characterizations: for example \(f\) is Baire class 1 iff for every
+open set \(U\subseteq\mathbb{R}\) the preimage \(f^{-1}(U)\) is an
+\(F_\sigma\) set (a countable union of closed sets). Higher classes
+correspond to more complicated preimages (e.g. \(f\) is Baire 2 if
+\(f^{-1}(U)\) is a countable union of \(G_\delta\)'s, etc.). These
+facts are discussed in §24.A--24.B of Kechris (with proofs).
+
+\item \textbf{Strictness and non-Baire sets:} A theorem of Lebesgue (cited in
+Kechris, or see Wikipedia) says that for each countable \(\alpha\),
+there are functions of Baire class \(\alpha\) not in any lower class.
+Moreover, there exist functions (on \([0,1]\) for example) that are
+not of Baire class \(\alpha\) for any \(\alpha<\omega_1\) (so some
+Borel functions are not Baire-measurable in the pointwise limit sense)
+(\href{https://en.wikipedia.org/wiki/Baire\_function\#:\~:text=Baire\%20class\%20of\%20a\%20countable,not\%20in\%20any\%20Baire\%20class}{Baire
+function - Wikipedia}). In fact, the Baire hierarchy \emph{does not
+exhaust} all Borel functions: it was shown that under AD every set of
+reals is Baire-measurable, but under ZFC there are pathological Borel
+functions with no countable pointwise approximations.
+
+\item \textbf{Relation to Borel:} Every Baire class function is Borel-measurable
+(since continuous functions are Borel and pointwise limits of Borel
+functions remain Borel). The converse fails in general, but one has
+the \textbf{Lusin theorem}: every Borel function from \(\mathbb{R}\) to
+\(\mathbb{R}\) can be made continuous on a large set, showing it is
+\emph{almost} Baire of small class. Kechris's exposition (24.A--24.B)
+includes proofs that the Baire classes are closed under natural
+operations (sums, products, etc.) and that if \(f\) is Borel then
+\(f\) belongs to some countable Baire class (though this requires
+additional set theory).
+
+\item \textbf{Summary:} The Baire hierarchy provides a fine gradation of
+measurability for functions:
+
+\begin{itemize}
+\item Class 0 = continuous.
+\item Class 1 = pointwise limits of continuous (characterized by
+\(F_\sigma\) preimages).
+\item In general, class \(\alpha\) = limits of lower classes
+(\href{https://en.wikipedia.org/wiki/Baire\_function\#:\~:text=,Baire\%20class\%20less\%20than\%20\%CE\%B1}{Baire
+function - Wikipedia}).
+\item Each class properly extends the previous
+(\href{https://en.wikipedia.org/wiki/Baire\_function\#:\~:text=Baire\%20class\%20of\%20a\%20countable,not\%20in\%20any\%20Baire\%20class}{Baire
+function - Wikipedia}), and many classical pathological functions
+live at high levels. This hierarchy is fundamental in real analysis
+and DST, especially in effective descriptive set theory and the
+study of Polish group representations.
+\end{itemize}
+\end{itemize}
+\section{Uniformization theorems}
+\label{uniformization-theorems}
+\subsection{Overview}
+\label{overview-8}
+A \textbf{uniformization} of a relation \(P\subseteq X\times Y\) is a subset
+\(P^*\subseteq P\) that is the graph of a (partial) function whose
+domain is \(\mathrm{proj}_X(P)\), picking exactly one \(y\)-value for
+each \(x\) in the projection
+(\href{https://link.springer.com/content/pdf/10.1007/978-1-4612-4190-4\_18\#:\~:text=Given\%20two\%20sets\%20X\%2C\%20Y,a\%20uniformizing\%20function\%20for\%20P}{Uniformization
+Theorems | SpringerLink}). Uniformization theorems give conditions
+under which one can choose such definable selections. Kechris's Chapter
+18 presents classic results: e.g. \textbf{Lusin's and Novikov's theorems} for
+analytic and Borel relations, and the \textbf{Kondo--Novikov--Addison theorem}
+in the projective hierarchy. Roughly speaking, if \(P\) is Borel (or
+analytic) and its vertical sections \(P_x\) are “nice” (for instance,
+all countable or all \(\sigma\)-compact), then there exists a \emph{Borel}
+function \(f: \mathrm{proj}_X(P)\to Y\) with graph inside \(P\). For
+example, \textbf{Novikov's theorem} states: if \(P\subseteq X\times Y\) is
+Borel and each section \(P_x\) is at most countable, then \(P\) admits a
+Borel uniformization. \textbf{Arsenin--Kunugui} extended this by allowing
+sections that are \(\sigma\)-compact. These theorems are indispensable
+in DST for constructing measurable selections and studying equivalence
+relations.
+\subsection{Detailed Summary}
+\label{detailed-summary-8}
+\begin{itemize}
+\item \textbf{Uniformization (Definition):} For \(P\subseteq X\times Y\), a
+\emph{uniformization} is any subset \(P^*\subseteq P\) such that each
+\(x\in\mathrm{proj}_X(P)\) appears exactly once; equivalently, \(P^*\)
+is the graph of a function \(f\) with
+\(\mathrm{dom}(f)=\mathrm{proj}_X(P)\) and \((x,f(x))\in P\) for all
+\(x\)
+(\href{https://link.springer.com/content/pdf/10.1007/978-1-4612-4190-4\_18\#:\~:text=Given\%20two\%20sets\%20X\%2C\%20Y,a\%20uniformizing\%20function\%20for\%20P}{Uniformization
+Theorems | SpringerLink}). In other words, \(f(x)\in P_x\) is a
+“choice” of a \(y\)-coordinate for each \(x\). The question is: when
+can \(f\) be chosen to be Borel (or analytic, etc.) if \(P\) itself is
+Borel (or analytic)?
+
+\item \textbf{Key results:} Kechris's sections 18.A--18.D include the following
+prototypical theorems:
+
+\begin{itemize}
+\item \textbf{Novikov's Uniformization Theorem:} If \(P\subseteq X\times Y\) is
+Borel (with \(X,Y\) Polish) and each section \(P_x\) is countable
+(or more generally uniformly countable), then there is a Borel
+uniformizing function \(f\) on \(\mathrm{proj}_X(P)\). Thus any
+countable-to-one Borel relation can be resolved by a Borel selector.
+\item \textbf{Arsenin--Kunugui Theorem:} If \(P\) is Borel and each section
+\(P_x\) is \(\sigma\)-compact (in \(Y\)), then there is again a
+Borel uniformization. This covers situations where each \(P_x\) is,
+say, a countable union of compact sets.
+\item \textbf{Lusin's Theorem:} For analytic \(P\) with projections covering a
+Polish space, there exists an \emph{analytic} uniformization. In fact,
+Lusin showed that any analytic relation can be uniformized by an
+analytic function on a co-analytic domain. Novikov's theorem is
+often proved first for \(F_\sigma\) relations by transfinite
+induction and then extended to analytic.
+\item \textbf{Kondo-Novikov-Addison Theorem:} In the projective hierarchy, every
+\(\mathbf{\Pi}^1_{2n+1}\) set admits a \(\mathbf{\Sigma}^1_{2n+2}\)
+uniformization, and similarly for higher levels (using scales). This
+implies, for instance, that any co-analytic set
+\(P\subseteq\mathbb{R}^2\) has a \(\Sigma^1_2\) (analytic) selector
+on a co-analytic domain.
+\end{itemize}
+
+\item \textbf{Techniques and relevance:} The proofs combine topology (like
+selection theorems for complete metric spaces) with effective
+descriptive set theory (scales, pointclasses) and transfinite
+recursion. The upshot is that many selection problems admit solutions
+of the same or only slightly higher definability level. Uniformization
+theorems are used throughout DST: for example, to reduce
+classification problems to single-valued functions, to prove Silver's
+dichotomy for equivalence relations, and to analyze the structure of
+Borel equivalence classes. Kechris's exposition emphasizes theorems
+18.10--18.18 (including those by Arsenin--Kunugui and Novikov) and
+points out how they follow from or imply separation results.
+Intuitively, they say “if the relation \(P\) is not too wild (e.g. has
+small sections), one can choose a measurable section”.
+\end{itemize}
+\section{Partition theorems}
+\label{partition-theorems}
+\subsection{Overview}
+\label{overview-9}
+Partition theorems in descriptive set theory are analogues of classical
+Ramsey-theoretic results, asserting that certain “nice” colorings (Borel
+or analytic) of infinite structures admit large homogeneous subsets. Two
+fundamental examples are \textbf{Silver's theorem (dichotomy)} for equivalence
+relations and the \textbf{Galvin--Prikry theorem} for colorings of infinite
+subsets of \(\mathbb{N}\). Silver's theorem says that any co-analytic
+equivalence relation on a Polish space either has only countably many
+classes, or else there is a perfect set of pairwise inequivalent points
+(\href{https://en.wikipedia.org/wiki/Silver\%27s\_dichotomy\#:\~:text=A\%20relation\%20is\%20said\%20to,2}{Silver's
+dichotomy - Wikipedia}). Galvin--Prikry proved that any Borel coloring
+of the space \([\mathbb{N}]^\omega\) (all infinite subsets of
+\(\mathbb{N}\)) admits an infinite monochromatic subset; Silver extended
+this to analytic colorings
+(\href{https://mathoverflow.net/questions/67483/is-there-ramsey-theorem-for-infinitary-tuples\#:\~:text=In\%20contrast\%2C\%20Galvin\%20and\%20Prikry,Bbb\%7BN}{co.combinatorics -
+Is there Ramsey Theorem for infinitary tuples? - MathOverflow}). These
+results (covered in Kechris 19.A--19.E) show that for definable
+partitions, one always finds either a “small” homogeneous structure or a
+large one of perfect size.
+\subsection{Detailed Summary}
+\label{detailed-summary-9}
+\begin{itemize}
+\item \textbf{Galvin--Prikry theorem:} Consider the space \([\mathbb{N}]^\omega\)
+of infinite subsets of \(\mathbb{N}\) (with the topology inherited
+from Cantor space). If this space is partitioned (colored) into
+finitely many Borel pieces, then one of the pieces contains a
+homeomorphic copy of \([\mathbb{N}]^\omega\) itself (in particular, it
+contains all infinite subsets of some infinite
+\(X\subseteq\mathbb{N}\)). Equivalently, any Borel coloring of
+\([\mathbb{N}]^\omega\) has an infinite monochromatic set
+(\href{https://mathoverflow.net/questions/67483/is-there-ramsey-theorem-for-infinitary-tuples\#:\~:text=In\%20contrast\%2C\%20Galvin\%20and\%20Prikry,Bbb\%7BN}{co.combinatorics -
+Is there Ramsey Theorem for infinitary tuples? - MathOverflow}). Ali
+Enayat's MathOverflow answer summarizes: \emph{“for Borel colorings of
+\([\mathbb{N}]^\omega\), an infinite monochromatic subset always
+exists”}
+(\href{https://mathoverflow.net/questions/67483/is-there-ramsey-theorem-for-infinitary-tuples\#:\~:text=In\%20contrast\%2C\%20Galvin\%20and\%20Prikry,Bbb\%7BN}{co.combinatorics -
+Is there Ramsey Theorem for infinitary tuples? - MathOverflow}).
+Silver (1970) showed the same conclusion holds when the coloring is
+merely analytic. This is a descriptive version of Ramsey's theorem for
+infinite subsets.
+
+\item \textbf{Silver's theorem (dichotomy):} Let \(E\) be a Borel (even
+co-analytic) equivalence relation on a Polish space \(X\). Silver's
+dichotomy asserts that either \(E\) has countably many equivalence
+classes or there are continuum many. More strongly, \emph{if \(E\) is
+co-analytic, then either \(E\) has only countably many classes, or
+there is a perfect set of reals which are pairwise inequivalent under
+\(E\)}
+(\href{https://en.wikipedia.org/wiki/Silver\%27s\_dichotomy\#:\~:text=A\%20relation\%20is\%20said\%20to,2}{Silver's
+dichotomy - Wikipedia}). In the latter case \(E\) has continuum-many
+classes. Thus no intermediate cardinalities occur for definable
+equivalence relations. In effect, one gets a perfect homogeneous set
+for the “not \(E\)” relation, analogous to Galvin--Prikry.
+
+\item \textbf{Other partition results:} Kechris's chapter also discusses related
+theorems, such as Mycielski's theorem, which guarantees a perfect
+independent set in certain situations (for example, if \(E\) is an
+equivalence relation all of whose classes are meager, one can find a
+perfect set of mutually inequivalent points). There are also
+Ramsey-type results for Borel graphs and trees. All these theorems
+typically use the perfect set property and determinacy of appropriate
+games to build perfect homogeneous sets.
+
+\item \textbf{Relevance:} Partition theorems like Silver's and Galvin--Prikry's are
+cornerstones of modern DST and invariant descriptive set theory. They
+imply that any definable attempt to “color” or classify a perfect
+Polish space must either fail to distinguish continuum many points
+(producing a perfect homogeneous set) or be essentially countable.
+This dichotomy underpins many classification results: for instance,
+\textbf{Silver's dichotomy} implies that any Borel or analytic equivalence
+relation \(E\) either has only countably many or continuum-many
+classes, ruling out a medium-size classification. These theorems also
+frequently combine with other principles (like AD or large cardinals)
+to yield structural insights about higher-level sets. In summary,
+partition theorems ensure that definable partitions on Polish spaces
+either admit a perfect homogeneous substructure or collapse to a small
+case, greatly constraining the possible complexity of Borel and
+analytic relations
+(\href{https://en.wikipedia.org/wiki/Silver\%27s\_dichotomy\#:\~:text=A\%20relation\%20is\%20said\%20to,2}{Silver's dichotomy - Wikipedia})
+(\href{https://mathoverflow.net/questions/67483/is-there-ramsey-theorem-for-infinitary-tuples\#:\~:text=In\%20contrast\%2C\%20Galvin\%20and\%20Prikry,Bbb\%7BN}{co.combinatorics - Is there Ramsey Theorem for infinitary tuples? - MathOverflow}).
+\end{itemize}
+\section{Sources}
+\label{sec:org6eabc18}
+\begin{itemize}
+\item Kechris, \emph{Classical Descriptive Set Theory}, Chapters 8, 12,
+\end{itemize}
+18--19; lecture notes from Kechris's class (where available);
+plus references such as
+\begin{itemize}
+\item (\href{https://en.wikipedia.org/wiki/Standard\_Borel\_space\#:\~:text=A\%20measurable\%20space\%20Image\%3A\%20,algebra.\%5B\%201}{Standard Borel space - Wikipedia})
+\item (\href{https://en.wikipedia.org/wiki/Choquet\_game\#:\~:text=All\%20nonempty\%20complete\%20metric\%20spaces,displaystyle}{Choquet game - Wikipedia})
+\item (\href{https://math.stackexchange.com/questions/509326/borel-hierarchy-doesnt-collapse-before-omega-1\#:\~:text=,0\_\%7B\%5Cxi\%2B1}{descriptive set theory - Borel hierarchy doesn't ``collapse'' before \(\omega_1\) - Mathematics Stack Exchange})
+\item (\href{https://en.wikipedia.org/wiki/Baire\_function\#:\~:text=,Baire\%20class\%20less\%20than\%20\%CE\%B1}{Baire function - Wikipedia})
+\item (\href{https://en.wikipedia.org/wiki/Baire\_function\#:\~:text=Baire\%20class\%20of\%20a\%20countable,not\%20in\%20any\%20Baire\%20class}{Baire function - Wikipedia})
+\item (\href{https://link.springer.com/content/pdf/10.1007/978-1-4612-4190-4\_18\#:\~:text=Given\%20two\%20sets\%20X\%2C\%20Y,a\%20uniformizing\%20function\%20for\%20P}{Uniformization Theorems | SpringerLink})
+\item (\href{https://en.wikipedia.org/wiki/Silver\%27s\_dichotomy\#:\~:text=A\%20relation\%20is\%20said\%20to,2}{Silver's dichotomy - Wikipedia})
+\item (\href{https://mathoverflow.net/questions/67483/is-there-ramsey-theorem-for-infinitary-tuples\#:\~:text=In\%20contrast\%2C\%20Galvin\%20and\%20Prikry,Bbb\%7BN}{co.combinatorics - Is there Ramsey Theorem for infinitary tuples? - MathOverflow})
+\end{itemize}
+\end{document}

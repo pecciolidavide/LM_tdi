@@ -1,0 +1,50 @@
+#+title: Banach-Mazur Games
+
+Diviso in tre parti:
+1. Introduzione alla teoria dei giochi
+   - Logic Games
+   - Gale-Stewart Games
+   - Gale-Stewart Theorem (no dim.)
+2. Recall di TDI
+   - Insiemi magri e comagri
+   - Spazio di Baire
+   - BP Property (8.11)
+3. Banach-Mazur Games
+   - Definizione 8.H
+   - Parentesi CHOQUET:
+     - Definizione 8.10
+     - Teorema 8.11 (no dim)
+     - Definizione 8.12
+     - ?? es 8.15 & thm 8.18
+   - Teorema 8.33
+   - Definizione unfolded **-game (p. 152)
+   - Teorema 21.5
+   - Teorema 21.6
+
+* Prima parte
+
+- [X] [[id:90b2021f-dbe8-499f-8c79-32379384fdb8][Logic Game]]
+- [X] [[id:28ca09ab-bb39-4802-842e-bebecf0d2a4f][Giochi logici equivalenti]]
+- [X] [[id:118a42bc-7263-46fd-92c5-85c108080240][Giochi di Gale–Stewart]]
+- [X] [[id:3c4f7c3f-7f63-4d59-9240-0c60d79e42ad][Teorema di Gale-Stewart]]
+
+* Seconda parte
+
+- [X] [[id:41953408-de97-4240-bed0-37f9de8706c4][Insieme magro]]
+- [X] [[id:6232eb32-a530-4c1b-aefc-403acfd7c057][Spazio topologico di Baire]]
+- [X] [[id:a18bc557-1ac7-4d19-8cd8-ad3923e1a68f][Proprietà di Baire]]
+- [X] [[id:648c8718-f653-4932-9c00-900d90560720][Insieme analitico]]
+
+* Terza parte
+
+- [X] [[id:00eb3064-f9f9-47c4-9eac-473caaf438a7][Definizione 8.H: Gioco di Banach-Mazur (prima variante)]]
+- [X] Choquet
+  - [X] [[id:eafe31ae-c3a4-4c01-97e0-a6848b6a6dc6][Definizione 8.10: Gioco di Choquet]]
+  - [X] [[id:11de0790-2104-4c92-a903-1c874befaead][Teorema 8.11: Caratterizzazione spazi di Baire]]
+  - [X] [[id:5db440b3-d225-491e-95e4-c365595a2bca][Definizione 8.12: Spazio di Choquet]]
+  - [X] [[id:6fa7e368-c56e-4443-ac39-f47bf5a0cf64][Aperti non vuoti di spazi di Choquet sono Choquet]]
+- [X] [[id:8d136b11-9afd-48e7-aea3-dcc74393aff8][Teorema 8.33]]
+- [X] [[id:f72c58ad-fd18-440f-8ce2-30054f4996f7][Lemma 8.35]]
+- [X] [[id:a72d8a72-675b-472c-8c55-1d7746778acd][Definizione unfolded **-game (p. 152)]]
+- [X] [[id:8cf7248e-0ea4-4a86-b862-49881cabb122][Teorema 21.5]]
+- [X] [[id:51b0a529-1947-4b4b-a37b-4a4e4f9a0e60][Teorema 21.6: tutti gli insiemi analitici hanno BP]]

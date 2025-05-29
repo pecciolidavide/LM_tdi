@@ -1,0 +1,801 @@
+#+title: Esercizi TDI - Foglio 4
+#+date: 12 maggio 2025
+#+OPTIONS: toc:nil
+#+LATEX_HEADER: \renewcommand{\href}[2]{#2}
+#+LATEX_HEADER: \renewcommand{\theenumi}{\alph{enumi}}
+
+
+* Esercizio 1
+
+Prove that for any [[id:c0d47e62-8d50-44c0-984a-c115c0ea2c40][Polish space]] \(X\) and \(x \in X\), the singleton \(\{x\}\) is \(\bm{\Pi}^0_1\)-complete if and only if \(x\) is not [[id:0140c3b7-d824-479f-ae94-d0a59da89e96][isolated]] in \(X\). Conclude that the set
+\[
+  C_1 = \{x \in 2^\omega \mid \exists n \ (x(n) = 0)\}
+\]
+from Proposition 2.1.31 of the notes is \(\bm{\Sigma}^0_1\)-complete.
+
+** Soluzione
+
+Siccome \(X\) è uno spazio metrizzabile, allora \(\set{x} \subseteq X\) è chiuso, e pertanto \(\set{x} \in \bm{\Pi_{1}}^{0}(X)\). Bisogna quindi dimostrare che \(\set{x}\) è \(\bm{\Pi}^{0}_{1}\)-hard sse \(x\) è *non isolato* in \(X\).
+
+*** Implicazione "\(\implies\)"
+
+Sia \(C \in \bm{\Pi}_{1}^{0}(\omega^{\omega})\), e sia \(f: \omega^{\omega}\to X\) continua tale che
+\begin{equation*}
+f^{-1}(x) = C.
+\end{equation*}
+
+Si supponga per assurdo che \(x\) sia isolato. Allora \(\set{x} \subseteq X\) è aperto, e quindi \(C \subseteq \omega^{\omega}\) è aperto (retroimmagine continua di un aperto).
+
+Per l'arbitrarietà di \(C\), questo implica che ogni chiuso di \(\omega^{\omega}\) è un clopen. Inoltre, se \(A \subseteq \omega^{\omega}\) è aperto, allora \(\omega^{\omega}\setminus A\) è chiuso e quindi clopen, e pertanto \(A\) è un chiuso:
+\begin{equation*}
+\bm{\Sigma}_{1}^{0}(\omega^{\omega}) = \bm{\Delta}_{1}^{0}(\omega^{\omega}) = \bm{\Pi}_{1}^{0}(\omega^{\omega}).
+\end{equation*}
+Questo contraddice il Theorem 2.1.17 delle note.
+
+
+*** Implicazione "\(\impliedby\)" :Modificato:
+
+Sia \(x \in X\) un punto non isolato, ovvero \(x\) un punto di accumulazione di \(X\), e sia \(B \in \bm{\Pi}_{1}^{0}(\omega^{\omega})\).
+
+- Si fissi \(d:X\to \R\) una metrica completa su \(X\).
+- Siccome \(x\) è un punto di accumulazione di \(X\), allora esiste una successione \((y_{n})_{n \in \omega} \subseteq X\setminus\set{x}\) tale che \(y_{n}\to x\), ovvero, per ogni intorno \(U\) di \(x\) esiste \(N \in \N\) tale che, per ogni \(j\ge N\), \(y_{j} \in U\).
+  # Sia ora \(y \in X\setminus\set{x}\), e sia \(d\) la metrica normalizzata:
+  # \begin{equation*}
+  #       	d(i,j) \coloneqq \frac{d'(i,j)}{d'(x,y)}
+  # \end{equation*}
+  # Dunque esiste un punto \(y_{0} \in X\) tale che \(d(x,y_{0})=1\).
+
+- Si costruisce \(\set{U_{n}}_{n \in \omega}\) una famiglia di aperti di \(X\) tali che
+  - per ogni \(n \in \omega\): \(U_{n}\setminus \set{x}\neq \emptyset\);
+  - l'intersezione \(\bigcap_{n \in \omega} U_{n} = \set{x}\);
+  - \(\operatorname{diam}(U_{n})\to 0\);
+  - per ogni \(n \in \omega\): \(\operatorname{Cl}(U_{n+1}) \subsetneqq U_{n}\)
+  e una successione \(v_{n} \subseteq X\setminus \set{x}\) tale che \(v_{n} \in U_{n}\setminus \operatorname{Cl}(U_{n+1})\).
+
+  # Poiché \(X\) è T1, allora ogni intorno di \(x\) ha una quantità infinita di punti, poiché punto di accumulazione, ed è sufficiente costruire gli intorni per induzione.
+
+  Sia \(U_{0} = X\). Si supponga di aver costruito \(U_{n}\), e sia \(\alpha \in U_{n}\setminus\set{x}\). Tale \(\alpha\) esiste, poiché esistono infiniti elementi della successione \((y_{j})_{j \in \omega}\) dentro \(U_{n}\) intorno di \(x\).
+
+  Detto \(r\coloneqq\min\set{2^{-n-1}, d(x,\alpha)/2}>0\), sia \(U_{n}'\coloneqq B_{d}(x,r)\). Necessariamente \(\alpha\notin U_{n}'\) e \(U_{n}' \subsetneqq U_{n}\).
+
+  È quindi possibile porre \(U_{n+1}\coloneqq B_{d}(x,r/2)\):
+  \begin{equation*}
+		\operatorname{Cl}(U_{n+1}) = \operatorname{Cl} \left(B_{d}(x,r/2)\right) \subseteq B_{d}^{\text{cl}}(x,r/2) \subseteq B_{d}(x,r) = U_{n}' \subsetneqq U_{n}.
+  \end{equation*}
+
+  Si ponga inoltre \(v_{n} \coloneqq \alpha\), \(v_{n} \in U_{n}\setminus \operatorname{Cl}(U_{n+1})\).
+
+  Questa famiglia soddisfa tutte le proprietà elencate.
+# - Sia ora \(\set{V_{n}}_{n \in \omega}\) una famiglia di aperti non vuoti di \(X\) tali che, per ogni \(n \in \omega\)
+#   \begin{equation*}
+# 		\operatorname{Cl}(V_{0}) \subseteq X\setminus \operatorname{Cl}(U_{0}),\qquad \operatorname{Cl}(V_{n+1}) \subseteq U_{n}\setminus \operatorname{Cl}(U_{n+1}).
+#   \end{equation*}
+
+#   Tali \(V_{n}\) esistono. Infatti, entrambi i seguenti insiemi sono aperti non vuoti
+#   \begin{equation*}
+# 		X\setminus \operatorname{Cl}(U_{0}), \qquad U_{n}\setminus \operatorname{Cl}(U_{n+1}) =  U_{n}\cap \left(X\setminus \operatorname{Cl}(U_{n+1})\right)
+#   \end{equation*}
+#   e pertanto contengono una palla aperta \(B_{d}(\alpha,\delta)\). È sufficiente considerare, quindi, l'insieme \(B_{d}(\alpha, \delta/2)\ni\alpha\) poiché, come sopra:
+#   \begin{equation*}
+# 		\operatorname{Cl}\left(B_{d}(\alpha, \delta/2)\right) \subseteq B_{d}(\alpha,\delta)
+#   \end{equation*}
+
+# - Per ogni \(n \in \omega\), sia \(\set{W_{j}^{n}}_{j \in\omega}\) una famiglia di aperti non vuoti tale che, per ogni \(j \in \omega\)
+#   \begin{equation*}
+# 		\operatorname{Cl}(W_{j}^{n}) \subseteq V_{n},\qquad \operatorname{Cl}(W_{j+1}^{n}) \subseteq W_{j}^{n}.
+#   \end{equation*}
+
+#   Tali \(W_{j}^{n}\) esistono. Infatti, siccome \(V_{n}\) è aperto non vuoto, allora esiste \(\alpha \in V_{n}\) ed esiste \(\delta \in (0,1)\) tale che
+#   \begin{equation*}
+# 		B_{d}(\alpha,\delta) \subseteq V_{n}
+#   \end{equation*}
+#   Come sopra, ponendo \(W_{j}^{n} \coloneqq B_{d}(\alpha,\delta\cdot 2^{-n-2})\) si ottengono gli aperti cercati. Ciascun \(W_{j}^{n}\ni \alpha\).
+
+- Siccome \(B\) è un chiuso di \(\omega^{\omega}\), allora esiste un albero potato \(T \subseteq \omega^{<\omega}\) tale che \(B=[T]\), i.e.
+  \begin{equation*}
+		B = \set{\alpha \in \omega^{\omega}\mid \forall\,n \in \omega\ (\alpha\upharpoonright n \in T)}
+  \end{equation*}
+- Si costruisce un \(\omega\)-schema \(\set{B_{s}\mid s \in \omega^{<\omega}}\) su \(X\):
+  - se \(s \in T\), allora \(B_{s} \coloneqq U_{\operatorname{lh}(s)}\); in particolare, quindi \(\emptyset \in T\) e \(B_{\emptyset} = U_{0} = X\);
+  - se \(s\notin T\), sia \(j_{s}\) il più grande indice tale che \(s\upharpoonright j_{s} \in T\); si pone \(B_{s} \coloneqq \set{v_{j_{s}}}\).
+- Questo definisce effettivamente uno schema tale che \(\operatorname{Cl}(B_{s\concat a}) \subseteq B_{s}\) e ciascun \(B_{s}\neq \emptyset\): pertanto è indotta una funzione continua totale (per il Lemma 1.3.6)
+  \begin{equation*}
+		F:\omega^{\omega}\to X
+  \end{equation*}
+- Resta da mostrare che \(F^{-1}(x) = B\). Questo per definizione garantisce che \(\set{x}\) sia un \(\bm{\Pi}_{1}^{0}\)-hard.
+
+  Per ogni \(\beta \in B\),
+  \begin{equation*}
+		F(\beta) \in \bigcap_{n \in \omega} B_{\beta\upharpoonright n}
+  \end{equation*}
+  dove \(\beta\upharpoonright n \in T\). Quindi \(B_{\beta\upharpoonright n} = U_{n}\). Quindi
+  \begin{equation*}
+		F(\beta) \in \bigcap_{n \in \omega} U_{n} = \set{x}.
+  \end{equation*}
+
+  Viceversa, se \(\beta \notin B\), allora esiste \(n_{0} \in \omega\) tale che \(\beta\upharpoonright n_{0} \notin T\) e pertanto
+  \begin{equation*}
+		F(\beta) \in \bigcap_{n \in\omega} B_{\beta\upharpoonright n} \subseteq B_{\beta\upharpoonright n_{0}}
+  \end{equation*}
+  e per costruzione \(x\notin B_{\beta\upharpoonright n_{0}}\).
+
+
+**** Stupidate :noexport:
+- Sia \(\set{U_{j}}_{j \in \omega}\) una famiglia numerabile di chiusi di \(\omega^{\omega}\) tali che:
+  - per ogni \(i\neq j\): \(U_{i}\cap U_{j} = B\);
+  - \(\bigcup_{j \in \omega} U_{j} = \omega^{\omega}\).
+
+  Tale famiglia esiste perché BLA BLA BLA
+- Sia \((x_{j})_{j \in\omega}\) una successione di \(X\) _convergente a \(x\)_, tale che, per ogni \(j \in \omega\), \(x_{j}\neq x\). Tale successione esiste poiché \(x\) è un punto di accumulazione per \(X\).
+- Si definisce pertanto una funzione \(F:\omega^{\omega}\to X\) come segue:
+  \begin{equation*}
+		F(\alpha) = \begin{cases}
+			x & \alpha \in B\\
+			x_{j} & \alpha \in U_{j}\setminus B
+		\end{cases}
+  \end{equation*}
+  - Chiaramente \(F^{-1}(x) = B\) per costruzione.
+  - Per dimostrare la continuità, si consideri un qualsiasi chiuso \(C \subseteq X\).
+
+Si vuole costruire una funzione \(F:\omega^{\omega}\to X\) tale che \(F^{-1}(x) = B\).
+
+IDEA: Se \(x\) è di accumulazione allora esiste una successione \(x_{n}\to x\). Si suddivide \(\omega^{\omega}\) in una quantità numerabile di clopen disgiunti \((A, A_n)\), in modo tale che \(A \subseteq B\). Allora si pone, per ogni \(n \in \omega\), \(F(A_{n}) = \set{x_{n}}\). Devo ancora riuscire a distinguere \(B\) da \(A\).
+
+**** Roba sbagliata 4 :noexport:
+
+Si supponga per assurdo che \(\set{x}\) non sia un \(\bm{\Pi}_{1}^{0}\)-hard. Allora esiste \(B \in \bm{\Pi}_{1}^{0}(\omega^{\omega})\) tale che per ogni funzione continua da \(\omega^{\omega}\) in \(x\), la controimmagine di \(\set{x}\) sia _diversa_ da \(B\).
+
+VOGLIO DIMOSTRARE CHE \(\set{x}\) SIA APERTO.
+
+**** Roba sbagliata 1 :noexport:
+
+In particolare, sia \(F:\omega^{\omega}\to X\) una funzione continua fissata tale che \(F^{-1}(x)\cap B\neq \emptyset\). **DIMOSTRARE CHE ESISTA**
+
+Si consideri quindi \(B\setminus F^{-1}(x)\neq\emptyset\). Necessariamente **DIMOSTRARE**
+\begin{equation*}
+\operatorname{Cl}\left(B\setminus F^{-1}(x)\right)\cap F^{-1}(x) \neq \emptyset
+\end{equation*}
+
+Sia quindi \(\alpha \in \operatorname{Cl}\left(B\setminus F^{-1}(x)\right)\cap F^{-1}(x)\). Allora esiste una successione \((\beta_{n})_{n \in \omega} \subseteq B\setminus F^{-1}(x)\) tale che
+\begin{equation*}
+\beta_{n}\to \alpha \in F^{-1}(x).
+\end{equation*}
+
+Siccome \(F\) è continua, allora, \(F(\beta_{n})\to F(\alpha)=x\), con \(F(\beta_{n})\neq x\). Pertanto \(x\) è un punto di accumulazione di \(X\), e quindi \(x\) non è un punto isolato.
+
+**** Roba sbagliata 2 :noexport:
+
+# Siccome \(X\setminus\set{x}\) è un aperto di \(X\), allora è uno spazio polacco. Pertanto esiste una funzione continua
+# \begin{equation*}
+# \psi: \omega^{\omega}\to X\setminus\set{x}
+# \end{equation*}
+
+# Si definisce allora la funzione \(f_{B}:\omega^{\omega}\to X\) definita come segue: per ogni \(b \in \omega^{\omega}\):
+# \begin{equation*}
+# f_{B}(b) = \begin{cases}
+# x & b \in B\\
+# \psi(b) & b \notin B.
+# \end{cases}
+# \end{equation*}
+
+# Allora:
+# - \(B=f^{-1}_{B}(x)\);
+# - \(f_{B}\) è una funzione continua: infatti, se \(C \subseteq X\) è chiuso:
+#   - se \(x \notin C\) allora, \(f_{B}^{-1}(C) = \psi^{-1}(C)\cap (X\setminus B)\)
+
+#      chiuso, poiché \(\psi\) è continua e \(C \subseteq X\setminus\set{x}\) è chiuso;
+#   - se \(x \in C\) allora
+#     \begin{equation*}
+# 		f^{-1}_{B}(C) = B\cup \psi^{-1}(C\setminus\set{x})
+#     \end{equation*}
+#     è chiuso, poiché \(B\) è chiuso per ipotesi, e \(C\setminus\set{x} = C\cap (X\setminus\set{x})\) è un chiuso di \(X\setminus \set{x}\) e \(\psi\) è continua.
+
+
+
+*** Insieme \(C_{1}\)
+
+Dal momento che \(\bm{\Sigma}_{1}^{0} = \check{\bm{\Pi}}_{1}^{0}\) segue che \(C_{1}\) è \(\bm{\Sigma}_{1}^{0}\)-completo se e solo se \(2^{\omega}\setminus C_1\) è \(\bm{\Pi}_{1}^{0}\)-completo.
+
+Si ha che \(x \in 2^{\omega}\setminus C_{1}\) se e solo se per ogni \(n \in \omega\), \(x(n)\neq 0\), ovvero \(x(n)=1\).
+
+Pertanto \(2^{\omega}\setminus C_{1} =  \set{u}\), dove
+\begin{align*}
+u: \omega &\longrightarrow 2\\
+n &\longmapsto 1
+\end{align*}
+
+Per la caratterizzazione di cui sopra, \(C_{1}\) è \(\bm{\Sigma}_{1}^{0}\)-completo se e solo se \(u\) non è un punto isolato di \(2^{\omega}\).
+
+Si consideri ora la successione \((x_{n})_{n \in \omega} \subseteq 2^{\omega}\):
+\begin{equation*}
+x_{n}(j) = \begin{cases}
+1 & j<n\\
+0 &j\ge n
+\end{cases}
+\end{equation*}
+Si ha che \(x_{n}\to u\), e pertanto \(u\) non è un punto isolato di \(2^{\omega}\) (per ogni intorno \(I\) di \(u\) esiste \(N \in \omega\) tale che \(x_{N} \in I\setminus\set{u}\)). \qed
+
+
+* Esercizio 2
+
+Prove that for any Polish space and $A \subseteq X$, if $A$ is not open then it is \(\bm{\Pi}_{1}^{0}\)-hard. Conclude that a set $A$ is truly closed (i.e. closed but not open) if and only if it is \(\bm{\Pi}_{1}^{0}\)-complete, and similarly for \(\bm{\Sigma}_{1}^{0}\).
+
+** Soluzione
+
+*** Non aperti sono \(\mathbf{\Pi}_{1}^{0}\)-hard :Modificato:
+
+Sia \(A\) un insieme non aperto, e sia \(C \subseteq \omega^{\omega}\) un chiuso fissato.
+
+Sia dunque \(a_{0} \in A\setminus \operatorname{Int}(A)\). In particolare, quindi \(a_{0} \in \operatorname{Cl}(X\setminus A) \supseteq A\setminus \operatorname{Int}(A)\).
+
+- Si fissi \(d:X\to \R\) una metrica completa su \(X\).
+- Siccome \(a_{0} \in \operatorname{Cl}(X\setminus A)\), allora esiste una successione \((y_{n})_{n \in \omega} \subseteq X\setminus A\) tale che \(y_{n}\to a_{0}\), ovvero, per ogni intorno \(U\) di \(a_{0}\) esiste \(N \in \N\) tale che, per ogni \(j\ge N\), \(y_{j} \in U\).
+- Si costruisce \(\set{U_{n}}_{n \in \omega}\) una famiglia di aperti di \(X\) tali che
+  - per ogni \(n \in \omega\): \(U_{n}\setminus \set{a_{0}}\neq \emptyset\);
+  - l'intersezione \(\bigcap_{n \in \omega} U_{n} = \set{a_{0}}\);
+  - \(\operatorname{diam}(U_{n})\to 0\);
+  - per ogni \(n \in \omega\): \(\operatorname{Cl}(U_{n+1}) \subsetneqq U_{n}\)
+  e una successione \(v_{n} \subseteq X\setminus A\) tale che \(v_{n} \in U_{n}\setminus \operatorname{Cl}(U_{n+1})\).
+
+  Sia \(U_{0} = X\). Si supponga di aver costruito \(U_{n}\), e sia \(\alpha \in U_{n}\setminus A\). Tale \(\alpha\) esiste, poiché esistono infiniti elementi della successione \((y_{j})_{j \in \omega}\) dentro \(U_{n}\) intorno di \(a_{0}\), e tutti questi elementi _non appartengono ad \(A\)_.
+
+  Detto \(r\coloneqq\min\set{2^{-n-1}, d(a_{0},\alpha)/2}>0\), sia \(U_{n}'\coloneqq B_{d}(a_{0},r)\). Necessariamente \(\alpha\notin U_{n}'\) e \(U_{n}' \subsetneqq U_{n}\).
+
+  È quindi possibile porre \(U_{n+1}\coloneqq B_{d}(a_{0},r/2)\):
+  \begin{equation*}
+		\operatorname{Cl}(U_{n+1}) = \operatorname{Cl} \left(B_{d}(a_{0},r/2)\right) \subseteq B_{d}^{\text{cl}}(a_{0},r/2) \subseteq B_{d}(a_{0},r) = U_{n}' \subsetneqq U_{n}.
+  \end{equation*}
+
+  Si ponga inoltre \(v_{n} \coloneqq \alpha\), \(v_{n} \in U_{n}\setminus \operatorname{Cl}(U_{n+1})\), \(v_{n}\notin A\).
+
+  Questa famiglia soddisfa tutte le proprietà elencate.
+
+- Siccome \(C\) è un chiuso di \(\omega^{\omega}\), allora esiste un albero potato \(T \subseteq \omega^{<\omega}\) tale che \(C=[T]\), i.e.
+  \begin{equation*}
+		C= \set{\alpha \in \omega^{\omega}\mid \forall\,n \in \omega\ (\alpha\upharpoonright n \in T)}
+  \end{equation*}
+- Si costruisce un \(\omega\)-schema \(\set{B_{s}\mid s \in \omega^{<\omega}}\) su \(X\):
+  - se \(s \in T\), allora \(B_{s} \coloneqq U_{\operatorname{lh}(s)}\); in particolare, quindi \(\emptyset \in T\) e \(B_{\emptyset} = U_{0} = X\);
+  - se \(s\notin T\), sia \(j_{s}\) il più grande indice tale che \(s\upharpoonright j_{s} \in T\); si pone \(B_{s} \coloneqq \set{v_{j_{s}}}\).
+- Questo definisce effettivamente uno schema tale che \(\operatorname{Cl}(B_{s\concat a}) \subseteq B_{s}\) e ciascun \(B_{s}\neq \emptyset\): pertanto è indotta una funzione continua totale (per il Lemma 1.3.6)
+  \begin{equation*}
+		F:\omega^{\omega}\to X
+  \end{equation*}
+- Resta da mostrare che \(F^{-1}(A) = C\). Questo per definizione garantisce che \(A\) sia un \(\bm{\Pi}_{1}^{0}\)-hard.
+
+  Per ogni \(\beta \in C\),
+  \begin{equation*}
+		F(\beta) \in \bigcap_{n \in \omega} B_{\beta\upharpoonright n}
+  \end{equation*}
+  dove \(\beta\upharpoonright n \in T\). Quindi \(B_{\beta\upharpoonright n} = U_{n}\). Quindi
+  \begin{equation*}
+		F(\beta) \in \bigcap_{n \in \omega} U_{n} = \set{a_{0}} \subseteq A.
+  \end{equation*}
+
+  Viceversa, se \(\beta \notin C\), allora esiste \(n_{0} \in \omega\) tale che \(\beta\upharpoonright n_{0} \notin T\) e pertanto
+  \begin{equation*}
+		F(\beta) \in \bigcap_{n \in\omega} B_{\beta\upharpoonright n} \subseteq B_{\beta\upharpoonright n_{0}}
+  \end{equation*}
+  e per costruzione, siccome \(B_{\beta\upharpoonright n_{0}} = \set{v_{m}}\) per qualche \(m \in \omega\), e \(v_{m}\notin A\) per costruzione, allora
+  \begin{equation*}
+		A\cap B_{\beta\upharpoonright n_{0}} = \emptyset
+  \end{equation*}
+  e pertanto \(F(\beta)\notin A\).
+
+**** Da aggiungere :noexport:
+Si fissi \(d':X\to \R\) una metrica completa su \(X\). Sia ora \(y \in X\setminus A\), e sia \(d\) la metrica normalizzata:
+\begin{equation*}
+d(i,j) \coloneqq \frac{d'(i,j)}{d'(a_{0},y)}
+\end{equation*}
+Dunque esiste un punto \(y \in X\) tale che \(d(a_{0},y)=1\).
+
+- Sia \(\set{U_{n}}_{n \in \omega}\) una famiglia di aperti di \(X\) tali che
+  - per ogni \(n \in \omega\): \(U_{n}\setminus \set{x}\neq \emptyset\);
+  - l'intersezione \(\bigcap_{n \in \omega} U_{n} = \set{a_{0}}\);
+  - \(\operatorname{diam}(U_{n})\to 0\);
+  - per ogni \(n \in \omega\): \(\operatorname{Cl}(U_{n+1}) \subsetneqq U_{n}\).
+  Tale famiglia esiste, come dimostrato nel punto precedente. In particolare, si prenda \(U_{0}=B_{d}(a_{0},1/2)\).
+- Sia ora \(\set{V_{n}}_{n \in \omega}\) una famiglia di chiusi non vuoti, con /vanishing diameter/, di \(X\) tali che, per ogni \(n \in \omega\)
+  \begin{equation*}
+		\operatorname{Cl}(V_{0}) \subseteq X\setminus \operatorname{Cl}(U_{0}),\qquad \operatorname{Cl}(V_{n+1}) \subseteq U_{n}\setminus \operatorname{Cl}(U_{n+1}).
+  \end{equation*}
+  e tali che \(V_{n}\cap A = \emptyset\). È sufficiente considerare \(V_{n}\) come un singoletto.
+- Siccome \(C\) è un chiuso di \(\omega^{\omega}\), allora esiste un albero potato \(T \subseteq \omega^{<\omega}\) tale che \(C=[T]\), i.e.
+  \begin{equation*}
+		C = \set{\alpha \in \omega^{\omega}\mid \forall\,n \in \omega\ (\alpha\upharpoonright n \in T)}
+  \end{equation*}
+- Si costruisce un \(\omega\)-schema \(\set{B_{s}\mid s \in \omega^{<\omega}}\) su \(X\):
+  - sia \(B_{\emptyset} \coloneqq X\);
+  - se \(s \in T\), allora \(B_{s} \coloneqq U_{\operatorname{lh}(s)}\);
+  - se \(s\notin T\), sia \(j_{s}\) il più grande indice tale che \(s\upharpoonright j_{s} \in T\); si pone \(B_{s} \coloneqq V_{j_{s}}\).
+- Questo definisce effettivamente uno schema tale che \(\operatorname{Cl}(B_{s\concat a}) \subseteq B_{s}\) e ciascun \(B_{s}\neq \emptyset\): pertanto è indotta una funzione continua totale (per il Lemma 1.3.6)
+  \begin{equation*}
+		F:\omega^{\omega}\to X
+  \end{equation*}
+- Resta da mostrare che \(F^{-1}(A) = C\). Questo per definizione garantisce che \(A\) sia un \(\bm{\Pi}_{1}^{0}\)-hard.
+
+  Per ogni \(\beta \in C\),
+  \begin{equation*}
+		F(\beta) \in \bigcap_{n \in \omega} B_{\beta\upharpoonright n}
+  \end{equation*}
+  dove \(\beta\upharpoonright n \in T\). Quindi \(B_{\beta\upharpoonright n} = U_{n}\). Quindi
+  \begin{equation*}
+		F(\beta) \in \bigcap_{n \in \omega} U_{n} = \set{a_{0}} \subseteq A.
+  \end{equation*}
+
+  Viceversa, se \(\beta \notin C\), allora esiste \(n_{0} \in \omega\) tale che \(\beta\upharpoonright n_{0} \notin T\) e pertanto
+  \begin{equation*}
+		F(\beta) \in \bigcap_{n \in\omega} B_{\beta\upharpoonright n} \subseteq B_{\beta\upharpoonright n_{0}}
+  \end{equation*}
+  e per costruzione, siccome \(B_{\beta\upharpoonright n_{0}}\) è contenuto in qualche \(V_{m}\), \(A\cap B_{\beta\upharpoonright n_{0}} = \emptyset\), e pertanto \(F(\beta)\notin A\)
+
+**** Minchiatissime :noexport:
+
+Per l'esercizio precedente, siccome \(a_{0}\) è un punto non isolato di \(X\) (altrimenti \(\set{a_{0}}\) aperto, e quindi \(a_{0} \in \operatorname{Int}(A)\)), allora \(\set{a_{0}}\) è un insieme \(\bm{\Pi}_{1}^{0}\)-hard.
+
+È necessario trovare una funzione continua \(F:X\to X\) tale che \(F^{-1}(A)=\set{x}\). Questo garantisce che \(A\) sia un insieme \(\bm{\Pi}_{1}^{0}\)-hard, per mezzo del Lemma 2.1.23.
+
+- Sia \((y_{n})_{n \in \omega}\) una successione in \(X\setminus A\) convergente ad \(a_{0}\) (che esiste poiché \(a_{0} \in \operatorname{Cl}(X\setminus A)\)).
+- Siccome \(X\) è uno spazio polacco, esiste una metrica completa \(d:X\to \R\) tale che per ogni \(x,y \in X\), \(d(x,y)<1\).
+
+  Poiché \(y_{n}\to a_{0}\), allora per ogni \(\varepsilon>0\) esiste \(N \in \N\) tale che, per ogni \(n\ge N\), \(d(y_{n},a_{0})<\varepsilon\).
+
+  È ben definita, quindi, la funzione \(\eta:X\setminus\set{a_{0}}\to \N\):
+  \begin{equation*}
+		\eta(x)\coloneqq \min\set{n \in \N\mid d(y_{n}, a_{0})< \frac{1}{2}d(x,a_{0})}
+  \end{equation*}
+
+  _Claim_: \(\eta\) è una funzione continua.
+
+  Fissato \(x \in X\), sia \(k = \eta(x)\), e siano:
+  \begin{align*}
+		\delta&\coloneqq d(x,a_{0})\\
+		m &\coloneqq \min_{j<k} \set{d(y_{j}, a_{0})}.
+  \end{align*}
+  Necessariamente \(m\ge \frac{1}{2} \delta\). Si distinguono due casi
+
+  - _Se \(m>\frac{1}{2}\delta\)_:
+
+    Poiché \(d(\cdot, a_{0})\) è una funzione continua, per ogni \(\varepsilon>0\) esiste un intorno \(U_{\varepsilon}\) di \(x\) tale che, per ogni \(z \in U_{\varepsilon}\),
+    \begin{equation*}
+		|d(z,a_{0})-d(x,a_{0})|<\varepsilon
+    \end{equation*}
+    ovvero \(d(z,a_{0}) \in (\delta-\varepsilon,\delta+\varepsilon)\).
+
+    Si scelga \(\varepsilon = \min\set{\delta - 2d(y_{k},a_{0}), 2m-\delta}>0\). Sia \(z \in U_{\varepsilon}\) fissato, per \(\varepsilon\). Si dimostra che \(\eta(z) = k =\eta(x)\), ovvero che \(\eta(U_{\varepsilon}) = \set{k}\). Questo implica la continuità di \(\eta\).
+
+    Si ha che:
+    \begin{align*}
+		\varepsilon &\le \delta-2d(y_{k},a_{0})\\
+		-\varepsilon &\ge -\delta+2d(y_{k},a_{0})\\
+		\delta-\varepsilon &\ge 2d(y_{k},a_{0})
+    \end{align*}
+    e pertanto
+    \begin{equation*}
+		d(z,a_{0}) > \delta-\varepsilon \ge 2d(y_{k},a_{0})
+    \end{equation*}
+    e pertanto
+    \begin{equation*}
+		d(y_{k},a_{0}) < \frac{1}{2} d(z,a_{0}).
+    \end{equation*}
+
+    Inoltre, per ogni \(j<k\):
+    \begin{align*}
+		\varepsilon &\le 2m-\delta\\
+		\delta+\varepsilon &\le 2m \le 2d(y_{j}, a_{0})
+    \end{align*}
+    e pertanto
+    \begin{equation*}
+		d(z,a_{0}) < \delta+\varepsilon \le 2d(y_{j}, a_{0})
+    \end{equation*}
+    e quindi, per ogni \(j<k\)
+    \begin{equation*}
+		d(y_{j},a_{0}) \ge \frac{1}{2} d(z,a_{0})
+    \end{equation*}
+
+    Si è quindi dimostrato che \(\eta(z)=k\).
+  - _Se \(2m-\delta=0\)_
+
+    Poiché \(d(\cdot, a_{0})\) è una funzione continua, per ogni \(\varepsilon > 0\) esiste un intorno
+
+- Si definisce infine \(F:X\to X\) come segue:
+  \begin{equation*}
+		F(x) \coloneqq \begin{cases}
+			a_{0} &\text{se }x = a_{0}\\
+			y_{\eta(x)} &\text{se }x\neq a_{0}
+		\end{cases}
+  \end{equation*}
+  Questa funzione ha le caratteristiche richieste.
+  - Ovviamente \(F^{-1} (A) = \set{a_{0}}\). Infatti \(F(a_{0}) = a_{0} \in A\), e inoltre, siccome per ogni \(n \in\omega\) si ha \(y_{n}\neq a_{0}\), se \(F(\alpha)=a_{0}\) allora \(\alpha=a_{0}\).
+
+  - Inoltre, \(F\) è continua. Infatti, sia \(D \subseteq X\) un qualsiasi aperto. Siccome
+    \begin{equation*}
+		F^{-1}(D) = \bigcup_{y \in D} F^{-1}(y) = \bigcup_{\substack{y \in D\\ y=a_{0}, y_{n}}} F^{-1}(y)
+    \end{equation*}
+    è sufficiente dimostrare che per ogni \(n \in \omega\) l'insieme \(F^{-1}(y_{n})\) è aperto.
+
+    Ma \(F^{-1}(y_{n}) = \eta^{-1}(n)\), dunque, siccome \(\N\) ha la topologia discreta e \(\eta\) è continua, \(F^{-1}(y_{n})\) è aperto di \(X\setminus\set{a_{0}}\), e quindi aperto di \(X\).
+
+**** Idea molto stupida :noexport:
+
+# - Sia \(\set{U_{n}}_{n \in\omega}\) una famiglia di intorni di \(a_{0}\) tali che:
+#   \begin{equation*}
+# 		\bigcap_{n \in \omega} U_{n} = \set{x},\qquad \operatorname{Cl}(U_{n+1}) \subsetneqq U_{n}.
+#   \end{equation*}
+#   Tale famiglia esiste, DIMOSTRARE PERCHÈ
+# - Si costruisce una famiglia di insiemi chiusi disgiunti \(\set{C_{n}}_{n \in \omega}\) di \(X\), che partiziona \(X\setminus \set{a_{0}}\):
+#   \begin{equation*}
+# 		C_{0} = X\setminus U_{0}, \qquad C_{n+1} = \operatorname{Cl}(U_{n})\setminus U_{n+1} = \operatorname{Cl}(U_{n})\cap (X\setminus U_{n+1})
+#   \end{equation*}
+#   - DIMOSTRARE CHE SONO DISGIUNTI
+#   - E SONO UNA PARTIZIONE DI \(X\setminus\set{a_{0}}\)
+# - Pertanto la funzione \(F:X\to X\) è ben definita come
+#   \begin{equation*}
+# 		F(x)= \begin{cases}
+# 			a_{0} & x = a_{0}\\
+# 			y_{n} & x \in C_{n}
+#                 \end{cases}
+#   \end{equation*}
+#   - Ovviamente \(F^{-1} (A) = \set{a_{0}}\). Infatti \(F(a_{0}) \in A\), e inoltre, siccome per ogni \(n \in\omega\) si ha \(y_{n}\neq a_{0}\), se \(F(\alpha)=a_{0}\) allora \(\alpha=a_{0}\).
+#   - La funzione \(F\) è continua.
+
+**** Idea :noexport:
+
+**Teorema.**
+Sia $X$ uno spazio polacco, sia $A \subset X$ un sottoinsieme non aperto, e sia $a_0 \in A$ un punto non isolato in $X$. Allora esiste una funzione continua $F : X \to X$ tale che
+
+$$
+F^{-1}(A) = \{a_0\}.
+$$
+
+**Dimostrazione.**
+Poiché $X$ è polacco, è in particolare metrizzabile e possiamo fissare una metrica $d$ completa e separabile che induce la topologia di $X$.
+
+Essendo $a_0$ un punto non isolato in $X$, esiste una successione $(x_n)_{n \in \mathbb{N}} \subset X \setminus \{a_0\}$ tale che $x_n \to a_0$ quando $n \to \infty$. Inoltre, poiché $A$ non è aperto, per ogni intorno aperto $U$ di $a_0$ si ha $U \not\subset A$. Pertanto possiamo scegliere $x_n \notin A$ per ogni $n$, con $x_n \to a_0$.
+
+Definiamo una funzione continua $\phi : X \to [0,1]$ ponendo:
+
+$$
+\phi(x) := \min\{1, d(x, a_0)\}.
+$$
+
+Allora $\phi$ è continua, $\phi(a_0) = 0$, e $\phi(x) > 0$ per ogni $x \neq a_0$.
+
+Definiamo ora, per ogni $x \in X \setminus \{a_0\}$, un'intera positiva $n(x)$ come segue:
+
+$$
+n(x) := \min \left\{ n \in \mathbb{N} : d(x_n, a_0) < \tfrac{1}{2} \phi(x) \right\}.
+$$
+
+La funzione $n : X \setminus \{a_0\} \to \mathbb{N}$ è ben definita poiché $d(x_n, a_0) \to 0$, dunque per ogni $x \neq a_0$ esiste un indice $n$ con la proprietà richiesta.
+
+Definiamo infine la funzione $F : X \to X$ ponendo:
+
+$$
+F(x) := \begin{cases}
+a_0 & \text{se } x = a_0, \\
+x_{n(x)} & \text{se } x \neq a_0.
+\end{cases}
+$$
+
+Verifichiamo che $F$ è continua. Per $x \neq a_0$, la funzione è costante su un intorno (dato che $\phi(x)$ è continua e quindi i valori di $n(x)$ sono localmente costanti), quindi $F$ è continua su $X \setminus \{a_0\}$. Rimane da verificare la continuità in $a_0$.
+
+Sia $\varepsilon > 0$. Poiché $x_n \to a_0$, esiste $N$ tale che per ogni $n \geq N$, $d(x_n, a_0) < \varepsilon$. Consideriamo un intorno $U$ di $a_0$ tale che $\phi(x) < \min\{1, 2 d(x_N, a_0)\}$ per ogni $x \in U \setminus \{a_0\}$. Allora, per ogni $x \in U \setminus \{a_0\}$, si ha $n(x) \geq N$, dunque $d(F(x), a_0) = d(x_{n(x)}, a_0) < \varepsilon$. Inoltre, $F(a_0) = a_0$. Quindi $F$ è continua in $a_0$.
+
+Infine, osserviamo che:
+
+- $F(a_0) = a_0 \in A$,
+- Per ogni $x \neq a_0$, $F(x) = x_{n(x)} \notin A$, per costruzione.
+
+Pertanto:
+
+$$
+F^{-1}(A) = \{a_0\}.
+$$
+
+Ciò conclude la dimostrazione.
+
+# , e pertanto esiste una funzione
+# \begin{equation*}
+# 	F_{C}:\omega^{\omega}\to X
+# \end{equation*}
+# tale che \(F^{-1}_{C}(a_{0}) = C\).
+
+# Sia ora \(D \subseteq \omega^{\omega}\) un aperto che contenga \(F^{-1}_{C}(A)\). Allora \((\omega^{\omega}\setminus D)\cup C\) è un chiuso, e pertanto esiste una retrazione continua:
+# \begin{equation*}
+# 	\psi:\omega^{\omega}\to (\omega^{\omega}\setminus D)\cup C
+# \end{equation*}
+# tale che, per ogni \(\alpha \in (\omega^{\omega}\setminus D)\cup C\), \(\psi(\alpha)=\alpha\).
+
+# Si definisce quindi \(G_{C}:\omega^{\omega}\to X\) come \(F_{C}\circ \psi\).
+# - Questa è una funzione continua poiché composizione di funzioni continue.
+# - Inoltre, \(G_{C}^{-1}(A) = C\), ovvero \(\alpha \in C\) sse \(G_{C}(\alpha) \in A\). Infatti
+#   - se \(\alpha \in C\) allora \(\psi(\alpha) = \alpha\) e pertanto \(F_{C}(\alpha) = a_{0} \in A\): \(G_{C}(\alpha) \in A\);
+#   - viceversa, se \(\alpha\notin C\):
+#     - se \(\alpha \in D\setminus C\) allora \(\psi\)
+
+
+
+# Sia \(A \subseteq X\) un insieme _non aperto_. Allora \(\operatorname{Cl}_{X}(A)\) è un insieme chiuso, e pertanto \(X\setminus \operatorname{Cl}_{X}(A)\) è uno spazio polacco. Esiste quindi \(\psi:\omega^{\omega}\to X\setminus \operatorname{Cl}_{X}(A)\) continua e suriettiva.
+
+# Sia ora \(a \in A\) fissato e sia \(B \in \bm{\Pi}_{1}^{0}(\omega^{\omega})\). Si definisce una funzione
+# \begin{align*}
+# F_{B}: \omega^{\omega} &\longrightarrow X\\
+# b \in B &\longmapsto a\\
+# b \notin B &\longmapsto \psi(b) \notin A.
+# \end{align*}
+
+# Sicuramente \(F_{B}^{-1}(A) = B\). Resta da mostrare che \(F_{B}\) sia continua.
+
+# Sia \(C \subseteq X\) un chiuso.
+# - Se \(a\notin C\), allora \(F_{B}^{-1}(C) = \psi^{-1}\left(C\setminus \operatorname{Cl}_{X}(A)\right)\). Siccome \(C\setminus \operatorname{Cl}_{X}(A) = C\cap (X\setminus \operatorname{Cl}_{X}A)\) è un chiuso di \(X\setminus \operatorname{Cl}_{X}(A)\), allora \(F_{B}^{-1}(C)\) è chiuso, poiché \(\psi\) è una funzione continua.
+
+*** Caratterizzazione dei chiusi ma non aperti
+
+- Se \(A\) è chiuso ma non aperto, allora \(A\) è \(\bm{\Pi}_{1}^{0}\)-hard e inoltre \(A \in \bm{\Pi}_{1}^{0}\). Per definizione, quindi \(A\) è un \(\bm{\Pi}_{1}^{0}\)-completo.
+
+  Viceversa, se \(A\) è un chiuso \(\bm{\Pi}_{1}^{0}\)-hard, si supponga per assurdo che sia aperto. Allora, per ogni \(B \in \bm{\Pi}_{1}^{0}(\omega^{\omega})\) esiste una funzione continua \(F:\omega^{\omega}\to X\) tale che \(F^{-1}(A) = B\), ovvero \(B \in \bm{\Sigma}_{1}^{0}\). Si avrebbe quindi che ogni chiuso di \(\omega^{\omega}\) sia un clopen. Come argomentato nell'[[id:38fa632b-294a-4b8a-a210-67b93be1a9e1][esercizio precedente]], questo genera un assurdo.
+- L'insieme \(A\) è aperto ma non chiuso se e solo se \(X\setminus A\) è chiuso ma non aperto, se e solo se \(X\setminus A\) è \(\bm{\Pi}_{1}^{0}\)-completo per il punto precedente.
+
+  Per il Lemma 2.1.23, \(X\setminus A\) è \(\bm{\Pi}_{1}^{0}\)-completo se e solo se \(A\) è \(\check{\bm{\Pi}}_{1}^{0}\)-completo, ma (per l'Example 2.1.10)
+  \begin{equation*}
+		\check{\bm{\Pi}}_{1}^{0}=\bm{\Sigma}_{1}^{0}
+  \end{equation*}
+  e pertanto \(A\) è aperto ma non chiuso se e solo se \(A\) è \(\bm{\Sigma}_{1}^{0}\)-completo.\qed
+
+* Esercizio 3
+
+Prove that the sets
+\begin{align*}
+C_0 &= c_0 \cap [0,1]^\omega = \left\{(x_n)_{n \in \omega} \in [0,1]^\omega \,\middle|\, x_n \to 0 \right\}\\
+C &= \left\{(x_n)_{n \in \omega} \in [0,1]^\omega \,\middle|\, (x_n)_{n \in \omega} \text{ converges} \right\}
+\end{align*}
+are both \(\bm{\Pi}^0_3\)-complete.
+
+/Hint./ For the hardness part, compare these sets with the \(\bm{\Pi}^0_3\)-complete set $C_3$ from Exercise 2.1.27 in the notes.
+
+** Soluzione
+
+*** \(C_{0}\) e \(C\) sono degli insiemi \(\mathbf{\Pi}_{0}^{3}\).
+
+**** Insieme \(C_{0}\).
+
+Si ha che \((x_{j})_{j \in \omega} \in C_{0}\) se e solo se \((x_{j})_{j \in \omega} \in [0,1]^{\omega}\) e:
+\begin{equation*}
+	\forall\, \varepsilon \in \Q^{+}\ \exists\,N \in \N \ \forall\, n > N\ \left( |x_{n}|\le\varepsilon\right)
+\end{equation*}
+ovvero, se \(U_{n, \varepsilon} \coloneqq \set{(x_{j})_{j \in \omega} \in [0,1]^{\omega}: |x_{n}|\le\varepsilon}\), allora
+\begin{equation*}
+	C_{0} = \bigcap_{\varepsilon \in \Q^{+}} \bigcup_{N \in \N} \bigcap_{n>N} U_{n,\varepsilon}.
+\end{equation*}
+
+Quindi, dette \(\pi_{m} : [0,1]^{\omega}\to [0,1]\) le \(m\)-esime proiezioni (continue per definizione di topologia prodotto):
+\begin{equation*}
+	U_{n,\varepsilon}= \pi_{n}^{-1}\left([-\varepsilon,\varepsilon]\right)
+\end{equation*}
+e pertanto \(U_{n,\varepsilon}\) è chiuso. Per il Lemma 2.1.5:
+\begin{align*}
+	\bigcap_{n > N} U_{n,\varepsilon} &\in \bm{\Pi}_{1}^{0}\\
+	\bigcup_{N \in \N}\bigcap_{n >N} U_{n,\varepsilon} &\in \bm{\Sigma}_{2}^{0}\\
+	C_{0} = \bigcap_{\varepsilon \in \Q^{+}} \bigcup_{N \in \N} \bigcap_{n>N} U_{n,\varepsilon} &\in \bm{\Pi}_{3}^{0}.
+\end{align*}
+e si ottiene che \(C_{0} \in \bm{\Pi}_{3}^{0}\left([0,1]^{\omega}\right)\).
+
+**** Insieme \(C\).
+
+Si ha che \((x_{j})_{j \in\omega} \in C\) se e solo se \((x_{j})_{j \in\omega} \in [0,1]^{\omega}\) e
+\begin{equation*}
+\forall\, \varepsilon \in \Q^{+}\ \exists\, N \in \N \ \forall\,n,m> N\ (|x_{n}-x_{m}|\le\varepsilon)
+\end{equation*}
+ovvero, se \(V_{m,n}^{\varepsilon} \coloneqq \set{(x_{j})_{j \in \omega} \in [0,1]^{\omega}: |x_{n}-x_{m}|\le\varepsilon}\), allora
+\begin{equation*}
+C = \bigcap_{\varepsilon \in \Q^{+}}\bigcup_{N \in \N}\bigcap_{n,m>N} V_{n,m}^{\varepsilon}.
+\end{equation*}
+
+Poiché la funzione \((\pi_{n}-\pi_{m}):[0,1]^{\omega}\to \R\) è continua, allora
+\begin{equation*}
+V_{n,m}^{\varepsilon} \coloneqq (\pi_{n}-\pi_{m})^{-1}\left([-\varepsilon,\varepsilon]\right)
+\end{equation*}
+e quindi \(V_{n,m}^{\varepsilon}\) è chiuso. Per il Lemma 2.1.5:
+\begin{align*}
+\bigcap_{n,m > N} V_{n,m}^{\varepsilon} &\in \bm{\Pi}_{1}^{0}\\
+\bigcup_{N \in \N}\bigcap_{n,m > N} V_{n,m}^{\varepsilon} &\in \bm{\Sigma}_{2}^{0}\\
+C = \bigcap_{\varepsilon \in \Q^{+}}\bigcup_{N \in \N}\bigcap_{n,m>N} V_{n,m}^{\varepsilon} &\in \bm{\Pi}_{3}^{0}
+\end{align*}
+e si ottiene che \(C \in \bm{\Pi}_{3}^{0}\left([0,1]^{\omega}\right)\).
+
+
+*** Hardness
+
+È noto (Esercizio 2.1.27) che l'insieme \(C_{3} \coloneqq \set{x \in \omega^{\omega}\mid \lim_{n\to\infty}x(n) = \infty}\) sia \(\bm{\Pi}_{3}^{0}\)-hard. Pertanto si cercano delle funzioni continue
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	{\omega^\omega} \& {[0,1]^\omega} \& {[0,1]^\omega}
+	\arrow["F", from=1-1, to=1-2]
+	\arrow["G", from=1-2, to=1-3]
+\end{tikzcd}
+\end{equation*}
+tali che
+\begin{equation*}
+F^{-1}(C_{0}) = C_{3},\qquad G^{-1}(C) = C_{0}.
+\end{equation*}
+Questo, per mezzo del Lemma 2.1.23, garantisce che \(C_{0},C\) siano insiemi \(\bm{\Pi}_{3}^{0}\)-hard (e quindi, per il punto precedente, completi).
+
+Le due funzioni si definiscono come segue:
+\begin{align*}
+&\begin{aligned}
+F: \omega^{\omega} &\longrightarrow[0,1]^{\omega}\\
+(x_{j})_{j \in \omega} &\longmapsto \left(\phi(x_{j})\right)_{j \in \omega}
+\end{aligned} & &\text{dove} & &\begin{aligned}
+\phi: \N &\longrightarrow [0,1]\\
+m &\longmapsto \begin{cases}
+1/m & m\neq 0\\
+1 & m=0.
+\end{cases}
+\end{aligned}\\[1.5em]
+&\begin{aligned}
+G: [0,1]^{\omega} &\longrightarrow [0,1]^{\omega}\\
+(x_{j})_{j \in \omega} &\longmapsto (y_{j})_{j \in \omega}
+\end{aligned} & &\text{dove} &
+&y_{j} \coloneqq \begin{cases}
+0 & j\text{ dispari}\\
+x_{j/2} & j\text{ pari}.
+\end{cases}
+\end{align*}
+
+**** _\(F\) è continua._
+
+La funzione \(F\) è continua poiché lo è su ciascuna componente (in quanto \(\N\) ha la topologia discreta).
+
+**** _\(G\) è continua._
+
+La funzione \(F\) è continua poiché lo è su ciascuna componente:
+- la componente \(j\)-esima di \(G\), con \(j\) dispari, è data dalla funzione costante nulla, continua;
+- la componente \(j\)-esima di \(G\), con \(j\) pari, è data dalla funzione proiezione \(\pi_{j/2}: [0,1]^{\omega}\to [0,1]\), continua per definizione di topologia prodotto.
+
+**** _\(F^{-1}(C_{0})=C_{3}\)._
+
+Si dimostra che \(\alpha \in C_{3}\) sse \(F(\alpha) \in C_{0}\).
+
+- Se \(\alpha = (x_{j})_{j \in \omega}\in C_{3}\) allora esiste \(N \in \N\) tale che, per ogni \(j>N\) si ha\(x_{j}\neq 1\).
+
+  Pertanto, per ogni \(j>N\), \(\phi(x_{j}) = 1/x_{j}\) e, siccome \(x_{j}\to \infty\), \(\phi(x_{j})\to 0\). Quindi \(F(\alpha) \in C_{0}\).
+- Viceversa, sia \(\alpha = (x_{j})_{j \in \omega} \notin C_{3}\). Si supponga per assurdo che \((y_{j})_{j \in \omega} = F(\alpha) \in C_{0}\).
+
+  Allora, definitivamente, \(y_{j} = 1/x_{j}\) (e in particolare \(x_{j}\neq 0\neq y_{j}\)), poiché altrimenti non si avrebbe convergenza a \(0\). In particolare, \(x_{j} = 1/y_{j}\), definitivamente:
+  \begin{equation*}
+	\lim_{j\to \infty} x_{j} = \lim_{j\to\infty}\frac{1}{y_{j}} = \infty
+  \end{equation*}
+  poiché \(y_{j}\to 0\). Quindi \((x_{j})_{j \in \omega} \in C_{3}\). Assurdo.
+
+  Si ottiene perciò che \(F(\alpha) \notin C_{0}\).
+
+**** _\(G^{-1}(C)=C_{0}\)._
+
+Si dimostra che \(\alpha \in C_{0}\) sse \(G(\alpha) \in C\).
+
+- Se \(\alpha = (x_{j})_{j \in \omega} \in C_{0}\) allora la successione \(\beta= (y_{j})_{j \in \omega} \coloneqq G(\alpha)\) converge a \(0\), e pertanto converge: \(G(\alpha) \in C\).
+- Viceversa, se \(\alpha = (x_{j})_{j \in \omega}\notin C_{0}\) , allora la successione \(\beta= (y_{j})_{j \in \omega} \coloneqq G(\alpha)\) non converge, in quanto presenta due sottosuccessioni (\((y_{2j+1})_{j \in \omega}\) e \((y_{2j})_{j \in \omega}\)) con caratteri diversi: \(G(\alpha)\notin C\).\qed
+
+* Esercizio 4
+
+Prove that for any $0 < p < \infty$ the set
+\[
+\ell^p \cap [0,1]^\omega =
+\set{(x_n)_{n \in \omega} \in [0,1]^\omega
+\mid
+\|x\|_p = \left( \sum_{n=0}^\infty |x_n|^p \right)^{1/p} < \infty}
+\]
+is \(\bm{\Sigma}^0_2\)-complete.
+
+/Hint./ Recall that a series of positive terms converges if and only if the sequence of partial sums is bounded from above. For the hardness part, compare this set with the \(\bm{\Sigma}^0_2\)-complete set \(Q_2\) from the notes.
+
+** Soluzione
+
+*** Insieme \(\mathbf{\Sigma}^{0}_{2}\)
+
+Sia \(x=(x_{j})_{j \in \omega} \in [0,1]^{\omega}\).
+
+Si ha che \((x_{j})_{j \in \omega} \in \ell^{p}\cap[0,1]^{\omega}\) se e solo se
+\begin{equation*}
+\norma{x}_{p} = \left(\sum_{n=0}^{\infty}|x_{n}|^{p}\right)^{1/p}<\infty
+\end{equation*}
+se e solo se
+\begin{equation*}
+(\norma{x}_{p})^{p} = \sum_{n=0}^{\infty}|x_{n}|^{p} < \infty
+\end{equation*}
+se e solo se, sfruttando l'hint,
+\begin{equation*}
+\exists\, L \in \Q^{+}\ \forall\, N \in \N \ \left(\sum_{n=0}^{N} |x_{n}|^{p}\right) \le L
+\end{equation*}
+
+Sia dunque
+\begin{align*}
+G_{N}^{p}: [0,1]^{\omega} &\longrightarrow \R\\
+(x_{j})_{j \in \omega} &\longmapsto \sum_{n=0}^{N} |x_{n}|^{p}
+\end{align*}
+Questa è una mappa continua, poiché composizione di mappe continue (proiezioni, continue per la definizione di topologia prodotto, e somma finita ed elevamento a potenza) e pertanto il seguente è un insieme chiuso:
+\begin{equation*}
+V_{L}^{N} \coloneqq \set{(x_{j})_{j \in \omega} \in [0,1]^{\omega}\mid \left(\sum_{n=0}^{N} |x_{n}|^{p}\right) \le L} = (G_{N}^{p})^{-1}\left([0,L]\right).
+\end{equation*}
+
+In definitiva
+\begin{align*}
+V_{L}^{N} &\in \bm{\Pi}_{1}^{0}\\
+\bigcap_{N \in \N} V_{L}^{N} &\in \bm{\Pi}_{1}^{0}\\
+\ell^{p}\cap[0,1]^{\omega} = \bigcup_{L \in \Q}\bigcap_{N \in \N} V_{L}^{N} &\in \bm{\Sigma}_{2}^{0}.
+\end{align*}
+
+*** Insieme \(\mathbf{\Sigma}^{0}_{2}\)-hard
+
+È noto che l'insieme
+\begin{equation*}
+Q_{2}\coloneqq \set{x \in 2^{\omega}\mid
+\exists\, n \in \N\ \forall\, k \ge n\ \left(x(k) = 0\right)
+}
+\end{equation*}
+sia \(\bm{\Sigma}_{2}^{0}\)-hard.
+
+Si vuole quindi trovare una funzione continua
+\begin{equation*}
+F: 2^{\omega} \longrightarrow [0,1]^{\omega}
+\end{equation*}
+tale che \(F^{-1}\left(\ell^{p}\cap[0,1]^{\omega}\right)=Q_{2}\). Questo, per il Lemma 2.1.23, garantisce che \(\ell^{p}\cap[0,1]^{\omega}\) sia \(\bm{\Sigma}_{2}^{0}\)-hard, e quindi \(\bm{\Sigma}_{2}^{0}\)-completo.
+
+- Considerando che \(2=\set{0,1} \subseteq [0,1]\), si può definire \(F\) come l'inclusione, ovvero
+  \begin{align*}
+	F: 2^{\omega} &\longrightarrow [0,1]^{\omega}\\
+	(x_{j})_{j \in \omega} &\longmapsto (x_{j})_{j \in \omega}
+  \end{align*}
+- Questa è una funzione continua, poiché è continua su ciascuna componente (infatti \(\set{0,1}\) ha la topologia di sottospazio rispetto a \([0,1]\), e per definizione quindi l'inclusione è continua).
+- Inoltre, \(F^{-1}\left(\ell^{p}\cap[0,1]^{\omega}\right) = Q_{2}\). In particolare, si dimostra che \(\alpha \in Q_{2}\) sse \(F(\alpha) \in \ell^{p}\cap[0,1]^{\omega}\)
+  - Sia \(\alpha = (x_{j})_{j \in \omega} \in Q_{2}\). Allora esiste \(N \in \N\) tale che \(x_{j}=0\) per ogni \(j>N\), e pertanto
+    \begin{equation*}
+		\left(\sum_{j=0}^{\infty}|x_{j}|^{p}\right)^{1/p} = \left(\sum_{j=0}^{N} |x_{j}|^{p}\right)^{1/p}<\infty
+    \end{equation*}
+    Pertanto \(F(\alpha) \in \ell^{p}\cap[0,1]^{\omega}\).
+  - Sia \(\alpha = (x_{j})_{j \in \omega} \notin Q_{2}\). Allora per ogni \(n \in \N\) esiste \(k_{n}\ge n\) tale che \(x_{k_{n}} = 1\). Pertanto, per ogni \(n \in \N\), esiste un numero infinito di indici \(j\) tali che \(x_{j}=1\), e dunque \(\lim_{j\to\infty} x_{j}\neq 0\) e dunque la serie
+    \begin{equation*}
+		\sum_{j=0}^{\infty} |x_{j}|^{p}
+    \end{equation*}
+    diverge. Pertanto \(F(\alpha)\notin \ell^{p}\cap[0,1]^{\omega}\).\qed
+
+* Esercizio 5
+
+Show that the collection of all sequences $(x_n)_{n \in \omega} \in [0,1]^\omega$ having an irrational accumulation point is analytic.
+
+** Soluzione
+
+Sia \(A_{[0,1]\setminus\Q}\) l'insieme di tutti gli \((x_{j})_{j \in \omega} \in [0,1]^{\omega} \) con un punto di accumulazione irrazionale.
+
+Si ricorda che \(p \in [0,1]\) è un punto di accumulazione per \((x_{j})_{j \in \omega}\), per definizione, se:
+\begin{equation*}
+\forall\, \varepsilon > 0 \ \forall\, N \in \N\ \exists\, n > N\ \left(x_{n} \in (p-\varepsilon,p+\varepsilon)\right).
+\end{equation*}
+
+In particolare, \(p \in [0,1]\) è un punto di accumulazione per \((x_{j})_{j \in \omega}\) se e solo se:
+\begin{equation*}
+\forall\, \varepsilon \in \Q^{+} \ \forall\, N \in \N\ \exists\, n > N\ \left(x_{n} \in (p-\varepsilon,p +\varepsilon)\right).
+\end{equation*}
+
+Per il Remark 3.1.10, quindi, siccome \([0,1]\setminus \Q\) è uno spazio polacco, \(A_{[0,1]\setminus \Q}\) è un insieme analitico, in quanto definito dalla seguente formula:
+\begin{equation*}
+\exists\, p \in [0,1]\setminus \Q\ \forall\, \varepsilon \in \Q^{+} \ \forall\, N \in \N\ \exists\, n > N\ \left(x_{n} \in (p-\varepsilon,p +\varepsilon)\right)
+\end{equation*}
+composta unicamente (tranne che per il primo esistenziale), da quantificazioni numerabili, e da una formula atomica: \(x_{n} \in (p-\varepsilon,p+\varepsilon)\), che definisce un boreliano di \(([0,1]\setminus \Q)\times [0,1]^{\omega}\), in quanto, data la funzione continua
+\begin{align*}
+F_{n}: ([0,1]\setminus \Q)\times [0,1]^{\omega}  &\longrightarrow \R\\
+\left(p,(x_{j})_{j \in \omega}\right) &\longmapsto x_{n}-p
+\end{align*}
+si ha che
+\begin{equation*}
+\set{\left(p,(x_{j})_{j \in \omega}\right) \in ([0,1]\setminus \Q)\times [0,1]^{\omega}\mid x_{n} \in (p-\varepsilon,p+\varepsilon)} = F_{n}^{-1}\left[(-\varepsilon,\varepsilon)\right]
+\end{equation*}
+è un aperto.\qed
+
+# Sia dunque \(V_{p,\varepsilon}^{n} \coloneqq \set{\left(p,(x_{j})_{j \in \omega}\right) \in ([0,1]\setminus \Q)\times([0,1]^{\omega})\mid x_{n} \in (p-\varepsilon,p+\varepsilon) } = \set{p}\times(\pi_{n})^{-1}\left[[p-\varepsilon,p+\varepsilon]\right]\). Questo è un insieme chiuso.
+
+# Pertanto l'insieme di tutte le successioni di \([0,1]^{\omega}\) aventi come punto di accumulazione \(p \in [0,1]\) è un boreliano, in quanto è il seguente insieme:
+# \begin{equation*}
+# \bigcap_{\varepsilon \in \Q^{+}}\bigcap_{N \in \N}\bigcup_{n > N} V_{p,\varepsilon}^{n}
+# \end{equation*}

@@ -1,0 +1,183 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.0 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{mathoverflow}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d250a18c2cd7c01f31fdba9ed5f3d418}{%
+           family={(\url{https://math.stackexchange.com/users/212120/pedro-s\%c3\%a1nchez-terraf)}},
+           familyi={(\bibinithyphendelim s\bibinithyphendelim t\bibinitperiod},
+           given={Pedro\bibnamedelimb Sánchez\bibnamedelima Terraf},
+           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{d250a18c2cd7c01f31fdba9ed5f3d418}
+      \strng{fullhash}{d250a18c2cd7c01f31fdba9ed5f3d418}
+      \strng{bibnamehash}{d250a18c2cd7c01f31fdba9ed5f3d418}
+      \strng{authorbibnamehash}{d250a18c2cd7c01f31fdba9ed5f3d418}
+      \strng{authornamehash}{d250a18c2cd7c01f31fdba9ed5f3d418}
+      \strng{authorfullhash}{d250a18c2cd7c01f31fdba9ed5f3d418}
+      \field{sortinit}{h}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Mathematics Stack Exchange}
+      \field{note}{URL:https://math.stackexchange.com/q/3681151 (version: 2020-05-19)}
+      \field{title}{Banach-Mazur game and the Baire property}
+      \true{nocite}
+      \verb{eprint}
+      \verb https://math.stackexchange.com/q/3681151
+      \endverb
+      \verb{urlraw}
+      \verb https://math.stackexchange.com/q/3681151
+      \endverb
+      \verb{url}
+      \verb https://math.stackexchange.com/q/3681151
+      \endverb
+    \endentry
+    \entry{sep}{incollection}{}
+      \name{author}{2}{}{%
+        {{hash=5982fe965747f607f6042392bb0197f1}{%
+           family={Hodges},
+           familyi={H\bibinitperiod},
+           given={Wilfrid},
+           giveni={W\bibinitperiod}}}%
+        {{hash=cbc46d49c0749900ddde1beaf19c89d9}{%
+           family={Väänänen},
+           familyi={V\bibinitperiod},
+           given={Jouko},
+           giveni={J\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=5ff1c29ff1cc8f6336533b0ffd842a79}{%
+           family={Zalta},
+           familyi={Z\bibinitperiod},
+           given={Edward\bibnamedelima N.},
+           giveni={E\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=47603970fcd579d567acd0cb66cdb242}{%
+           family={Nodelman},
+           familyi={N\bibinitperiod},
+           given={Uri},
+           giveni={U\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Metaphysics Research Lab, Stanford University}%
+      }
+      \strng{namehash}{7fcc5ffbdeb6a1fcaa1ce0a1552c1eab}
+      \strng{fullhash}{7fcc5ffbdeb6a1fcaa1ce0a1552c1eab}
+      \strng{bibnamehash}{7fcc5ffbdeb6a1fcaa1ce0a1552c1eab}
+      \strng{authorbibnamehash}{7fcc5ffbdeb6a1fcaa1ce0a1552c1eab}
+      \strng{authornamehash}{7fcc5ffbdeb6a1fcaa1ce0a1552c1eab}
+      \strng{authorfullhash}{7fcc5ffbdeb6a1fcaa1ce0a1552c1eab}
+      \strng{editorbibnamehash}{ab8d8ffb26096a29ec1c38ef9e4911c6}
+      \strng{editornamehash}{ab8d8ffb26096a29ec1c38ef9e4911c6}
+      \strng{editorfullhash}{ab8d8ffb26096a29ec1c38ef9e4911c6}
+      \field{sortinit}{H}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Games between two players, of the kind where one player wins and oneloses, became a familiar tool in many branches of logic during thesecond half of the twentieth century. Important examples are semanticgames used to define truth, back-and-forth games used to comparestructures, and dialogue games to express (and perhaps explain) formalproofs.}
+      \field{booktitle}{The Stanford Encyclopedia of Philosophy}
+      \field{edition}{Winter 2024}
+      \field{title}{Logic and Games}
+      \field{urlday}{29}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://plato.stanford.edu/archives/win2024/entries/logic-games/
+      \endverb
+      \verb{url}
+      \verb https://plato.stanford.edu/archives/win2024/entries/logic-games/
+      \endverb
+    \endentry
+    \entry{kechris}{book}{}
+      \name{author}{1}{}{%
+        {{hash=c20ec70302197b9127746c09db04c836}{%
+           family={Kechris},
+           familyi={K\bibinitperiod},
+           given={Alexander\bibnamedelima S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, {NY}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{c20ec70302197b9127746c09db04c836}
+      \strng{fullhash}{c20ec70302197b9127746c09db04c836}
+      \strng{bibnamehash}{c20ec70302197b9127746c09db04c836}
+      \strng{authorbibnamehash}{c20ec70302197b9127746c09db04c836}
+      \strng{authornamehash}{c20ec70302197b9127746c09db04c836}
+      \strng{authorfullhash}{c20ec70302197b9127746c09db04c836}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Descriptive set theory has been one of the main areas of research in set theory for almost a century. This text attempts to present a largely balanced approach, which combines many elements of the different traditions of the subject. It includes a wide variety of examples, exercises (over 400), and applications, in order to illustrate the general concepts and results of the theory. This text provides a first basic course in classical descriptive set theory and covers material with which mathematicians interested in the subject for its own sake or those that wish to use it in their field should be familiar. Over the years, researchers in diverse areas of mathematics, such as logic and set theory, analysis, topology, probability theory, etc., have brought to the subject of descriptive set theory their own intuitions, concepts, terminology and notation}
+      \field{isbn}{978-1-4612-4190-4}
+      \field{number}{156}
+      \field{pagetotal}{428}
+      \field{series}{Graduate Texts in Mathematics}
+      \field{title}{Classical Descriptive Set Theory}
+      \field{year}{1995}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{doi}
+      \verb 10.1007/978-1-4612-4190-4
+      \endverb
+    \endentry
+    \entry{lmr}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=364b17994211dabb8cdf61567d5fa9dd}{%
+           family={Motto\bibnamedelima Ros},
+           familyi={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={Luca},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{364b17994211dabb8cdf61567d5fa9dd}
+      \strng{fullhash}{364b17994211dabb8cdf61567d5fa9dd}
+      \strng{bibnamehash}{364b17994211dabb8cdf61567d5fa9dd}
+      \strng{authorbibnamehash}{364b17994211dabb8cdf61567d5fa9dd}
+      \strng{authornamehash}{364b17994211dabb8cdf61567d5fa9dd}
+      \strng{authorfullhash}{364b17994211dabb8cdf61567d5fa9dd}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{4}
+      \field{note}{Lecture notes for a 48-hour course at the University of Turin}
+      \field{title}{Notes on Descriptive Set Theory}
+      \field{year}{2024}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://sites.google.com/site/lucamottoros/
+      \endverb
+      \verb{url}
+      \verb https://sites.google.com/site/lucamottoros/
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

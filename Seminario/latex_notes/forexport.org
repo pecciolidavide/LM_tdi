@@ -1,0 +1,33 @@
+#+title: Giochi di Banach-Mazur
+#+date: 4 giugno 2025
+#+author: Davide Peccioli
+
+* Giochi Logici
+
+#+INCLUDE: /Users/davidepeccioli/Documents/org/roam/20250513155732-logic_game.org
+#+INCLUDE: /Users/davidepeccioli/Documents/org/roam/20250514143441-giochi_logici_equivalenti.org
+
+** Giochi di Gale-Stewart
+
+#+INCLUDE: /Users/davidepeccioli/Documents/org/roam/20250513171520-giochi_di_gale_stewart.org
+
+** Teorema di Gale-Stewart
+
+#+INCLUDE: /Users/davidepeccioli/Documents/org/roam/20250514144736-teorema_di_gale_stewart.org
+
+* Ripasso TDI
+
+#+INCLUDE: /Users/davidepeccioli/Documents/org/roam/20250419122752-insieme_magro.org
+#+INCLUDE: /Users/davidepeccioli/Documents/org/roam/20250514154101-spazio_topologico_di_baire.org
+#+INCLUDE: /Users/davidepeccioli/Documents/org/roam/20250514154039-proprieta_di_baire.org
+#+INCLUDE: /Users/davidepeccioli/Documents/org/roam/20250525220742-insieme_analitico.org
+
+* Tutti analytic BP
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250513111844-gioco_di_banach_mazur.org::Gioco di Banach-Mazur"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250514174255-gioco_di_choquet.org"
+#+INCLUDE: /Users/davidepeccioli/Documents/org/roam/20250514174717-teorema_di_caratterizzazione_dei_comagri_tramite_il_gioco_di_banach_mazur.org
+#+INCLUDE: /Users/davidepeccioli/Documents/org/roam/20250526100910-caratterizzazione_bp_tramite_gioco_di_banach_mazur.org
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250513111844-gioco_di_banach_mazur.org::Gioco di Banach-Mazur Unfolded"
+#+INCLUDE: /Users/davidepeccioli/Documents/org/roam/20250514175252-magrezza_dentro_ad_un_polacco_tramite_gioco_di_banach_mazur.org
+#+INCLUDE: /Users/davidepeccioli/Documents/org/roam/20250514174859-insiemi_analitici_di_un_polacco_hanno_bp.org

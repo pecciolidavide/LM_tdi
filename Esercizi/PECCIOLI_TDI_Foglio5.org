@@ -1,0 +1,366 @@
+#+title: Esercizi TDI - Foglio 5
+#+date: 24 maggio 2025
+#+OPTIONS: toc:nil
+#+LATEX_HEADER: \renewcommand{\href}[2]{#2}
+#+LATEX_HEADER: \renewcommand{\theenumi}{\alph{enumi}}
+
+
+* Esercizio 1
+
+Let \(E\) be an equivalence relation on a Polish space \(X\). A set \(A \subseteq X\) is called *\(E\)-invariant* if \(x \in A\) and \(y \mathrel{E} x\) implies \(y \in A\), for all \(x, y \in X\). Suppose that \(E\) is analytic, that is, \(E \in \bm{\Sigma}^1_1(X^2)\). Show that if \(A, B \subseteq X\) are disjoint analytic \(E\)-invariant sets, then there is a Borel \(E\)-invariant set \(C \subseteq X\) separating \(A\) from \(B\), that is, \(A \subseteq C\) and \(C \cap B = \emptyset\).
+
+/Hint/: Recursively define sets \(A_n\), \(C_n \subseteq X\) so that \(A_0 = A\), \(C_n\) is a Borel set separating \(A_n\) from \(B\), and \(A_{n+1} \supseteq C_n\) is \(E\)-invariant, analytic, and disjoint from \(B\).
+
+** Soluzione
+
+_Claim_: Esistono due famiglie \((A_{n})_{n \in \omega}, (C_{n})_{n \in \omega}\) di sottoinsiemi di \(X\), tali che
+- \(A_{0}=A\);
+- \(\forall\, n \in\omega\): \(A_{n} \subseteq C_{n} \subseteq A_{n+1}\);
+- \(\forall\, n \in\omega\): \(C_{n} \in \bm{{\operatorname{Bor}}}(X)\) e \(C_{n}\cap B = \emptyset\)
+- \(\forall\, n \in \omega\): \(A_{n}\) è \(E\)-invariante, analitico.
+
+Se tali famiglie esistono, sia \(C\coloneqq\bigcup_{n \in\omega} C_{n}\).
+- \(C\) è \(E\)-invariante. Infatti, siano \(x,y \in X\), con  \(x\mathrel{E}y\). Se \(x \in C\), allora esiste \(n \in\omega\) tale che \(x \in C_{n} \subseteq A_{n+1}\); poiché \(A_{n+1}\) è \(E\)-invariante, allora \(y \in A_{n+1} \subseteq C_{n+1} \subseteq C\), e pertanto \(y \in C\).
+- \(C \in \bm{{\operatorname{Bor}}}(X)\), poiché unione numerabile di Boreliani.
+- \(A \subseteq C\); infatti \(A = A_{0} \subseteq C_{0} \subseteq C\).
+- \(C\cap B = \emptyset\), poiché ciascun \(C_{n}\) è disgiunto ta \(B\).
+
+_Dimostazione del claim_: si procede per induzione.
+
+1. Sia \(A_{0}\coloneqq A\), \(E\)-invariante e analitico. Allora \(A_{0}, B \subseteq X\) sono due insiemi analitici disgiunti, e pertanto esiste, per il Teorema 3.2.1, un Boreliano \(C_{0} \subseteq X\) tale che
+   \begin{equation*}
+	A_{0} \subseteq C_{0};\quad C_{0}\cap B = \emptyset.
+   \end{equation*}
+
+2. Per il passo induttivo, si supponga di aver costruito \((A_{i})_{i\le n}\) e \((C_{i})_{i\le n}\). Si costruiscono \(A_{n+1}, C_{n+1}\).
+
+   _L'insieme \(A_{n+1}\)_ è definito chiudendo \(C_{n}\) rispetto alla relazione di equivalenza \(E\), ovvero
+   \begin{equation*}
+	C_{n} \subseteq A_{n+1} \coloneqq \set{x \in X\mid \exists\,y \in C_{n}\ (x\mathrel{E}y)}.
+   \end{equation*}
+   - Ovviamente \(A_{n} \subseteq C_{n} \subseteq A_{n+1}\), poiché \(E\) è riflessiva.
+   - \(A_{n+1}\) è \(E\)-invariante per definizione, poiché \(E\) è transitiva e simmetrica.
+   - \(A_{n+1}\) è analitico, poiché \((X\times C_{n})\cap E\) è analitico, e \(A_{n+1}\) è
+     \begin{equation*}
+		\pi_{1}\left((X\times C_{n})\cap E\right)
+     \end{equation*}
+     dove \(\pi_{1}:X\times X\to X\) è la proiezione sul primo fattore (per la proposizione 3.1.5).
+
+     L'insieme \((X\times C_{n})\cap E\) è analitico
+     poiché \(\bm{\Sigma}_{1}^{1}\) è chiusa per intersezioni finite e:
+     - \(E\) è analitico per ipotesi;
+     - \(C_{n}\) è Boreliano per ipotesi, dunque analitico, e, detta \(\pi_{2}: X\times X\to X\) la proiezione sul secondo fattore,
+       \begin{equation*}
+		X\times C_{n}= \pi_{2}^{-1}(C_{n})
+       \end{equation*}
+       e siccome \(\bm{\Sigma}_{1}^{1}\) è chiusa per retroimmagini continue, anche \(X\times C_{n}\) è analitico.
+   - Si nota che \(A_{n+1}\cap B=\emptyset\) poiché, se per assurdo esistesse \(x \in A_{n+1}\cap B\) allora ci sarebbe \(y \in C_{n}\) tale che
+     \begin{equation*}
+		x\mathrel{E}y
+     \end{equation*}
+     e siccome \(B\) è \(E\)-invariante, allora \(y \in B\). Dunque \(y \in B\cap C_{n} \neq\emptyset\). Assurdo.
+
+   Dunque gli insiemi \(A_{n+1}, B \subseteq X\) sono analitici e disgiunti, e pertanto esiste, per il Teorema 3.2.1, un Boreliano \(C_{n+1} \subseteq X\) tale che
+   \begin{equation*}
+	A_{n+1} \subseteq C_{n+1}; \quad C_{n+1}\cap B =\emptyset\qedd
+   \end{equation*}
+
+* Esercizio 2
+
+Let \(E\) be an equivalence relation on a Polish space \(X\). A *partial transversal* for \(E\) is a set \(T \subseteq X\) meeting each \(E\)-equivalence class in at most one point. Show that the following are equivalent:
+a. \(E\) admits an uncountable analytic partial transversal;
+b. \(E\) admits an uncountable Borel partial transversal;
+c. there is a Borel function \(f: \R \to X\) such that \(f(r_0) \not\mathrel{E} f(r_1)\) for all distinct \(r_0, r_1 \in \R\).
+
+** Soluzione
+
+*** a. implica b.
+
+_Osservazione_: se \(T \subseteq X\) è un insieme trasversale parziale, allora ogni \(T' \subseteq T\) è ancora un insieme trasversale parziale.
+
+Inoltre, [[id:13c56e92-e768-4121-b804-de1301da1928][ogni insieme analitico \(A\) non numerabile ammette un sottoinsieme Boreliano \(B\) non numerabile]], in quanto:
+- siccome \(A\) è analitico, allora \(A\) ha la PSP (per il Teorema 3.4.1);
+- siccome \(A\) è non numerabile, allora esiste
+  \begin{equation*}
+	\iota: 2^{\omega}\to A
+  \end{equation*}
+  una immersione topologica, ovvero \(\iota\) continua e iniettiva;
+- pertanto, per il Corollario 3.2.7, \(B\coloneqq\iota(2^{\omega}) \subseteq T\) è Boreliano (poiché \(2^{\omega} \in \bm{{\operatorname{Bor}}}(2^{\omega})\) e \(\iota\) iniettiva) ed è ovviamente non numerabile, poiché ha cardinalità \(2^{\aleph_{0}}>\aleph_{0}\).
+
+Pertanto l'insieme analitico trasversale parziale \(T\) ammette un sottoinsieme Boreliano non numerabile \(T' \subseteq T\), e per l'Osservazione iniziale, \(T'\) è un insieme trasversale parziale.
+
+*** b. implica a.
+
+Questo è ovvio, poiché \(\bm{{\operatorname{Bor}}}(X) \subseteq \bm{\Sigma}_{1}^{1}(X)\) per il Corollario 3.1.4.
+
+*** b. implica c.
+
+Sia \(T' \subseteq X\) un insieme Boreliano trasversale parziale. Allora, per il Corollario 3.2.7 esiste un chiuso \(F \subseteq \omega^{\omega}\) e una funzione continua e iniettiva
+\begin{equation*}
+g: F \subseteq \omega^{\omega}\to X
+\end{equation*}
+tale che \(g(F)=T'\).
+
+Inoltre, per il Teorema 1.3.17, esiste una biiezione continua
+\begin{equation*}
+h: F \subseteq \omega^{\omega}\to \R.
+\end{equation*}
+In particolare, per il Corollario 3.2.6, \(h\) è un Borel-isomorfismo, e pertanto \(h^{-1}: \R\to F\) è una funzione Boreliana.
+
+Si pone quindi \(f\coloneqq g\circ h^{-1}\). Questa è una funzione Boreliana iniettiva (poiché composizione di funzioni iniettive)
+\begin{equation*}
+f: \R\to X.
+\end{equation*}
+
+Siano dunque \(r_{0}\neq r_{1} \in \R\). Allora \(f(r_{0})\neq f(r_{1})\), e \(f(r_{0}), f(r_{1}) \in T'\). Se per assurdo
+\begin{equation*}
+f(r_{0})\mathrel{E} f(r_{1})
+\end{equation*}
+si avrebbe che \(T'\) contiene due elementi distinti della stessa classe di \(E\)-equivalenza. Assurdo.
+
+Pertanto, se \(r_{0}\neq r_{1} \in \R\), allora \(f(r_{0})\not\mathrel{E}f(r_{1})\).
+
+*** c. implica b.
+
+La funzione \(f\) è necessariamente _iniettiva_, poiché se per assurdo esistessero \(r_{0}\neq r_{1} \in \R\) tali che \(f(r_{0})=f(r_{1})\), allora per la _riflessività_ di \(E\):
+\begin{equation*}
+f(r_{0})\mathrel{E}f(r_{1})
+\end{equation*}
+e questo contraddice l'ipotesi.
+
+Si consideri dunque \(A \subseteq \R\) non numerabile, \(A \in \bm{{\operatorname{Bor}}}(\R)\): allora \(f(A) \subseteq X\) è Boreliano per il Corollario 3.2.7, ed è inoltre un insieme trasversale parziale per \(E\): infatti se per assurdo vi fossero \(x\neq y \in f(A)\) tali che \(x\mathrel{E}y\) allora, siccome \(f\) è iniettiva, esistono \(x_{0}\neq y_{0} \in A\) tali che \(x=f(x_{0})\), \(y=f(y_{0})\), ovvero
+\begin{equation*}
+f(x_{0})\mathrel{E}f(y_{0}).
+\end{equation*}
+Questo contraddice l'ipotesi.\qed
+
+* Esercizio 3
+
+Let \(E\) be an equivalence relation on a Polish space \(X\). A *transversal* for \(E\) is a set \(T \subseteq X\) meeting every \(E\)-equivalence class in exactly one point. A *selector* for \(E\) is a map \(s: X \to X\) selecting one element from each \(E\)-equivalence class, that is, \(s(x) \in [x]_E\) and \(s(x) = s(y)\) if \(x \mathrel{E} y\). Show that if \(E\) is analytic, then the following are equivalent:
+
+a. \(E\) admits an analytic transversal;
+b. \(E\) admits a Borel transversal;
+c. \(E\) admits a Borel selector.
+
+** Soluzione
+
+*** c. implica b.
+
+Sia \(s:X\to X\) un selettore Boreliano per \(E\) e sia \(T\coloneqq s(X)\).
+
+Allora _\(T\) è trasversale_. Infatti incontra ogni classe di \(E\)-equivalenza esattamente una volta.
+- _Almeno una volta_: Per ogni \(x \in X\) esiste \(t \in T\) tale che \(x\mathrel{R}t\): \(t=s(x)\).
+- _Al più una volta_: Siano \(x\neq y \in T\) e siano \(x_{0},y_{0} \in X\) tali che
+  \begin{equation*}
+	s(x_{0})=x,\quad s(y_{0})=y.
+  \end{equation*}
+  Per definizione \(x\mathrel{E}x_{0}\) e \(y\mathrel{E}y_{0}\). Se per assurdo \(x\mathrel{E}y\) allora \(x_{0}\mathrel{E}y_{0}\) per transitività di \(E\). Per definizione, allora
+  \begin{equation*}
+	s(x_{0}) = s(y_{0})
+  \end{equation*}
+  ovvero \(x=y\). Assurdo.
+
+Inoltre, sia
+\begin{align*}
+f: X &\longrightarrow X\times X\\
+x &\longmapsto \left(x,s(x)\right)
+\end{align*}
+Questa è una funzione Boreliana, poiché \(s\) è Boreliana: \(f=\operatorname{Id}_{X}\times s\) e per le proprietà di pag. 54, \(f\) è Boreliana.
+
+Allora, detta \(D \subseteq X\times X\) la diagonale,
+\begin{equation*}
+D\coloneqq\set{(x,x)\mid x \in X}
+\end{equation*}
+si ha che \(D\) è chiuso, poiché \(X\) è metrizzabile e quindi Haussdorf. Inoltre \(T=f^{-1}(D)\)
+- (\(\subseteq\)): Se \(t \in T\), allora \(s(t)=t\), poiché altrimenti \(s(t) \in T\) sarebbe un elemento distinto da \(t\) della classe \([t]_{E}\). Pertanto \(f(t) = \left(t,s(t)\right) = (t,t) \in D\).
+- (\(\supseteq\)): Se \(t \in f^{-1}(D)\) allora \(s(t)=t\) e quindi \(t \in s(X) = T\).
+
+Dunque, siccome \(f\) è Boreliana e \(D\) è chiuso, _\(T\) è un Boreliano_.
+
+*** b. implica a.
+
+Questo è ovvio, poiché \(\bm{{\operatorname{Bor}}}(X) \subseteq \bm{\Sigma}_{1}^{1}(X)\) per il Corollario 3.1.4.
+
+*** a. implica c.
+
+Sia \(T \subseteq X\) un insieme analitico trasversale per \(E\).
+
+Siccome \(T\) è trasversale per \(E\), allora è ben definita la funzione
+\begin{align*}
+\varphi: X/E &\longrightarrow T\\
+[x]_{E} &\longmapsto t \in [x]_{E}.
+\end{align*}
+poiché per ogni classe di \(E\)-equivalenza esiste un unico elemento \(t \in T\) tale che \(t \in [x]_{E}\).
+
+Si definisce dunque la funzione \(s: X\to T: x\mapsto \varphi\left([x]_{E}\right)\). Questa è un _selettore_, poiché:
+- per ogni \(x \in X\): \(s(x) = \varphi\left([x]_{E}\right) = t \in [x]_{E}\);
+- se \(x\mathrel{E}y\) allora \([x]_{E}= [y]_{E}\) e pertanto
+  \begin{equation*}
+	s(x) = \varphi\left([x]_{E}\right) = \varphi\left([y]_{E}\right) = s(y).
+  \end{equation*}
+
+Resta da dimostrare che \(s\) sia Boreliana. Sfruttando il Teorema 3.2.4 è sufficiente dimostrare che \(\operatorname{graph}(s) \subseteq X\times X\) sia analitico. Si ha che
+\begin{equation*}
+\operatorname{graph}(s) = E\cap (X\times T)
+\end{equation*}
+infatti:
+- se \((x,y) \in \operatorname{graph}(s)\) allora \(y=s(x)\), e poiché \(s\) è un selettore: \(x\mathrel{E} s(x)\) e quindi \((x,y) \in E\); inoltre \(x \in X\) e \(y=s(x) \in T\);
+- viceversa, se \((x,y) \in E\cap (X\times T)\) allora \(y \in T\) e \(x\mathrel{E} y\); inoltre \(y\) è l'unico elemento di \(T\) tale che \(x\mathrel{E}y\), e pertanto, per definizione \(y=s(x)\).
+
+Sia \(T\) che \(E\) sono analitici per ipotesi. Inoltre \(X\times T = \pi_{2}^{-1}(T)\) è analitico, in quanto retroimmagine continua di un analitico (per la Proposizione 3.1.5), e dunque \(E\cap (X\times T) = \operatorname{graph}(s)\) è analitico.\qed
+* Esercizio 4
+
+Prove the following theorem:
+#+begin_quote
+Let \(X\) be a Polish space. Then every \(A \in \bm{\Pi}^1_1(X)\) can be written as \(A = \bigcup_{\xi < \omega_1} A_\xi\), where \(A_\xi\) is Borel for every \(\xi < \omega_1\).
+#+end_quote
+by completing the details of the following steps:
+
+a. First prove the theorem for \(X = \mathrm{LO}\) and \(A = \mathrm{WO}\) as follows:
+   - Given \(\omega \leq \xi < \omega_1\), let \(\mathrm{WO}_\xi\) be the set of codes for well-orders of \(\omega\) with order type \(\leq \xi\). Show that each \(\mathrm{WO}_\xi\) is analytic.
+   - Argue that there is a Borel set \(A_\xi\) such that \(\mathrm{WO}_\xi \subseteq A_\xi \subseteq \mathrm{WO}\).
+
+     /Optional/: Show that \(\mathrm{WO}_\xi\) itself is Borel by showing that its complement is analytic as well.
+   - Conclude that \(\mathrm{WO} = \bigcup_{\xi < \omega_1} A_\xi\).
+
+b. Use the fact that \(\mathrm{WO}\) is \(\bm{\Pi}^1_1\)-complete to prove the theorem for \(X = \omega^\omega\) and an arbitrary \(A \in \bm{\Pi}^1_1(\omega^\omega)\).
+
+c. Use the Borel isomorphism theorem for Polish spaces to transfer the result to an arbitrary uncountable Polish space \(X\).
+
+d. What happens if \(X\) is a countable Polish space?
+
+** Soluzione
+
+*** Parte a.
+
+Si consideri lo spazio polacco \(X\coloneqq\mathrm{LO} \subseteq 2^{\omega\times\omega}\) e si adotti la notazione dell'Esempio 3.1.8: l'insieme \(\mathrm{NWO}\) è analitico, mentre l'insieme \(\mathrm{WO}\) è coanalitico. È dunque possibile porre
+\begin{equation*}
+A\coloneqq \mathrm{WO} \in \bm{\Pi}_{1}^{1}(\mathrm{LO}).
+\end{equation*}
+
+
+- Sia \(\omega\le\xi< \omega_{1}\) fissato. Sia \(\mathrm{WO}_{\xi}\) l'insieme di tutti gli elementi di \(\mathrm{WO}\) con order type \(\le \xi\): un buon ordine \(\langle A, \preceq\rangle\) ha order type \(\xi'\) se e solo se esiste una biiezione \(f:A\to \xi'\) tale che, per ogni \(a,b \in A\)
+  \begin{equation*}
+		a\preceq b\quad \iff\quad f(a)< f(b)
+  \end{equation*}
+
+  Dunque \(x \in \mathrm{WO}\) ha order type \(\xi'\) se e solo se esiste una funzione biiettiva \(f:\omega \to\xi' \) tale che per ogni \(m,n \in \omega\):
+  \begin{equation*}
+		x(m,n) = 1\quad\iff\quad f(m)< f(n)
+  \end{equation*}
+
+  Si consideri quindi \(\mathrm{WO}^{=\xi'}\) l'insieme di tutti gli elementi di \(\mathrm{WO}\) con order type _esattamente_ \(\xi'\): per ogni \(x \in \mathrm{WO}\):
+  \begin{equation*}
+		x \in \mathrm{WO}^{=\xi'} \quad \iff \quad\exists\, f \in (\xi')^{\omega}\text{ biiettiva}\ \forall\, m,n \in\omega\ \left(x(m,n)=1\,\iff\, f(m)<f(n)\right).
+  \end{equation*}
+
+  Inoltre, se \(x \in \mathrm{LO}\), la condizione di destra garantisce che \(x \in \mathrm{WO}\), poiché la biiezione \(f\) è un isomorfismo di ordini e \(\xi'\) è ben ordinato (in quanto ordinale). Pertanto, per ogni \(x \in \mathrm{LO}\):
+  \begin{equation*}
+		x \in \mathrm{WO}^{=\xi'} \quad \iff \quad\exists\, f \in (\xi')^{\omega}\text{ biiettiva}\ \forall\, m,n \in\omega\ \left(x(m,n)=1\,\iff\, f(m)<f(n)\right).
+  \end{equation*}
+
+  _Osservazione 1_: per ogni \(\xi' < \omega_{1}=\omega^{+}\), si ha che \(\card{\xi} =\aleph_{0}\), e pertanto \(\xi'\) è numerabile.
+
+  _Osservazione 2_: per ogni \(\xi'<\omega_{1}\), \(\xi'\) è uno spazio polacco; infatti ogni ordinale numerabile è omeomorfo ad un sottoinsieme chiuso e numerabile di \(\R\) e pertanto è polacco. Siccome prodotto numerabile di spazi polacchi è ancora polacco, \((\xi')^{\omega}\) è uno spazio polacco.
+
+  Si definisce quindi:
+  \begin{equation*}
+		A_{m,n} \coloneqq \set{(x, f) \in \mathrm{LO}\times (\xi')^{\omega }\mid \left(x(m,n)=1 \,\iff\, f(m)<f(n)\right) \,\land\, f\text{ biiettiva}}
+  \end{equation*}
+  Questo è un insieme \(\bm{{\operatorname{Bor}}}\left(\mathrm{LO}\times(\xi')^{\omega}\right)\), poiché tutte le condizioni sono Boreliane:
+  \begin{align*}
+		(x,f) \in A_{m,n}\quad \iff\quad &\left[x(m,n)=1 \,\iff\, f(m)<f(n)\right] \,\land\\
+		&\land\, \left[\forall\, \lambda,\mu \in \omega\ \left(f(\lambda)= f(\mu)\right) \,\implies\,(\lambda = \mu)\right] \,\land\\
+		&\land\, \left[\forall\,\lambda<\xi'\ \exists\, k \in \omega\ \left(f(k)=\lambda\right)\right]
+  \end{align*}
+  Le quantificazioni sono tutte numerabili in virtù dell'Osservazione 1.
+
+  Pertanto
+  \begin{equation*}
+  A_{m,n} \in \bm{{\operatorname{Bor}}}\left(\mathrm{LO}\times(\xi')^{\omega}\right) \subseteq \bm{\Sigma}_{1}^{1}\left(\mathrm{LO}\times(\xi')^{\omega}\right),
+  \end{equation*}
+  e dunque anche \(\bigcap_{m,n \in \omega} A_{m,n}\) è \(\bm{\Sigma}_{1}^{1}\left(\mathrm{LO}\times(\xi')^{\omega}\right)\).
+
+  Definita
+  \begin{equation*}
+		\pi_{\mathrm{LO}}: \mathrm{LO} \times (\xi')^{\omega} \to \mathrm{LO}
+  \end{equation*}
+  la proiezione sul primo fattore, allora
+  \begin{equation*}
+		\mathrm{WO}^{=\xi'} = \pi_{\mathrm{LO}}\left(\bigcap_{m,n \in \omega} A_{m,n}\right).
+  \end{equation*}
+  Dunque applicando la Proposizione 3.1.5 (per l'osservazione precedente \((\xi')^{\omega}\) è Polacco) si ottiene che \(\mathrm{WO}^{=\xi'}\) è \(\bm{\Sigma}_{1}^{1}(\mathrm{LO})\).
+
+  Inoltre,
+  \begin{equation*}
+		\mathrm{WO}_{\xi} = \bigcup_{\xi'\le \xi} \mathrm{WO}^{=\xi'}
+  \end{equation*}
+  e pertanto _questo dimostra che \(\mathrm{WO}_{\xi} \in \bm{\Sigma}_{1}^{1}(\mathrm{LO})\)_, poiché \(\bm{\Sigma}_{1}^{1}\) è chiuso per unioni numerabili (per la Proposizione 3.1.5) e \(\xi\) numerabile per l'Osservazione 1.
+
+  # Se \(\xi<\omega_{1}=\omega^{+}\), allora \(\card{\xi}=\aleph_{0}\).
+
+- Sia \(\omega\le\xi< \omega_{1}\) fissato. È possibile applicare il Teorema 3.2.1 a \(\mathrm{WO}_{\xi}\)  e \(\mathrm{NWO}\) (infatti sono entrambi analitici e \(\mathrm{WO}_{\xi} \cap \mathrm{NWO} \subseteq \mathrm{WO} \cap \mathrm{NWO} =\emptyset\)): esiste \(A_{\xi}\) _Boreliano_ tale che:
+  \begin{equation*}
+	\mathrm{WO}_{\xi} \subseteq A_{\xi}, \qquad A_{\xi} \cap \mathrm{NWO} = \emptyset
+  \end{equation*}
+  Siccome \(\mathrm{NWO} = X\setminus\mathrm{WO}\) si ha che \(A_{\xi} \subseteq \mathrm{WO}\):
+  \begin{equation*}
+	\mathrm{WO}_{\xi} \subseteq A_{\xi} \subseteq \mathrm{WO}.
+  \end{equation*}
+
+  Per ogni \(\xi<\omega\) si pone \(A_{\xi} =\emptyset \in \bm{{\operatorname{Bor}}}(\mathrm{LO})\).
+- Vale la seguente uguaglianza: \(\mathrm{WO} = \bigcup_{\omega\le \xi<\omega_{1}} \mathrm{WO}_{\xi}\). (\(\supseteq\)): è ovvio, poiché per ogni \(\omega\le\xi<\omega_{1}\) si ha \(\mathrm{WO}_{\xi} \subseteq \mathrm{WO}\). (\(\subseteq\)): ciascun buon ordine lineare ha order type minore di \(\omega_{1}\), e pertanto se \(x \in \mathrm{WO}\) allora esiste \(\xi<\omega_{1}\) tale che \(x \in \mathrm{WO}_{\xi}\).
+
+  Pertanto si ha che
+  \begin{equation*}
+		\mathrm{WO} = \bigcup_{\omega\le \xi<\omega_{1}} \mathrm{WO}_{\xi} \subseteq \bigcup_{\omega\le \xi<\omega_{1}} A_{\xi} = \bigcup_{\xi<\omega_{1}} A_{\xi}
+  \end{equation*}
+  ed inoltre, per ogni \(\xi<\omega_{1}\), \(A_{\xi} \subseteq \mathrm{WO}\) e dunque
+  \begin{equation*}
+		\bigcup_{\xi<\omega_{1}} A_{\xi} \subseteq \mathrm{WO}
+  \end{equation*}
+
+  Per doppia inclusione si ha proprio \(\mathrm{WO} = \bigcup_{\xi<\omega_{1}} A_{\xi}\).
+*** Parte b.
+
+Sia \(X\coloneqq\omega^{\omega}\) e \(A \in \bm{\Pi}_{1}^{1}(X)\).
+
+Siccome \(\mathrm{WO}\) è \(\bm{\Pi}_{1}^{1}\)-completo, allora esiste una funzione continua
+\begin{equation*}
+f: \omega^{\omega}\to \mathrm{LO}
+\end{equation*}
+tale che \(f^{-1}(\mathrm{WO}) = A\).
+
+Per il punto precedente è possibile scrivere \(\mathrm{WO} = \bigcup_{\xi<\omega_{1}} B_{\xi}\) con \(B_{\xi} \in \bm{{\operatorname{Bor}}}(\mathrm{LO})\), e quindi
+\begin{equation*}
+A = f^{-1}(\mathrm{WO}) = f^{-1}\left(\bigcup_{\xi<\omega_{1}} B_{\xi}\right) = \bigcup_{\xi<\omega_{1}} f^{-1}(B_{\xi}).
+\end{equation*}
+Posto \(A_{\xi}\coloneqq f^{-1}(B_{\xi})\), si ha che \(A_{\xi} \in \bm{{\operatorname{Bor}}}(X)\) poiché \(B_{\xi} \in \bm{{\operatorname{Bor}}}(\mathrm{LO})\) e \(f\) continua. Pertanto
+\begin{equation*}
+A=\bigcup_{\xi<\omega_{1}} A_{\xi}
+\end{equation*}
+con \(A_{\xi}\) Boreliani.
+
+*** Parte c.
+
+Sia \(X\) uno spazio polacco non numerabile, e sia \(A \in \bm{\Pi}_{1}^1(X)\). Per il Teorema 3.2.9 esiste un isomorfismo Boreliano:
+\begin{equation*}
+F: \omega^{\omega}\to X
+\end{equation*}
+
+In particolare \(B\coloneqq F^{-1}(A) \in \bm{\Pi}_{1}^{1}(X)\) per il Corollario 3.1.16, poiché \(F\) è Boreliana. Per il punto precedente,
+\begin{equation*}
+B=\bigcup_{\xi<\omega_{1}} B_{\xi}
+\end{equation*}
+con \(B_{\xi} \in \bm{{\operatorname{Bor}}}(\omega^{\omega})\)
+
+Siccome \(F\) è una biiezione, allora \(A=F(B)\):
+\begin{equation*}
+A= F(B) = F\left(\bigcup_{\xi<\omega_{1}} B_{\xi}\right) = \bigcup_{\xi<\omega_{1}} F(B_{\xi}).
+\end{equation*}
+
+Posto ora \(A_{\xi} \coloneqq F(B_{\xi})\), questi sono Boreliani per il Corollario 3.2.7, poiché \(F\) Boreliana iniettiva e \(B_{\xi}\) Boreliano.
+
+*** Parte d.
+
+Se \(X\) è numerabile allora il teorema è banale: ogni sottoinsieme di \(X\) è unione numerabile di singoletti, che sono chiusi, e pertanto ogni sottoinsieme di \(X\) è un Boreliano.\qed

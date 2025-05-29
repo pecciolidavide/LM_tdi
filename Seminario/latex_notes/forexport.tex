@@ -1,0 +1,1010 @@
+% Created 2025-05-29 Thu 23:14
+% Intended LaTeX compiler: pdflatex
+\documentclass{article}
+\newcommand{\use}[2][]{\usepackage[#1]{#2}}
+% PACCHETTI FONDAMENTLAI
+\use[utf8]{inputenc}
+\use[T1]{fontenc}
+\use{graphicx}
+\use{longtable}
+\use{wrapfig}
+\use{rotating}
+\use[normalem]{ulem}
+\use{amsmath}
+\use{amsthm}
+\use{amssymb}
+\use{capt-of}
+\use[italian]{babel}
+\use[babel]{csquotes}
+\use[style=numeric, hyperref]{biblatex}
+\use{microtype}
+\use{lmodern}
+\use{subfig} % sottofigure
+\use{multicol} % due colonne
+\use{lipsum} % lorem ipsum
+\use{color} % colori in latex
+\use{parskip} % rimuove l'indentazione dei nuovi paragrafi %% Add parbox=false to all new tcolorbox
+\use{centernot}
+\use[outline]{contour}\contourlength{3pt}
+\use{fancyhdr}
+\use{layout}
+\use[most]{tcolorbox} % Riquadri colorati
+\use{ifthen} % IFTHEN
+\use{geometry}
+
+% pacchetti matematica
+\use{yhmath}
+\use{dsfont}
+\use{mathrsfs}
+\use{cancel} % semplificare
+\use{polynom} %divisione tra polinomi
+\use{forest} % grafi ad albero
+\use{booktabs} % tabelle
+\use{commath} %simboli e differenziali
+\use{bm} %bold
+\use[fulladjust]{marginnote} %to use marginnote for date notes
+\use{arrayjobx}%array
+\use[intlimits]{empheq} % Riquadri colorati attorno alle equazioni
+\use{mathtools}
+\use{circuitikz} % Disegnare i circuiti
+%%%%%%%%%%%%%
+
+
+%%%% QUIVER
+\newcommand{\duepunti}{\,\mathchar\numexpr"6000+`:\relax\,}
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+%%%%%%%%%%
+
+
+%% DEFINIZIONI COMANDI MATEMATICI
+\let\sin\relax %TOGLIE LA DEFINIZIONE SU "\sin"
+
+% cambia la definizione di empty set
+% ---
+\let\oldemptyset\emptyset
+% ---
+% \let\emptyset\varnothing
+% ---
+% \let\emptyset\relax
+% \newcommand{\emptyset}{\text{\textnormal{\O}}}
+% ---
+
+\DeclareMathOperator{\bounded}{bd}
+\DeclareMathOperator{\sin}{sen}
+\DeclareMathOperator{\epi}{Epi}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spettro}{Spettro}
+\DeclareMathOperator{\nulls}{nullspace}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ar}{ar}
+\DeclareMathOperator{\const}{Const}
+\DeclareMathOperator{\fun}{Fun}
+\DeclareMathOperator{\rel}{Rel}
+\DeclareMathOperator{\altezza}{ht}
+\let\det\relax %TOGLIE LA DEFINIZIONE SU "\det"
+\DeclareMathOperator{\det}{det}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\gl}{GL}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\id}{Id}
+\DeclareMathOperator{\I}{\mathds{1}}
+\DeclareMathOperator{\II}{II}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\tc}{t.c.}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\st}{st}
+\DeclareMathOperator{\mon}{Mon}
+\newcommand{\card}[1]{\left\vert #1 \right\vert}
+\newcommand{\trasposta}[1]{\prescript{\text{T}}{}{#1}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\diesis}{\#}
+\newcommand{\bemolle}{\flat}
+\newcommand{\starR}{\nonstandard{\R}}
+\newcommand{\borel}{\mathscr{B}}
+\newcommand{\lebesgue}[1]{\mathscr{L}\left(#1\right)}
+\newcommand{\media}{\mathds{E}}
+\newcommand{\K}{\mathds{K}}
+\newcommand{\A}{\mathds{A}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\qo}{\hspace{1em}\text{q.o.}\,}
+\renewcommand{\tilde}[1]{\widetilde{#1}}
+\renewcommand{\parallel}{\mathrel{/\mkern-5mu/}}
+\newcommand{\parti}[2][]{\wp_{#1}(#2)}
+\newcommand{\diff}[1]{\operatorname{d}_{#1}}
+\let\oldvec\vec
+\renewcommand{\vec}[1]{\overrightarrow{\vphantom{i}#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\dfreccia}[1]{\xrightarrow{\ #1 \ }}
+\newcommand{\sfreccia}[1]{\xleftarrow{\ #1 \ }}
+\newcommand{\formalsum}[2]{{\sum_{#1}^{#2}}{\vphantom{\sum}}'}
+\newcommand{\minim}[2]{\mu_{#1}\, \left(#2\right)}
+\newcommand{\concat}{\null^{\frown}} % concatenazione di stringe
+
+%% Definizione di \dotminus
+
+\makeatletter
+\newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
+
+\newcommand{\@dotminus}{%
+  \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
+}
+\makeatother
+
+%tramite i prossimi due comandi posso decidere come scrivere i logaritmi naturali in tutti i documenti: ho infatti eliminato qualsiasi differenza tra "ln" e "log": se si vuole qualcosa di diverso bisogna inserire manualmente il tutto
+\let\ln\relax
+\DeclareMathOperator{\ln}{ln}
+\let\log\relax
+\DeclareMathOperator{\log}{log}
+%%%%%%
+
+%% NUOVI COMANDI
+\newcommand{\straniero}[1]{\textit{#1}} %parole straniere
+\newcommand{\titolo}[1]{\textsc{#1}} %titoli
+\newcommand{\qedd}{\tag*{$\blacksquare$}} %qed per ambienti matemastici
+\renewcommand{\qedsymbol}{$\blacksquare$} %modifica colore qed
+\newcommand{\ooverline}[1]{\overline{\overline{#1}}}
+\newcommand{\circoletto}[1]{\left(#1\right)^{\text{o}}}
+%
+\newcommand{\qmatrice}[1]{\begin{pmatrix}
+#1_{11} & \cdots & #1_{1n}\\
+\vdots & \ddots & \vdots \\
+#1_{m1} & \cdots & #1_{mn}
+\end{pmatrix}}
+%
+\newcommand{\parentesi}[2]{%
+\underset{#1}{\underbrace{#2}}%
+}
+%
+\newcommand{\norma}[1]{% Norma
+\left\lVert#1\right\rVert%
+}
+\newcommand{\scalare}[2]{% Scalare
+\left\langle #1, #2\right\rangle
+}
+%%%%%
+
+%%%% Change footnote appearance
+%%%%
+
+\makeatletter
+% ---- marker nel TESTO: (nota 1)
+\renewcommand\@makefnmark{%
+  \hbox{\normalfont\footnotesize(nota~\@thefnmark)}%
+}
+
+% ---- layout e marker diverso in PIÉ DI PAGINA: (1)
+\renewcommand\@makefntext[1]{%
+  \parindent 1em
+  \noindent
+  % qui non chiamo \@makefnmark, ma uso direttamente (\@thefnmark)
+  \hb@xt@1.8em{\hss\normalfont\footnotesize(\@thefnmark)} %
+  #1%
+}
+\makeatother
+%%%%
+%%%%
+
+%% RESTRIZIONI
+\newcommand{\referenze}[2]{
+	\phantomsection{}#2\textsuperscript{\textcolor{blue}{\textbf{#1}}}
+}
+
+\let\restriction\relax
+
+\def\restriction#1#2{\mathchoice
+              {\setbox1\hbox{${\displaystyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\textstyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptscriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}}
+\def\restrictionaux#1#2{{#1\,\smash{\vrule height .8\ht1 depth .85\dp1}}_{\,#2}}
+%%%%%%%%%%%
+
+%% SEZIONE GRAFICA
+\use{tikz}
+\usetikzlibrary{matrix, patterns, calc, decorations.pathreplacing, hobby, decorations.markings, decorations.pathmorphing, babel}
+\use{tikz-3dplot}
+\use{mathrsfs} %per geogebra
+\use{tikz-cd}
+\tikzset
+{
+  %surface/.style={fill=black!10, shading=ball,fill opacity=0.4},
+  plane/.style={black,pattern=north east lines},
+  curve/.style={black,line width=0.5mm},
+  dritto/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth}}}, postaction=decorate},
+  rovescio/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth[reversed]}}}, postaction=decorate}
+}
+\use{pgfplots} % stampare le funzioni
+	\pgfplotsset{/pgf/number format/use comma,compat=1.15}
+	%\pgfplotsset{compat=1.15} %per geogebra
+	\usepgfplotslibrary{fillbetween, polar}
+%%%%%%
+
+%% CITAZIONI
+\use{lineno}
+
+\newcommand{\citazione}[1]{%
+  \begin{quotation}
+  \begin{linenumbers}
+  \modulolinenumbers[5]
+  \begingroup
+  \setlength{\parindent}{0cm}
+  \noindent #1
+  \endgroup
+  \end{linenumbers}
+  \end{quotation}\setcounter{linenumber}{1}
+  }
+%%%%%%
+%%%%%%
+%%%%%%
+%%%%%%
+%%%%%%
+%%%%%% AMSTHM
+%%%%%%
+%%%%%%
+%%%%%%
+
+
+%%%%%% MISSING REFERENCES
+%%%%%%
+\newcommand{\missingreference}[#1]{\textcolor{red}{#1}}
+
+
+\use{hyperref}
+\hypersetup{%
+	pdfauthor={Davide Peccioli},
+	pdfsubject={},
+	allcolors=black,
+	citecolor=black,
+	colorlinks=true,
+	bookmarksopen=true}
+\pagestyle{empty}
+\author{Davide Peccioli}
+\date{4 giugno 2025}
+\title{Giochi di Banach-Mazur}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Giochi Logici}
+\label{sec:org7949131}
+
+:ID:       90b2021f-dbe8-499f-8c79-32379384fdb8
+:ROAM\textsubscript{ALIASES}: ``Gioco Logico'' ``Giocata di un gioco logico'' ``Posizione di un gioco logico''
+\subsection{Definizione}
+\label{sec:org0010399}
+Un \uline{gioco logico} è una quadrupla \(\mathcal{G} \coloneqq (\Omega, f, W_{\text{I}}, W_{\text{II}})\) dove:
+\begin{itemize}
+\item \(\Omega\) è un \href{../../../../../../../org/roam/20250130104331-insieme_mk.org}{insieme}, chiamato il \uline{dominio del gioco};
+\item \(f:\Omega^{<\omega}\to \set{\text{I},\text{II}}\) è una \href{../../../../../../../org/roam/20250202170607-classe_relazione_binaria.org}{funzione}, chiamata \uline{funzione di turno} o \uline{funzione del giocatore};
+\item \(W_{\text{I}},W_{\text{II}} \subseteq \Omega^{<\omega}\cup \Omega^{\omega}\) \footnote{\href{../../../../../../../org/roam/20250202192030-classe_delle_classi_funzioni.org}{Classe delle Classi-Funzioni} e \href{../../../../../../../org/roam/20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega}
+:ID:       28ca09ab-bb39-4802-842e-bebecf0d2a4f} sono tali che
+\begin{enumerate}
+\item \(W_{\text{I}}\cap W_{\text{II}} = \emptyset\);
+\item per ogni \(\bm{a} \in W_{\bullet}\) e per ogni \(\bm{b} \in\Omega^{<\omega}\cup \Omega^{\omega}\):
+\end{enumerate}
+\begin{equation*}
+  \bm{a} \subseteq \bm{b}\quad\implies\quad \bm{b} \in W_{\bullet}
+\end{equation*}
+\end{itemize}
+
+Gli elementi di \(\Omega^{<\omega}\) sono chiamati \uline{posizioni del gioco} \(\mathcal{G}\), mentre un elemento di \(\Omega^{\omega}\) è detto \uline{giocata} di \(\mathcal{G}\).
+
+I giocatori I e II giocano scegliendo a turno elementi di \(\Omega\). La funzione di turno \(f\) associa a ciascuna posizione uno dei due giocatori: se
+\begin{equation*}
+f(a_{0},a_{1},\dots,a_{n}) = \text{I}
+\end{equation*}
+allora l'elemento \(a_{n+1}\) sarà scelto dal giocatore I.
+
+Si dirà che il giocatore I \uline{vince la giocata \(\bm{a}\)} se \(\bm{a} \in W_{\text{I}}\); si dirà che il giocatore II \uline{vince la giocata \(\bm{b}\)} se \(\bm{b} \in W_{\text{II}}\).
+\subsubsection{Gioco Logico totale}
+\label{sec:org8c60113}
+Un gioco è detto \uline{totale} se \(\Omega^{\omega} \subseteq W_{\text{I}}\cup W_{\text{II}}\).
+\subsubsection{Strategia per un gioco logico}
+\label{sec:org7f68e17}
+Si definiscano i seguenti insiemi:
+\begin{align*}
+\Omega^{<\omega}_{\text{I}} &\coloneqq \set{s \in \Omega^{<\omega}\mid f(s) = \text{I}}\\
+\Omega^{<\omega}_{\text{II}} &\coloneqq \set{s \in \Omega^{<\omega}\mid f(s) = \text{II}}
+\end{align*}
+
+A strategy for a player is a set of rules that describe exactly how that player should choose, depending on how the two players have chosen at earlier moves.
+
+Formalmente, una strategia per il giocatore \(j\) (con \(j=\text{I},\text{II}\)) è una funzione
+\begin{equation*}
+\varphi: \Omega_{j}^{<\omega} \to \Omega
+\end{equation*}
+
+A strategy for a player is said to be \uline{winning} if that player wins every play in which he or she uses the strategy, regardless of what the other player does.
+
+Un gioco si dice \uline{determinato} se esiste una strategia vincente per I o per II.
+\subsection{Bibliography}
+\label{sec:org749d900}
+\begin{itemize}
+\item Hodges, Wilfrid and Jouko Väänänen, ``Logic and Games'', The Stanford Encyclopedia of Philosophy (Winter 2024 Edition), Edward N. Zalta \& Uri Nodelman (eds.), URL = \url{https://plato.stanford.edu/archives/win2024/entries/logic-games/}.
+\end{itemize}
+\subsection{Definzione}
+\label{sec:orgb665389}
+Due \href{../../../../../../../org/roam/20250513155732-logic_game.org}{giochi logici} \(\mathcal{G}\) e \(\mathcal{G'}\) con giocatori I e II sono detti \uline{equivalenti} se sono soddisfate entrambe le seguenti ipotsi:
+\begin{enumerate}
+\item esiste una \hyperref[sec:org7f68e17]{strategia vincente} per I in \(\mathcal{G}\) sse esiste una \hyperref[sec:org7f68e17]{strategia vincente} per I in \(\mathcal{G}'\)
+\item esiste una \hyperref[sec:org7f68e17]{strategia vincente} per II in \(\mathcal{G}\) sse esiste una \hyperref[sec:org7f68e17]{strategia vincente} per II in \(\mathcal{G}'\)
+\end{enumerate}
+\subsection{Giochi di Gale-Stewart}
+\label{sec:org382d9d1}
+
+Sia \(A\) un \href{../../../../../../../org/roam/20250130104331-insieme_mk.org}{insieme} non vuoto, e sia \(C \subseteq A^{\omega}\). \footnote{\href{../../../../../../../org/roam/20250202192030-classe_delle_classi_funzioni.org}{Classe delle Classi-Funzioni} e \href{../../../../../../../org/roam/20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega}}
+\subsubsection{Giochi di Gale-Stewart}
+\label{sec:org21a45cb}
+Si definisce il \uline{gioco di Gale-Stewart} associato ad \(C\) come il \href{../../../../../../../org/roam/20250513155732-logic_game.org}{gioco logico} seguente:
+\begin{equation*}
+G(A,C) = G(A) \coloneqq (A, \psi, C, A^{\omega}\setminus C)
+\end{equation*}
+dove la \href{../../../../../../../org/roam/20250202170607-classe_relazione_binaria.org}{funzione} \(\psi: A^{<\omega}\to \set{\text{I},\text{II}}\) è così definita
+\begin{equation*}
+\psi(s) \coloneqq \begin{cases}
+\text{I} & \operatorname{lh}(s)\text{ è pari}\\
+\text{II} & \operatorname{lh}(s)\text{ è dispari}
+\end{cases}
+\end{equation*}
+Pertanto il gioco può essere codificato come segue:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,sep=tiny]
+	{\text{I}} \& {a_0} \&\& {a_2} \&\& {a_4} \&\& \dots \\
+	{\text{II}} \&\& {a_1} \&\& {a_3} \&\& \dots
+\end{tikzcd}
+\end{equation*}
+e il giocatore I vince se e solo se \((a_{n})_{n \in \omega} \in C\). \footnote{\href{../../../../../../../org/roam/20250115100904-successione.org}{Successione}}
+\subsubsection{Strategia per un gioco di Gale-Stewart}
+\label{sec:org1db90c5}
+Si specializza la definizione di \hyperref[sec:org7f68e17]{strategia per un gioco logico} al caso particolare di un gioco di Gale-Stewart.
+
+È possibile vedere una strategia \(\varphi\) per il giocatore I in tre modi diversi, del tutto equivalenti.
+\begin{enumerate}
+\item Una mappa \(\psi: A^{<\omega}\to A^{<\omega}\) tale che, per ogni \(s \in A^{<\omega}\) valga che \href{../../../../../../../org/roam/20250206170922-sequenze_e_stringhe.org}{lunghezza} sia
+\begin{equation*}
+ \operatorname{lh}\varphi(s) = \operatorname{lh}(s) + 1
+\end{equation*}
+Intuitivamente, questa funzione associa alla sequenza degli \((a_{2i+1})\) giocati dal giocatore II una sequenza degli \((a_{2i})\) per il giocatore I:
+\begin{equation*}
+ \varphi(\emptyset) = \langle a_{0}\rangle,\quad \varphi(\langle a_{1}\rangle) = \langle a_{0},a_{2} \rangle,\quad \varphi(\langle a_{1},a_{3}\rangle) = \langle a_{0},a_{2},a_{4}\rangle.
+\end{equation*}
+\item Una mappa \(\psi: A^{<\omega}\to A\).
+
+Intuitivamente, questa funzione associa alla sequenza degli \((a_{2i+1})\) giocati dal giocatore II l'elemento \(a_{j} \in A\) che deve giocare il giocatore I:
+\begin{equation*}
+ \varphi(\emptyset) = a_{0},\quad \varphi(\langle a_{1}\rangle) = a_{2},\quad \varphi(\langle a_{1},a_{3}\rangle) = a_{4}.
+\end{equation*}
+\item Una \href{../../../../../../../org/roam/20250514142154-albero_teoria_descrittiva_degli_insiemi.org}{albero} \(\sigma \subseteq A^{<\omega}\) tale che:
+\begin{enumerate}
+\item \(\sigma\) sia \href{../../../../../../../org/roam/20250514142208-albero_potato.org}{potato} e non vuoto;
+
+\item se \(\langle a_{0},\dots,a_{2j}\rangle \in \sigma\) allora per ogni \(a_{2j+1} \in A\): \(\langle a_{0},\dots,a_{2j+1}\rangle \in \sigma\);
+
+\item se \(\langle a_{0},\dots,a_{2j-1}\rangle \in \sigma\) allora esiste un unico \(a_{2j} \in A\) tale che \(\langle a_{0},\dots,a_{2j}\rangle \in \sigma\).
+\end{enumerate}
+\end{enumerate}
+
+Una strategia è detta \uline{vincente} se il suo \href{../../../../../../../org/roam/20250514142251-corpo_di_un_albero.org}{corpo} \([\sigma] \in A\).
+\subsubsection{Gioco di Gale-Stewart con posizioni ammissibili}
+\label{sec:org32c74c6}
+Spesso è comodo considerare giochi in cui I e II non possano giocare ogni elemento di \(A\), ma debbano seguire delle \uline{regole}. Quindi, è necessario dare un alberto potato non vuoto \(T \subseteq A^{<\omega}\), che determina le \href{../../../../../../../org/roam/20250514142938-posizioni_ammissibili_in_un_gioco_logico.org}{\uline{posizioni ammissibili}}.
+
+In questa situazione I e II si alternano giocando \(\langle a_{0},\dots,a_{n},\dots,\rangle\) in maniera tale che, ad ogni passo \(n \in \omega\)
+\begin{equation*}
+\langle a_{0},\dots,a_{n}\rangle \in T
+\end{equation*}
+
+Si scriverà, in questo caso, \(G(T, C)\).
+
+Si noti che questo non modifica il formalismo, in quanto è sufficiente cambiare gli insiemi di vittoria \(C\) e \(A^{\omega}\setminus C\) in maniera da far perdere automaticamente il giocatore che effettua una mossa illegale.
+
+Inoltre, il gioco definito sopra \(G(T,C)\) è \href{../../../../../../../org/roam/20250514143441-giochi_logici_equivalenti.org}{equivalente} al gioco \(G(A, C')\), dove
+\begin{equation*}
+C' \coloneqq \set{x \in A^{\omega}\mid \left[\exists\, n (x\upharpoonright n \notin T) \,\land\, \text{il minore }n\text{ tale che }x\upharpoonright n \notin T\text{ è pari}\right] \,\lor\, (x \in [T] \,\land\, x \in C)}.
+\end{equation*}
+\subsection{Teorema di Gale-Stewart}
+\label{sec:orgf56b48c}
+
+:ID:       3c4f7c3f-7f63-4d59-9240-0c60d79e42ad
+Sia \(A\) uno \href{../../../../../../../org/roam/20250103145124-topologia.org}{spazio topologico} \href{../../../../../../../org/roam/20250317165247-topologia_discreta.org}{discreto} e sia \(A^{\omega}\) dotato della \href{../../../../../../../org/roam/20250109154723-topologia_prodotto.org}{topologia prodotto}.
+\subsubsection{Teorema}
+\label{sec:orgc60abbb}
+Sia \(T\) un \href{../../../../../../../org/roam/20250514142154-albero_teoria_descrittiva_degli_insiemi.org}{albero} \href{../../../../../../../org/roam/20250514142208-albero_potato.org}{potato} non vuoto su \(A\). Se \(C \subseteq [T]\) è \href{../../../../../../../org/roam/20250103145124-topologia.org}{aperto} o \href{../../../../../../../org/roam/20250103145124-topologia.org}{chiuso} in \([T]\) \footnote{Vedi \href{../../../../../../../org/roam/20250514142251-corpo_di_un_albero.org}{Corpo di un albero} e \href{../../../../../../../org/roam/20250103163814-sottospazio_topologico.org}{Sottospazio topologico}}, allora \hyperref[sec:org32c74c6]{il gioco} \(G(T,C)\) è \hyperref[sec:org7f68e17]{determinato}.
+\section{Ripasso TDI}
+\label{sec:orgffd436a}
+
+:ID:       41953408-de97-4240-bed0-37f9de8706c4
+:ROAM\textsubscript{ALIASES}: ``Insieme non magro'' ``Insieme comagro''
+Sia \(X\) uno \href{../../../../../../../org/roam/20250103145124-topologia.org}{spazio topologico}
+\subsection{Definizione}
+\label{sec:org6117d9d}
+
+\begin{itemize}
+\item Un \href{../../../../../../../org/roam/20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} \(A \subseteq X\) è \uline{magro} se può essere scritto come \href{../../../../../../../org/roam/20250131183016-classe_unione.org}{unione} \href{../../../../../../../org/roam/20250111143651-insieme_numerabile.org}{numerabile} di insiemi \href{../../../../../../../org/roam/20250417180515-insieme_mai_denso.org}{mai densi}.
+\item Un sottoinsieme \(A \subseteq X\) è \uline{comagro} se il suo \href{../../../../../../../org/roam/20250317100425-complementare_di_un_insieme.org}{complementare} è magro.
+
+Equivalentemente, \(A\) è \uline{comagro} se e solo se contiene l'\href{../../../../../../../org/roam/20250131183141-classe_intersezione.org}{intersezione} di una quantità numerabile di aperti \href{../../../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{densi}.
+\end{itemize}
+\subsection{Definizione}
+\label{sec:org5fa9f27}
+
+Sia \(U \subseteq X\) un aperto.
+\begin{itemize}
+\item Un sottoinsieme \(A \subseteq X\) si dice \uline{magro in \(U\)} se \(A\cap U\) è magro;
+\item Un sottoinsieme \(A \subseteq X\) è \uline{comagro in \(U\)} se \(U\setminus A\) è magro, ovvero se esiste una sequenza di aperti \href{../../../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{densi} in \(U\) la cui intersezione è contenuta in \(A\).
+\end{itemize}
+
+Si noti che queste definizioni sono equivalenti a richiedere che \(U\cap A\) sia, rispettivamente, magro e comagro nella topologia di sottospazio di \(U\).
+:ID:       6232eb32-a530-4c1b-aefc-403acfd7c057
+\subsection{Definizione}
+\label{sec:org463bb52}
+
+Uno \href{../../../../../../../org/roam/20250103145124-topologia.org}{spazio topologico} \(X\) si dice \uline{Baire} se soddisfa le seguenti condizioni equivalenti:
+\begin{enumerate}
+\item ogni \href{../../../../../../../org/roam/20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} di \(X\) \href{../../../../../../../org/roam/20250103145124-topologia.org}{aperto} non \href{../../../../../../../org/roam/20250131161811-insieme_vuoto_mk.org}{vuoto} è \href{../../../../../../../org/roam/20250419122752-insieme_magro.org}{non-magro};
+\item ogni \href{../../../../../../../org/roam/20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} \href{../../../../../../../org/roam/20250419122752-insieme_magro.org}{comagro} di \(X\) è \href{../../../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{denso};
+\item l'\href{../../../../../../../org/roam/20250131183141-classe_intersezione.org}{intersezione} di una quantità \href{../../../../../../../org/roam/20250111143651-insieme_numerabile.org}{numerabile} di sottoinsiemi densi e aperti di \(X\) è denso.
+\end{enumerate}
+
+In particolare, se \(X\) è non vuoto e Baire, allora l'intersezione di ogni coppia di \href{../../../../../../../org/roam/20250304152026-sottoinsiemi_gdelta_e_fsigma.org}{\(\bm{G}_{\delta}\)} densi di \(X\) è densa, e pertanto non vuota.
+\subsubsection{Sottospazi aperti di uno spazio di Baire è uno spazio di Baire}
+\label{sec:orgce12667}
+Se \(X\) è uno spazio topologico di Baire e \(A \subseteq X\) è aperto, allora \(A\) è uno \href{../../../../../../../org/roam/20250103163814-sottospazio_topologico.org}{spazio topologico} di Baire.
+:ID:       a18bc557-1ac7-4d19-8cd8-ad3923e1a68f
+:ROAM\textsubscript{ALIASES}: BP ``Baire Property''
+Sia \(X\) uno \href{../../../../../../../org/roam/20250103145124-topologia.org}{spazio topologico}.
+\subsection{Insiemi uguali modulo un magro}
+\label{sec:orgeba7346}
+Dati due \href{../../../../../../../org/roam/20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsiemi} \(A, B \subseteq X\) si dirà che
+\begin{equation*}
+A \mathrel{=^{*}} B
+\end{equation*}
+se la \href{../../../../../../../org/roam/20250514162818-differenza_simmetrica_tra_due_insiemi.org}{differenza simmetrica} \(A\mathrel{\triangle} B \coloneqq (A\setminus B)\cup (B\setminus A)\) è un \href{../../../../../../../org/roam/20250419122752-insieme_magro.org}{insieme magro}. \footnote{Vedi ``\href{../../../../../../../org/roam/20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottrazione di classi MK}'' e ``\href{../../../../../../../org/roam/20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Unione di classi MK}''
+:ID:       648c8718-f653-4932-9c00-900d90560720
+:ROAM\textsubscript{ALIASES}: ``Insieme coanalitico''}
+\subsection{Definizione}
+\label{sec:org95bdf49}
+
+Un \href{../../../../../../../org/roam/20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} \(A \subseteq X\) ha la \uline{proprietà di Baire} (\emph{Baire Property} o BP) se esiste un \uline{\href{../../../../../../../org/roam/20250103145124-topologia.org}{aperto}} \(U \subseteq X\) tale che
+\begin{equation*}
+A\mathrel{=^{*}}B.
+\end{equation*}
+
+Si definisce \(\operatorname{BP}(X)\) come la collezione di tutti i sottoinsiemi di \(X\) con BP.
+\subsection{Definizione}
+\label{sec:orgcda100c}
+
+Sia \(X\) uno spazio topologico metrizzabile e separabile.
+\begin{itemize}
+\item \(A \subseteq X\) è detto \uline{analitico} se esiste uno spazio Polacco \(Y\) e una funzione continua
+\begin{equation*}
+f:Y\to X
+\end{equation*}
+tale che \(f(Y) = A\).
+\item \(C \subseteq X\) è detto \uline{coanalitico} se \(X\setminus C\) è analitico.
+\item \(B \subseteq X\) è detto \uline{bianalitico} se \(B\) e \(X\setminus B\) sono analitici.
+\end{itemize}
+
+La collezione dei sottoinsiemi di \(X\) analitici, coanalitici e bianalitici è indicata, rispettivamente, da
+\begin{equation*}
+\bm{\Sigma}_{1}^{1}(X),\quad \bm{\Pi}_{1}^{1}(X),\quad \bm{\Delta}_{1}^{1}(X)
+\end{equation*}
+\subsection{Proposizione}
+\label{sec:org1eb824f}
+
+Sia \(X\) uno spazio Polacco, e sia \(\emptyset \neq A \subseteq X\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(A\) è analitico;
+\item \(A\) è immagine continua di \(\omega^{\omega}\);
+\item \(A= \pi_{X}(C)\) per qualche \(C \in \bm{\Pi}_{1}^{0}\left(X\times \omega^{\omega}\right)\), \(C\neq \emptyset\), dove \(\pi_{X}\) è la proiezione su \(X\)
+\item \(A = \pi_{X}(C)\) per qualche spazio Polacco \(Y\) e per qualche \(C \in \bm{{\operatorname{Bor}}}(X\times Y)\), \(C\neq \emptyset\);
+\item \(A=f(C)\) per qualche spazio Polacco \(Y\), per qualche \(C \in \bm{{\operatorname{Bor}}}(X\times Y)\) e per qualche funzione Boreliana \(f:Y\to X\).
+\end{enumerate}
+\section{Tutti analytic BP}
+\label{sec:orgb092fd1}
+
+\subsection{Gioco di Banach-Mazur}
+\label{sec:orge8e0b9e}
+Sia \(X\) uno \href{../../../../../../../org/roam/20250103145124-topologia.org}{spazio topologico} non vuoto, e sia \(A \subseteq X\).
+
+Il \uline{gioco di Banach-Mazur} di \(A\), denotato con \(G^{**}(A)\) oppure con \(G^{**}(A,X)\) è un \href{../../../../../../../org/roam/20250513155732-logic_game.org}{gioco logico} \hyperref[sec:org21a45cb]{di Gale-Stewart} codificato come segue: i giocatori I e II si alternano scegliendo sottoinsiemi aperti non vuoti di \(X\)
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,sep=tiny]
+	{\text{I}} \& {U_0} \&\& {U_1} \&\& {U_2} \&\& \cdots \\
+	{\text{II}} \&\& {V_0} \&\& {V_1} \&\& \cdots
+\end{tikzcd}
+\end{equation*}
+\hyperref[sec:org32c74c6]{tali che} \(U_{0}\supseteq V_{0}\supseteq U_{1}\supseteq V_{1}\supseteq \dots\)
+
+Il giocatore II vince se
+\begin{equation*}
+\bigcap_{n \in \omega} U_{n} = \bigcap_{n \in \omega} V_{n} \subseteq A.
+\end{equation*}
+\subsection{Gioco di Choquet}
+\label{sec:org9c9de7e}
+Sia \((X,\tau)\) uno \href{../../../../../../../org/roam/20250103145124-topologia.org}{spazio topologico} non vuoto. Il gioco di Choquet \(G_{X}\) è un \href{../../../../../../../org/roam/20250513155732-logic_game.org}{gioco logico} \hyperref[sec:org21a45cb]{di Gale-Stewart} codificato come segue: i giocatori I e II si alternano scegliendo sottoinsiemi aperti non vuoti di \(X\):
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,sep=tiny]
+	{\text{I}} \& {U_0} \&\& {U_1} \&\& {U_2} \&\& \cdots \\
+	{\text{II}} \&\& {V_0} \&\& {V_1} \&\& \cdots
+\end{tikzcd}
+\end{equation*}
+tali che \(U_{0} \supseteq V_{0}\supseteq U_{1}\supseteq V_{1}\supseteq \dots\)
+
+Il giocatore II vince se
+\begin{equation*}
+\bigcap_{n \in \omega} V_{n} = \bigcap_{n \in \omega} U_{n} \neq \emptyset.
+\end{equation*}
+e, poiché il gioco è \hyperref[sec:org8c60113]{totale}, il giocatore II vince se
+\begin{equation*}
+\bigcap_{n \in \omega} V_{n} = \bigcap_{n \in \omega} U_{n} = \emptyset.
+\end{equation*}
+\subsection{Caratterizzazione degli spazi di Baire tramite il gioco di Choquet}
+\label{sec:orga746ed3}
+\subsubsection{Teorema}
+\label{sec:org3cbe1dc}
+
+Uno \href{../../../../../../../org/roam/20250103145124-topologia.org}{spazio topologico} \(X\) è uno \href{../../../../../../../org/roam/20250514154101-spazio_topologico_di_baire.org}{spazio topologico di Baire} se e solo se il giocatore I \uline{non ha una \hyperref[sec:org1db90c5]{strategia} \hyperref[sec:org1db90c5]{vincente}} nel \hyperref[sec:org9c9de7e]{gioco di Choquet} \(G_{X}\).
+\subsubsection{Spazio di Choquet}
+\label{sec:org12a4e1c}
+\begin{enumerate}
+\item Definizione
+\label{sec:orga058a3c}
+
+Uno spazio topologico \(X\) è detto \uline{spazio di Choquet} se il giocatore II ha una strategia vincente in \(G_{X}\).
+\item Osservazione
+\label{sec:org31657a2}
+
+Se il giocatore I non ha una strategia vincente, \textbf{non è detto} che il giocatore II ne abbia una.
+
+Viceversa, però, se II ha una strategia vincente, allora necessariamente I non ne ha una. Quindi ogni spazio di Choquet è uno spazio topologico di Baire.
+\item Aperti non vuoti di spazi di Choquet sono Choquet
+\label{sec:orge945bdd}
+I \href{../../../../../../../org/roam/20250103163814-sottospazio_topologico.org}{sottospazi} \href{../../../../../../../org/roam/20250103145124-topologia.org}{aperti} non vuoti di uno spazio di Choquet sono spazi di Choquet.
+\item Prodotto di spazi di Choquet è Choquet
+\label{sec:orge4a4a9a}
+Il \href{../../../../../../../org/roam/20250109154723-topologia_prodotto.org}{prodotto} finito di Spazi di Choquet sono spazi di Choquet.
+:ID:       8d136b11-9afd-48e7-aea3-dcc74393aff8
+\end{enumerate}
+\subsection{Teorema I}
+\label{sec:org5e232d7}
+
+Sia \(X\) uno \href{../../../../../../../org/roam/20250103145124-topologia.org}{spazio topologico} \href{../../../../../../../org/roam/20250131161811-insieme_vuoto_mk.org}{non vuoto}, e sia \(A \subseteq X\) un \href{../../../../../../../org/roam/20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} qualsiasi. Allora \(A\) è \href{../../../../../../../org/roam/20250419122752-insieme_magro.org}{comagro} se e solo se il giocatore II ha una \hyperref[sec:org1db90c5]{strategia vincente} nel \hyperref[sec:orge8e0b9e]{gioco di Banach-Mazur} \(G^{**}(A)\).
+\subsubsection{Dimostrazione}
+\label{sec:org3046cd1}
+
+(\(\Rightarrow\)): Se \(A\) è comagro, allora esistono \((W_{n})_{n \in\omega}\) aperti densi di \(X\) tali che
+\begin{equation*}
+\bigcap_{n \in\omega} W_{n} \supseteq A.
+\end{equation*}
+
+Il giocatore II gioca \(V_{n} \coloneqq W_{n}\cap U_{n}\); questo è aperto, e inoltre è non vuoto poiché \(W_{n}\) è denso in \(X\).
+
+(\(\Leftarrow\)): Sia \(\sigma\) una strategia vincente di II. Si costruisce \(\sigma' \subseteq \sigma\) albero potato e non vuoto per induzione sulla lunghezza delle stringhe.
+\begin{itemize}
+\item \(\emptyset \in \sigma'\).
+\item Sia \(s=\langle U_{0},V_{0},\dots,U_{n}\rangle\). Allora esiste un unico \(V_{n} \subseteq U_{n}\) tale che \(s\concat V_{n} \in \sigma\). Si pone \(s\concat V_{n} \in \sigma'\).
+\item Sia \(s = \langle U_{0},V_{0},\dots, U_{n}, V_{n}\rangle \in \sigma'\). Per ogni sottoinsieme aperto \(U \subseteq V_{n}\) si definisce \(U^{*}\) l'unico sottoinsieme di \(U\) tale che
+\begin{equation*}
+  s\concat \langle U,U^{*}\rangle \in \sigma
+\end{equation*}
+
+È possibile, tramite un'applicazione del Lemma di Zorn, garantire l'esistenza di una collezione massimale \(\mathcal{U}_{s}\) di aperti non vuoti \(U \subseteq V_{n}\) tale che la collezione \(\mathcal{V}_{s} \coloneqq \set{U^{*}\mid U \in \mathcal{U}_{s}}\) sia composta da insiemi a due a due disgiunti.
+
+Infatti, data una catena di collezioni di aperti che soddisfino la proprietà richiesta \((\mathcal{U}_{\alpha})_{\alpha}\) ordinata dall'inclusione, allora
+\begin{equation*}
+\mathcal{U}^{\star}\coloneqq \bigcup_{\alpha} \mathcal{U}_{\alpha}
+\end{equation*}
+è un maggiorante della catena, in quanto detto
+\begin{equation*}
+\mathcal{V}^{\star} \coloneqq \set{U^{*}\mid U \in \mathcal{U}^{\star}}
+\end{equation*}
+dati \(V,V' \in \mathcal{V}^{\star}\) allora esiste \(\mathcal{U}_{\alpha_{0}}\) ed esistono \(U_{0},U_{1} \in \mathcal{U}_{\alpha_{0}}\) tali che
+\begin{equation*}
+U_{0}^{*}=V,\quad U_{1}^{*} = V'
+\end{equation*}
+e pertanto \(V\cap V' =\emptyset\).
+
+Dunque, per ogni \(U \in \mathcal{U}_{s}\), \(s\concat U \in \sigma'\).
+
+Inoltre \(\bigcup \mathcal{V}_{s}\) è denso in \(V_{n}\). Infatti, se per assurdo esistesse \(B \subseteq V_{n}\) aperto tale che \(B\cap \bigcup \mathcal{V}_{s} = \emptyset\), allora \(\mathcal{U}_{s}\cup \set{B}\) viola la massimalità di \(\mathcal{U}_{s}\).
+\end{itemize}
+
+Sia ora, per ogni \(n \in\omega\):
+\begin{equation*}
+W_{n+1} \coloneqq \bigcup_{\substack{s \in \sigma'\\
+\operatorname{lh}(s) = 2n}} \bigcup \mathcal{V}_{s} = \bigcup_{\langle U_{0},V_{0},\dots, U_{n+1}, V_{n+1}\rangle \in \sigma'} V_{n+1}
+\end{equation*}
+
+Per ogni \(n \in \omega\), \(W_{n+1} \subseteq X\) è denso.
+\begin{itemize}
+\item \(W_{1}\) è denso, poiché \(\mathcal{U}_{\emptyset}\) è una collezione di aperti di \(X\) tali che \(\mathcal{V}_{\emptyset}\) sia composta da insiemi a due a due disgiunti, e pertanto, se vi fosse \(B \subseteq X\) aperto tale che \(B\cap W_{1} = \emptyset\), allora \(\mathcal{U}_{\emptyset}\cup\set{B}\) viola la massimalità di \(\mathcal{U}_{\emptyset}\).
+\item Se \(W_{n+1}\) è denso, allora lo è anche \(W_{n+2}\). Sia \(B \subseteq X\) aperto.
+
+Siccome \(W_{n+1}\) è denso allora \(W_{n+1}\cap B\neq \emptyset\), ed esiste \(\tilde{s} = \langle U_{0},V_{0},\dots,U_{n}, V_{n}\rangle \in \sigma'\) tale che \(B\cap\bigcup \mathcal{V}_{\tilde{s}} \neq \emptyset\).
+
+Quindi esistono \(V_{n}\supseteq U \supseteq V\) tali che \(\tilde{s}\concat \langle U, V\rangle \in \sigma'\), con \(V\cap B\neq \emptyset\). Infatti, se così non fosse, allora \(\mathcal{U}_{\tilde{s}}\cup\set{V_{n}\cap B}\) contraddice la massimalità di \(\mathcal{U}_{\tilde{s}}\).
+
+Poiché \(\bigcup \mathcal{V}_{s\concat \langle U, V\rangle}\) è denso in \(V\), allora \(\bigcup \mathcal{V}_{s\concat \langle U, V\rangle} \cap B \neq \emptyset\), ed inoltre
+\begin{equation*}
+  \bigcup \mathcal{V}_{\tilde{s}\concat \langle U, V\rangle} \subseteq W_{n+2}
+\end{equation*}
+e pertanto \(W_{n+2}\cap B\neq \emptyset\).
+\end{itemize}
+
+Per finire, si dimostra che \(\bigcap_{n \in \omega} W_{n+1} \subseteq A\). Sia \(x \in \bigcap_{n \in \omega} W_{n+1}\).
+
+Allora esiste \((U_{i}, V_{i})_{i \in \omega} \in [\sigma']\) tale che \(x \in V_{n}\) per ogni \(n\). Questa si costruisce per induzione.
+\begin{itemize}
+\item Poiché \(x \in W_{1}\), allora esiste \(\langle U_{0},V_{0},U_{1},V_{1}\rangle \in \sigma'\) tale che \(x \in V_{1}\).
+\item Sia ora \(p=\langle U_{0},V_{0},\dots,U_{n}, V_{n}\rangle \in\sigma'\) tale che \(x \in V_{n}\).
+
+Siccome \(x \in W_{n+1}\) allora esiste \(p' \in\sigma'\),
+\begin{equation*}
+  p'\coloneqq \langle U_{0}',V_{0}',\dots,U_{n+1}',V_{n+1}'\rangle
+\end{equation*}
+tale che \(x \in V_{n+1}\). Necessariamente \(p'\) estende \(p\).
+
+Infatti, si supponga per assurdo che \(p \neq \langle U_{0}',V_{0}',\dots,U_{n}',V_{n}'\rangle\), e sia \(j\le n\) il primo indice tale che
+\begin{equation*}
+  \langle U_{j}, V_{j}\rangle \neq \langle U_{j}', V_{j}'\rangle.
+\end{equation*}
+Necessariamente allora \(U_{j}\neq U_{j}'\), poiché \(V_{j}\) e \(V_{j}'\) sono univocamente determinati dall'insieme precedente. In particolare, però:
+\begin{equation*}
+  U_{j}, U_{j}' \in \mathcal{U}_{\langle U_{0},V_{0},\dots,U_{j-1},V_{j-1}\rangle} = \mathcal{U}_{\langle U_{0}',V_{0}',\dots,U_{j-1}',V_{j-1}'\rangle}
+\end{equation*}
+e pertanto, per definizione, \(V_{j}\cap V_{j'} = \emptyset\). Assurdo, poiché \(x \in V_{j}\cap V_{j}'\).
+\end{itemize}
+
+Dunque \(\langle U_{0},V_{0},\dots,U_{n}, V_{n}, U_{n+1}', V_{n+1}'\rangle\) estende la sequenza iniziale.
+
+In particolare, quindi \(x \in \bigcap_{n \in \omega} V_{n}\).
+
+Poiché \(\sigma\) è una strategia vincente per il giocatore II, allora per ogni \((U_{i}, V_{i})_{i \in \omega} \in [\sigma'] \subseteq [\sigma]\),
+\begin{equation*}
+\bigcap_{i \in \omega} U_{i} = \bigcap_{i \in \omega} V_{i}\subseteq A
+\end{equation*}
+e dunque \(x \in A\).\qed
+\subsection{Teorema II}
+\label{sec:orged1da91}
+Se \(X\) è uno \href{../../../../../../../org/roam/20250103145124-topologia.org}{spazio topologico} \hyperref[sec:org12a4e1c]{di Choquet} non \href{../../../../../../../org/roam/20250131161811-insieme_vuoto_mk.org}{vuoto} ed esiste una \href{../../../../../../../org/roam/20250301193511-spazio_metrico.org}{distanza} \(d\) su \(X\) le cui \href{../../../../../../../org/roam/20250301193511-spazio_metrico.org}{palle aperte} sono aperti di \(X\), allora:
+
+\(A\) è \href{../../../../../../../org/roam/20250419122752-insieme_magro.org}{magro} in un \href{../../../../../../../org/roam/20250103145124-topologia.org}{aperto} non vuoto se e solo se il giocatore I ha una \hyperref[sec:org1db90c5]{strategia vincente} nel \hyperref[sec:orge8e0b9e]{gioco di Banach-Mazur} \(G^{**}(A)\).
+\subsubsection{Dimostrazione}
+\label{sec:org20477db}
+
+(\(\Rightarrow\)): Se \(A\) è magro in \(Y \subseteq X\), sia per ogni \(n \in \omega\): \(W_{n} \subseteq Y\) aperti densi di \(Y\), con
+\begin{equation*}
+\bigcap_{n \in\omega} W_{n} \subseteq Y \setminus A.
+\end{equation*}
+
+\hyperref[sec:orge945bdd]{Poiché} \(Y\) è uno \hyperref[sec:org12a4e1c]{spazio di Choquet}, allora nel \hyperref[sec:org21a45cb]{gioco}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped, sep=tiny]
+	{\text{I}} \&\& {B_1} \&\& {B_2} \&\& \dots \\
+	{\text{II}} \& {A_0} \&\& {A_1} \&\& \dots
+\end{tikzcd}
+\end{equation*}
+con gli aperti non vuoti \(Y\supseteq V_{0}\supseteq U_{1}\supseteq V_{1}\supseteq \dots\) in cui I vince sse \(\bigcap_{n \in \omega}{B_{n}} \neq \emptyset\), I ha una \hyperref[sec:org1db90c5]{strategia vincente}. Questo infatti è un gioco di Choquet a giocatori invertiti.
+
+Sia quindi \(\sigma\) la strategia vincente di I in questo gioco di Choquet.
+
+Nel gioco \(G^{**}(A)\), il giocatore I pone \(U_{0} \coloneqq Y\). Si costruisce per induzione la strategia vincente per I.
+
+Al passo \(n+1\)-esimo, sia \((U_{0},V_{0},\dots, U_{n}, V_{n})\) la sequenza di insiemi giocati. Si pone, per ogni \(i\le n\): \(V_{i}'\coloneqq V_{i}\cap W_{i}\), e si sceglie \(U_{n+1}\) come l'unico sottoinsieme aperto non vuoto di \(V_{n}\) tale che
+\begin{equation*}
+(V_{0}', U_{1}, V_{1}', U_{2},\dots, V_{n}', U_{n+1}) \in\sigma.
+\end{equation*}
+
+Allora \(\bigcap_{n \in \omega} U_{n}\neq\emptyset\) e inoltre
+\begin{equation*}
+\bigcap_{n \in\omega} U_{n} = \bigcap_{n \in\omega} V_{n}' \subseteq \bigcap_{n \in \omega} W_{n} \subseteq Y\setminus A
+\end{equation*}
+e dunque \(\bigcap_{n \in\omega} U_{n} \not\subseteq A\).
+
+(\(\Leftarrow\)): Sia \(\sigma\) una strategia vincente per I in \(G^{**}(A)\), e sia \(U_{0}\) l'elemento di partenza per \(\sigma\).
+
+Si costruisce una strategia \(\sigma'\) per I, vincente, e tale che l'insieme giocato al passo \(n\)-esimo \(U_{n}\) abbia diametro (rispetto alla metrica \(d\)):
+\begin{equation*}
+\operatorname{diam}(U_{n})<2^{-n}.
+\end{equation*}
+
+Al passo \(n+1\), sia \((U_{0},V_{0},\dots,U_{n}, V_{n})\) la sequenza di insiemi giocati, e sia \(v_{n} \in V_{n}\). Si definisce
+\begin{equation*}
+V_{n}'\coloneqq V_{n}\cap B_{d}(v_{n}, 2^{-n-1}), \qquad \operatorname{diam}(V_{n}) \le 2^{-n}
+\end{equation*}
+che è un aperto non vuoto. Si pone infine \(U_{n+1}\) come l'unico sottoinsieme aperto di \(V_{n}'\) tale che
+\begin{equation*}
+(U_{0},V_{0},\dots,U_{n}, V_{n}', U_{n+1}) \in \sigma.
+\end{equation*}
+
+Questo \(U_{n+1}\) è la risposta secondo la strategia \(\sigma'\), in quanto \(\operatorname{diam}(U_{n})\le \operatorname{diam}(V_{n}')\le 2^{-n}\).
+
+Siccome \(\sigma'\) è una strategia vincente per I, allora
+\begin{equation*}
+\emptyset\neq\bigcap_{n \in \omega} U_{n}
+\end{equation*}
+e inoltre
+\begin{equation*}
+\operatorname{diam}\left(\bigcap_{n \in \omega} U_{n}\right) = 0
+\end{equation*}
+Segue che \(\bigcap_{n \in \omega} U_{n} = \set{x}\), con \(x \in U_{0}\setminus A\).
+
+Si definisce l'aperto
+\begin{equation*}
+W_{n} \coloneqq \bigcup_{\langle U_{0},V_{0},\dots,U_{n}\rangle \in \sigma'} U_{n}.
+\end{equation*}
+Questo è denso in \(U_{0}\): se \(B \subseteq U_{0}\) è aperto, allora sicuramente \(\langle U_{0},B\rangle \in \sigma'\). Si costruisce \(\langle U_{0},B,U_{1},V_{1},\dots,U_{n}\rangle \in \sigma'\), e in particolare \(U_{n} \subseteq B\) e pertanto \(W_{n}\cap B\supseteq U_{n}\neq\emptyset\).
+
+Inoltre \(\bigcap_{n \in \omega} W_{n} \subseteq U_{0}\setminus A\), dunque la tesi.\qed
+:ID:       f72c58ad-fd18-440f-8ce2-30054f4996f7
+\subsection{Lemma}
+\label{sec:org29f61ee}
+
+Sia \(X\) uno \href{../../../../../../../org/roam/20250103145124-topologia.org}{spazio topologico} \hyperref[sec:org12a4e1c]{di Choquet} non \href{../../../../../../../org/roam/20250131161811-insieme_vuoto_mk.org}{vuoto} tale che esista una \href{../../../../../../../org/roam/20250301193511-spazio_metrico.org}{distanza} \(d\) su \(X\) le cui \href{../../../../../../../org/roam/20250301193511-spazio_metrico.org}{palle aperte} sono aperti di \(X\). Sia \(A \subseteq X\).
+
+Se per ogni aperto \(U \subseteq X\) il \hyperref[sec:orge8e0b9e]{gioco} \(G^{**}\left((X\setminus A)\cup U\right)\) è \hyperref[sec:org7f68e17]{determinato} allora \(A \subseteq X\) ha \href{../../../../../../../org/roam/20250514154039-proprieta_di_baire.org}{BP}.
+\subsubsection{Dimostrazione}
+\label{sec:orga50e260}
+
+Sia \(A \subseteq X\). Si definisce l'aperto
+\begin{equation*}
+U(A) \coloneqq \bigcup \set{
+U\subseteq X\text{ aperto}\mid U\setminus A\text{ è magro}
+}.
+\end{equation*}
+Allora \(U(A)\setminus A\) è magro e inoltre, se \(A\) ha la BP, allora \(A\mathrel{=^{*}} U(A)\). Questo segue direttamente dal Teorema 8.29 del Kechris.
+
+In particolare quindi il gioco è determinato  per
+\begin{equation*}
+G^{**}\left((X\setminus A)\cup U(A)\right).
+\end{equation*}
+
+Necessariamente è il giocatore II a vincere questo gioco. Infatti, si supponga per assurdo che I abbia una strategia vincente. Allora, per il \href{../../../../../../../org/roam/20250514174717-teorema_di_caratterizzazione_dei_comagri_tramite_il_gioco_di_banach_mazur.org}{Teorema II} \((X\setminus A)\cup U(A)\) è magro in un aperto non vuoto \(B\). In particolare, quindi \(U(A)\) è magro in \(B\), ovvero \(U(A)\cap B\) è magro in \(B\).
+\begin{itemize}
+\item Se \(U(A)\cap B\neq\emptyset\), siccome \(B \subseteq X\) è un aperto di uno spazio di Baire, allora è uno spazio di Baire; inoltre \(U(A)\cap B\) è un aperto non vuoto di \(B\), quindi è \uline{non magro}. Assurdo.
+\item Se invece \(U(A)\cap B = \emptyset\), si consideri il seguente insieme, magro per definizione:
+\begin{equation*}
+  \left((X\setminus A)\cup U(A)\right) \cap B = \left((X\setminus A)\cap B\right) \cup \left(U(A)\cap B\right) = (X\setminus A)\cap B = B\setminus A
+\end{equation*}
+Allora, per definizione di \(U(A)\), \(B \subseteq U(A)\). Assurdo.
+\end{itemize}
+
+Pertanto, per il \href{../../../../../../../org/roam/20250514174717-teorema_di_caratterizzazione_dei_comagri_tramite_il_gioco_di_banach_mazur.org}{Teorema I}, \((X\setminus A)\cup U(A)\) è comagro. Ma
+\begin{equation*}
+(X\setminus A)\cup U(A) = X \setminus\left(A\setminus U(A)\right)
+\end{equation*}
+e pertanto \(A\setminus U(A)\) è magro. Per il risultato precedente \(U(A)\setminus A\) è magro, e dunque
+\begin{equation*}
+A\mathrel{\triangle}U(A)
+\end{equation*}
+è magro, ovvero \(A\) ha la BP.\qed
+\subsection{Gioco di Banach-Mazur Unfolded}
+\label{sec:org8e1057c}
+Sia \(X\) uno \href{../../../../../../../org/roam/20250301194013-spazio_polacco.org}{spazio polacco} non vuoto con una \href{../../../../../../../org/roam/20250301193511-spazio_metrico.org}{metrica} fissata e sia \(\mathcal{W}\) una \href{../../../../../../../org/roam/20250525113346-base_debole_di_uno_spazio_topologico.org}{base debole} \href{../../../../../../../org/roam/20250111143651-insieme_numerabile.org}{numerabile} di \(X\).
+
+Dato \(F \subseteq X\times \omega^{\omega}\), il \uline{gioco di Banach-Mazur unfolded} \(G^{**}_{\text{u}}(F)\) è il \href{../../../../../../../org/roam/20250513155732-logic_game.org}{gioco logico} \hyperref[sec:org21a45cb]{di Gale-Stewart} codificato come segue:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,sep=tiny]
+	{\text{I}} \& {U_0} \&\& {U_1} \&\& \dots \\
+	{\text{II}} \&\& {y_0,V_0} \&\& {y_1, V_{1}} \& \dots
+\end{tikzcd}
+\end{equation*}
+tali che:
+\begin{itemize}
+\item per ogni \(i \in \omega\): \(U_{i}, V_{i} \in \mathcal{W}\), \(y_{n} \in \omega\);
+\item \(\operatorname{diam}(U_{n}), \operatorname{diam}(V_{n}) < 2^{-n}\);
+\item \(U_{0}\supseteq V_{0}\supseteq U_{1}\supseteq V_{1}\supseteq \dots\)
+\end{itemize}
+
+posto
+\begin{equation*}
+\set{x}\coloneqq\bigcap_{i \in \omega} \operatorname{Cl}_{X}(U_{n}) = \bigcap_{i \in \omega} \operatorname{Cl}_{X}(V_{n})
+\end{equation*}
+e \(y\coloneqq (y_{i})_{i \in \omega} \in \omega^{\omega}\), il \uline{giocatore II vince} sse
+\begin{equation*}
+(x,y) \in F \subseteq X\times \omega^{\omega}.
+\end{equation*}
+\subsubsection{Applicazione del Teorema di Gale-Stewart}
+\label{sec:org682507b}
+
+Se \(F\) è aperto o chiuso di \(X\times\omega^{\omega}\), allora \(G^{**}_{\text{u}}(F)\) è determinato.
+\begin{enumerate}
+\item Dimostrazione
+\label{sec:org871b9fe}
+
+\begin{itemize}
+\item Si costruisce un \(\mathcal{A}\)-schema su \(X\). Per ogni \(\langle (A_{0},a_{0}),\dots,(A_{k},a_{k})\rangle \in \mathcal{A}^{<\omega}\), si definisce
+\begin{equation*}
+  B_{\langle (A_{0},a_{0}),\dots,(A_{k},a_{k})\rangle} \coloneqq \begin{cases}
+  	\bigcap_{i\le k} \operatorname{Cl}_{X}(A_{i}) & \forall\,i\le k: \ \operatorname{diam}(A_{i})<2^{-i}\\
+  	& A_{0} \supseteq A_{1}\supseteq \dots \supseteq A_{k}\\[1em]
+  	\emptyset &\text{altrimenti}
+      \end{cases}
+\end{equation*}
+
+Ovviamente, per ogni \(s \in \mathcal{A}^{<\omega}\) e per ogni \(a \in \mathcal{A}\):
+\begin{equation*}
+  	B_{s\concat a} \subseteq B_{s}
+\end{equation*}
+ed inoltre per ogni \(x \in \mathcal{A}^{\omega}\): \(\operatorname{diam}(B_{x\upharpoonright n})\to 0\).
+
+Inoltre ciascun \(B_{s}\) è chiuso (poiché intersezione finita di chiusi oppure il vuoto) e pertanto, per il Lemma 1.3.6, questo schema induce una funzione continua
+\begin{equation*}
+  	f:[T]\to X,\quad T\coloneqq \set{s \in \mathcal{A}^{<\omega}\mid B_{s}\neq \emptyset}.
+\end{equation*}
+
+\item Si osserva che \(T=\set{\langle (A_{i},a_{i})\rangle_{i\le k}: A_{0}\supseteq A_{1}\supseteq \dots A_{k} \,\land\, \forall\, i\le k:\ \operatorname{diam}A_{i}<2^{-i}}\), ovvero è esattamente l'albero delle posizioni ammissibili di \(G^{**}_{\text{u}}(F)\), ed inoltre \(T\) è un albero potato non vuoto.
+
+\item La funzione
+\begin{align*}
+g: \mathcal{A}^{\omega} &\longrightarrow \omega^{\omega}\\
+\left((A_{i},a_{i})\right)_{i \in\omega}&\longmapsto (a_{2i+1})_{i \in\omega}
+\end{align*}
+è continua.
+
+\item Si ottiene quindi una funzione continua
+\begin{align*}
+\psi: [T] &\longrightarrow X\times\omega^{\omega}\\
+s &\longmapsto \left(f(s),g(s)\right)
+\end{align*}
+\end{itemize}
+
+Sia ora dunque \(F \subseteq X\times\omega^{\omega}\) aperto o chiuso, sia \(F'\coloneqq [T]\setminus\psi^{-1}(F)\) aperto o chiuso, e si consideri il \hyperref[sec:org32c74c6]{Gioco di Gale-Stewart con posizioni ammissibili} \(G(T,F')\). Per il \href{../../../../../../../org/roam/20250514144736-teorema_di_gale_stewart.org}{Teorema di Gale-Stewart}, questo è determinato, poiché \(F'\) è aperto o chiuso; ovvero esattamente uno tra i giocatori I e II ha una strategia vincente.
+
+\uline{Caso 1}. Sia \(\sigma'\) una strategia vincente per il giocatore I nel gioco \(G(T,F')\), \(\sigma' \subseteq T \subseteq \mathcal{A}^{<\omega}\) con \([\sigma'] \subseteq F'\), ovvero \([\sigma'] \cap \psi^{-1}(F)=\emptyset\).
+
+Si costruisce una strategia \(\sigma\) per il giocatore I nel gioco \(G^{**}_{\text{u}}(F)\):
+\begin{equation*}
+\sigma \coloneqq \set{
+\begin{gathered}
+\langle A_{0}, (A_{1},a_{1}),\dots,(A_{2k-1}, a_{2k-1}), A_{2k}\rangle,\\
+\langle A_{0}, (A_{1},a_{1}),\dots,(A_{2k+1}, a_{2k+1})\rangle
+\end{gathered}
+\mid \langle (A_{0},a_{0}), (A_{1},a_{1}),\dots,(A_{k}, a_{k})\rangle \in \sigma'
+}.
+\end{equation*}
+
+Sia quindi \(\left( U_{i}, (V_{i},y_{i}) \right)_{i \in \omega}\) una giocata per I seguendo la strategia \(\sigma\), e siano
+\begin{equation*}
+\set{x} \coloneqq \bigcap_{i \in \omega} U_{i} = \bigcap_{i \in \omega} V_{i},\quad y\coloneqq(y_{i})_{i \in\omega}.
+\end{equation*}
+Allora esiste \(s \in [\sigma']\) tale che \((x,y) = \psi(s)\) per costruzione. Siccome \([\sigma'] \cap \psi^{-1}(F) = \emptyset\) segue che \((x,y)\notin F\).
+
+\uline{Caso 2}. Sia \(\sigma'\) una strategia vincente per il giocatore II nel gioco \(G(T,F')\), \(\sigma' \subseteq T \subseteq \mathcal{A}^{<\omega}\) con \([\sigma'] \cap  F' = \emptyset\), ovvero \([\sigma'] \subseteq \psi^{-1}(F)\)
+
+Si costruisce una strategia \(\sigma\) per il giocatore II nel gioco \(G^{**}_{\text{u}}(F)\):
+\begin{equation*}
+\sigma \coloneqq \set{
+\begin{gathered}
+\langle A_{0}, (A_{1},a_{1}),\dots,(A_{2k-1}, a_{2k-1}), A_{2k}\rangle,\\
+\langle A_{0}, (A_{1},a_{1}),\dots,(A_{2k+1}, a_{2k+1})\rangle
+\end{gathered}
+\mid \langle (A_{0},a_{0}), (A_{1},a_{1}),\dots,(A_{k}, a_{k})\rangle \in \sigma'
+}.
+\end{equation*}
+
+Sia quindi \(\left( U_{i}, (V_{i},y_{i}) \right)_{i \in \omega}\) una giocata per I seguendo la strategia \(\sigma\), e siano
+\begin{equation*}
+\set{x} \coloneqq \bigcap_{i \in \omega} U_{i} = \bigcap_{i \in \omega} V_{i},\quad y\coloneqq(y_{i})_{i \in\omega}.
+\end{equation*}
+Allora esiste \(s \in [\sigma'] \subseteq \psi^{-1}(F)\) tale che \((x,y) = \psi(s)\) per costruzione, e pertanto \((x,y) \in F\).\qed
+:ID:       8cf7248e-0ea4-4a86-b862-49881cabb122
+\end{enumerate}
+\subsection{Teorema}
+\label{sec:org21015ec}
+
+Sia \(X\) uno spazio polacco con una metrica fissata e sia \(\mathcal{W}\) una base debole di X.
+
+Dato \(F \subseteq X\times \omega^{\omega}\) si consideri il \hyperref[sec:org8e1057c]{**-gioco}: \(G^{**}_{\text{u}}(F)\). Indicato con \(A\coloneqq \pi_{X}(F)\):
+\begin{enumerate}
+\item se I ha una \hyperref[sec:org1db90c5]{strategia} \hyperref[sec:org1db90c5]{vincente} in \(G^{**}_{\text{u}}(F)\), allora \(A\) è magro in un aperto non vuoto di \(X\times\omega^{\omega}\);
+\item se II ha una \hyperref[sec:org1db90c5]{strategia} \hyperref[sec:org1db90c5]{vincente} in \(G^{**}_{\text{u}}(F)\) allora \(A\) è comagro.
+\end{enumerate}
+\subsubsection{Dimostrazione}
+\label{sec:org842a52a}
+
+\begin{enumerate}
+\item Sia \(\sigma\) una \hyperref[sec:org1db90c5]{strategia} \hyperref[sec:org1db90c5]{vincente} per I, e sia \(U_{0}\) la prima mossa. Si mostra che \(A\) è \href{../../../../../../../org/roam/20250419122752-insieme_magro.org}{magro} in \(U_{0}\).
+
+Per ogni \(a \in \omega\) e per ogni \(p \in \sigma\) della forma:
+\begin{equation*}
+ p=\langle
+ 	U_{0},({y}_{0}, V_{0}), \dots, U_{n-1}, ({y}_{n-1}, V_{n-1}), U_{n}
+ \rangle
+\end{equation*}
+si definisce \(F_{p,a} \subseteq U_{0}\):
+\begin{align*}
+ F_{p,a} = \{&z \in U_{n}\mid \text{per ogni mossa legale }(a, V_{n})\\
+ &\text{se } U_{n+1}\text{ è l'unico elemento di }\mathcal{W}\text{ tale che}\\
+ &p \concat \langle(a,V_{n}), U_{n+1}\rangle \in \sigma \text{ allora } z \notin U_{n+1}\}
+\end{align*}
+\begin{itemize}
+\item L'insieme \(F_{p,a}\) è mai denso, poiché chiuso e con interno vuoto \footnote{Esempio 1.5.2 (2) di LMR ``Notes on descriptive set theory''
+:ID:       51b0a529-1947-4b4b-a37b-4a4e4f9a0e60}. Infatti, se per assurdo \(\operatorname{Int}(F_{p,a}) \neq \emptyset\), allora esiste \(W \in \mathcal{W}\) tale che
+\begin{equation*}
+   W \subseteq \operatorname{Int}(F_{p,a}), \quad \operatorname{diam}(W)<2^{-n}
+\end{equation*}
+pertanto se II gioca \(V_{n} \coloneqq W\) allora I dovrà giocare \(U_{n+1} \subseteq V_{n} \subseteq F_{p,a}\). Ma per definizione \(U_{n+1}\cap F_{p,a} = \emptyset\). Assurdo.
+
+Inoltre, se \(\eta \in U_{n}\setminus F_{p,a}\), allora esiste una sequenza
+\begin{equation*}
+   p\concat\langle (a,V_{n}), U_{n+1}\rangle \in \sigma
+\end{equation*}
+con \(\eta \in U_{n+1}\); siccome \(U_{n+1} \cap F_{p,a} = \emptyset\) segue
+\begin{equation*}
+   \eta \in U_{n+1} \subseteq U_{n}\setminus F_{p,a} \subseteq X\setminus F_{p,a}
+\end{equation*}
+ovvero \(F_{p,a}\) chiuso.
+
+\item Siccome \(\sigma\) e \(\omega\) sono insiemi numerabili allora
+\begin{equation*}
+   \bigcup_{p \in \sigma', a \in \omega} F_{p,a}
+\end{equation*}
+è un insieme magro, dove \(\sigma' \subseteq \sigma\) è l'insieme delle sequenze di lunghezze dispari.
+\end{itemize}
+
+Sia ora \(x \in A\cap U_{0}\). Allora esiste \(y \in \omega^{\omega}\), \(y=(y_{i})_{i \in\omega}\) tale che \((x,y) \in F\).
+
+Una posizione \(p \in \sigma'\):
+\begin{equation*}
+     p=\langle
+     	U_{0},({y}_{0}, V_{0}), \dots, U_{n-1}, ({y}_{n-1}, V_{n-1}), U_{n}
+     \rangle
+\end{equation*}
+è \uline{buona} per \((x,{y})\) se \(x \in U_{n}\). Siccome \(\sigma\) è una strategia vincente per il giocatore I, allora esiste una posizione \(p_{(x,y)} \in \sigma\) buona per \((x,y)\) e massimale, ovvero ogni estensione di \(p_{(x,y)}\) \uline{non è buona}. Ma allora, se
+\begin{equation*}
+ p_{(x,y)} = \langle U_{0}, (y_{0},V_{0}),\dots, U_{n}\rangle
+\end{equation*}
+si ha che \(x \in F_{p_{(x,y)}, y_{n}}\).
+
+Pertanto \(A\cap U_{0} \subseteq \bigcup_{p \in \sigma', a \in \omega} F_{p,a}\) è magro.
+
+\item Se II ha una strategia vincente per \(G^{**}_{\text{u}}(F)\), allora ha una strategia vincente \hyperref[sec:orge8e0b9e]{in \(G^{**}(A)\)}. Per il \href{../../../../../../../org/roam/20250514174717-teorema_di_caratterizzazione_dei_comagri_tramite_il_gioco_di_banach_mazur.org}{teorema precedente}, \(A\) è comagro.\qed
+\end{enumerate}
+\subsection{Teorema (Lusin-Sierpiński)}
+\label{sec:org65a9bfc}
+
+Sia \(X\) uno \href{../../../../../../../org/roam/20250301194013-spazio_polacco.org}{spazio polacco}. Allora ogni \href{../../../../../../../org/roam/20250525220742-insieme_analitico.org}{insieme analitico} di \(X\) ha la \href{../../../../../../../org/roam/20250514154039-proprieta_di_baire.org}{Baire Property}.
+\subsubsection{Dimostrazione}
+\label{sec:orge50bb88}
+
+Siccome \(\mathrm{BP}(X)\) è una \href{../../../../../../../org/roam/20250526100313-sigma_algebra.org}{\(\sigma\)-algebra} \footnote{Vedi Prop. 1.5.9 di LMR ``Notes on Descriptive Set Theory''.} allora è chiusa per complementi, e pertanto se ogni insieme coanalitico ha BP allora si è dimostrata la tesi.
+
+Sia dunque \(C\) un insieme coanalitico e sia \(U \subseteq X\) un aperto. Posto \(A\coloneqq (X\setminus C)\cup U\), questo è un insieme analitico, e pertanto  esiste un chiuso \(F \subseteq X\times\omega^{\omega}\) tale che \(A=\pi_{X}(F)\).
+
+Per il \href{../../../../../../../org/roam/20250514144736-teorema_di_gale_stewart.org}{Teorema di Gale-Stewart}, allora, il \hyperref[sec:org8e1057c]{**-gioco \(G^{ * *}_{\text{u}}(F)\)} è \hyperref[sec:org7f68e17]{determinato}, ed in particolare vale una tra le condizioni a. e b. del \href{../../../../../../../org/roam/20250514175252-magrezza_dentro_ad_un_polacco_tramite_gioco_di_banach_mazur.org}{teorema precedente}.
+
+Per i \href{../../../../../../../org/roam/20250514174717-teorema_di_caratterizzazione_dei_comagri_tramite_il_gioco_di_banach_mazur.org}{teoremi I e II}, allora, il \hyperref[sec:orge8e0b9e]{gioco \(G^{**}(A) = G^{ * *}\left((X\setminus C) \cup U\right)\)} è determinato: per il \href{../../../../../../../org/roam/20250526100910-caratterizzazione_bp_tramite_gioco_di_banach_mazur.org}{lemma precedente}, quindi \(C\) ha la BP. \qed
+\end{document}

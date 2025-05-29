@@ -1,0 +1,365 @@
+#+title: Esercizi TDI - Foglio 3
+#+date: 24 aprile 2025
+#+OPTIONS: toc:nil
+#+LATEX_HEADER: \renewcommand{\href}[2]{#2}
+#+LATEX_HEADER: \renewcommand{\theenumi}{\alph{enumi}}
+
+* Esercizio 1
+
+Prove that for every [[id:0739c4de-6fe4-43d3-bca9-33455ef06da8][topological space]] \( X \) and every \( A \subseteq X \), the following are equivalent:
+
+a. The set \( A \) is [[id:24bacc77-9946-4e39-bd4e-bc6a6075e216][nowhere dense]], i.e. there is no open set \( U \subseteq X \) such that \( A \cap U \) is dense in \( U \).
+b. The closure of \( A \) has empty [[id:177e40ac-00b4-4a0c-ad7f-16d8294a124a][interior]].
+c. There is an open dense set \( V \subseteq X \) such that \( A \cap V = \emptyset \).
+
+Conclude that \( B \subseteq X \) is [[id:41953408-de97-4240-bed0-37f9de8706c4][comeager]] if and only if it contains a countable intersection of dense open sets.
+
+** Soluzione
+
+*** a implica b
+
+Sia \(B\coloneqq \operatorname{Cl}_{X}(A)\), e sia per assurdo \(b \in \mathring{B}\). Allora esiste \(U \subseteq B\) aperto di \(X\) tale che \(b \in U\).
+
+_Claim_: \(A\cap U\) è denso in \(U\), ovvero \(U \subseteq \operatorname{Cl}_{X}(A\cap U)\).
+
+Sia \(x \in U\) e sia \(V\) un intorno aperto di \(x\) in \(X\). Si vuole dimostrare che \(V\cap(A\cap U)\neq \emptyset\).
+- L'insieme \(W\coloneqq U\cap V\) è un intorno aperto di \(x\).
+- Siccome \(x \in U \subseteq \operatorname{Cl}_{X}(A)\), allora \(A\cap W \neq \emptyset\).
+- Allora
+  \begin{equation*}
+		\emptyset\neq W\cap A = (V\cap U)\cap A = V\cap(A\cap U)
+  \end{equation*}
+
+Per l'arbitrarietà di \(V\), si è dimostrato che \(x \in \operatorname{Cl}_{X}(A\cap U)\), ovvero che \(A\cap U\) è denso in \(U\). Questo contraddice l'ipotesi.
+
+**** Sbagliato :noexport:
+
+Infatti, sia \(y \in U \subseteq B\). Allora esiste una [[id:2a8ac178-8c85-418c-90b4-7e619ee2eaf1][successione]] \((x_{n})_{n \in \omega} \subseteq A\) [[id:147aa939-076c-4184-85b3-3078ec56c2be][convergente]]: \(x_{n}\to y\), per la [[id:883b01f5-2009-499b-9217-2e7cb088d8d2][caratterizzazione della chiusura in termini di successioni]].
+
+Inoltre, siccome \(U\) è aperto di \(X\), [[id:96081881-2377-4665-9923-1d0280f8aed4][allora]] è [[id:597c49d0-126e-4135-ad0f-fa6763ed542a][intorno]] di ogni suo punto, ed in particolare è intorno di \(y\): pertanto, esiste \(N \in \omega\) tale che
+\begin{equation*}
+\forall\, n\ge N:\qquad x_{n} \in U
+\end{equation*}
+
+Pertanto, la successione \((x_{n+N})_{n \in \omega}\) è interamente contenuta in \(A\cap U\) e converge ad \(y \in U\).
+
+*** b implica c
+
+Sia \(V\coloneqq X\setminus \operatorname{Cl}_{X}(A)\). Allora \(V\) è _denso_, in quanto il suo complementare \(\operatorname{Cl}_{X}(A)\) ha parte interna vuota (per ipotesi).
+
+L'insieme \(V\) è aperto poiché complementare di un chiuso, e inoltre \(A\cap V=\emptyset\).
+
+*** c implica a
+
+Sia per assurdo \(U \subseteq X\) un aperto non vuoto tale che \(\operatorname{Cl}_{U}(A\cap U) = U\).
+
+Poiché \(V\) è denso in \(X\), \(U\cap V\neq \emptyset\) aperto di \(X\) e quindi aperto di \(U\). Ma
+\begin{equation*}
+(U\cap V)\cap (A\cap U) = U\cap (V\cap A) = \emptyset
+\end{equation*}
+poiché \(V\cap A=\emptyset\).
+
+Assurdo, poiché se \(A\cap U\) è denso in \(U\), allora \(A\cap U\) incontra ogni aperto di \(U\).
+
+*** Caratterizzazione degli insiemi comagri
+:PROPERTIES:
+:ID:       ab215712-3de7-4877-ac5a-b878a1a0fecd
+:END:
+
+- Se \(B\) è comagro, allora si può scrivere:
+  \begin{equation*}
+  B \coloneqq X\setminus \left(\bigcup_{n \in \omega} A_{n}\right)
+  \end{equation*}
+  dove \(A_{n}\) è un insieme mai denso:
+  \begin{equation*}
+  B = \bigcap_{n \in \omega} (X\setminus A_{n}).
+  \end{equation*}
+  Per ogni \(n \in \omega\) esiste \(V_{n}\) aperto denso di \(X\) tale che \(A_{n}\cap V_{n} = \emptyset\), ovvero \(V_{n} \subseteq X\setminus A_{n}\):
+  \begin{equation*}
+		B= \bigcap_{n \in \omega} (X\setminus A_{n}) \supseteq \bigcap_{n \in \omega} V_{n}
+  \end{equation*}
+
+- Viceversa, siano \(V_{n} \subseteq X\) insiemi aperti e densi tali che
+  \begin{equation*}
+ 	B\supseteq \bigcap_{n \in \omega} V_{n}
+  \end{equation*}
+  Si ha quindi \(X\setminus B \subseteq X\setminus \left(\bigcap_{n \in \omega} V_{n}\right) = \bigcup_{n \in \omega} (X\setminus V_{n})\).
+
+  Allora \(A_{n} \coloneqq X\setminus V_{n}\) è mai denso per la caratterizzazione di cui sopra, e pertanto
+  \begin{equation*}
+	C\coloneqq \bigcup_{n \in \omega} A_{n}
+  \end{equation*}
+  è un insieme magro. Pertanto \(X\setminus B \subseteq C\) è un insieme magro, e quindi \(B\) è un insieme comagro.\qed
+
+* Esercizio 2
+
+Prove that for every topological space \( X \), the following are equivalent:
+a. Every nonempty open subset of \( X \) is non-meager.
+b. Every comeager set in \(X\) is dense.
+c. The intersection of countably many dense open subsets of \( X \) is dense.
+
+** Soluzione
+
+*** a. implica b.
+
+Sia \(A \subseteq X\) un insieme comagro: pertanto \(X\setminus A\) è magro. Se per assurdo \(A\) non è denso, allora esiste \(U \subseteq X\) aperto tale che \(A\cap U = \emptyset\), ovvero \(U \subseteq X\setminus A\).
+
+Dunque \(U\) è sottoinsieme di un magro, e pertanto è magro. Assurdo.
+
+*** b. implica c.
+
+Sia \(\set{U_{n}\mid n \in \omega}\) una collezione di aperti densi di \(X\), e sia, per ogni \(n \in\omega\), \(F_{n} \coloneqq X\setminus U_{n}\).
+
+Per la caratterizzazione di cui sopra, gli \(F_{n}\) sono mai densi, e pertanto \(\bigcup_{n \in \omega} F_{n}\) è magro per definizione
+
+Siccome
+\[
+X \setminus \bigcap_{n \in \omega} U_n = \bigcup_{n \in \omega} F_n
+\]
+allora \(\bigcap_{n \in \omega} U_{n}\) è comagro, e quindi è denso.
+
+*** c. implica a.
+
+Sia \(U \subseteq X\) aperto, magro. Per definizione, allora, esistono, per ogni \(n \in\omega\), \(A_{n} \subseteq X\) mai densi tali che
+\begin{equation*}
+U = \bigcup_{n \in \omega} A_{n}.
+\end{equation*}
+
+Sia quindi \(B_{n} \coloneqq X\setminus \operatorname{Cl}_{X}(A_{n})\): questo è aperto poiché complementare di un chiuso, ed è denso, in quanto il suo complementare ha interno vuoto (per la caratterizzazione dell'esercizio precedente).
+
+Pertanto \(\bigcap_{n \in \omega} B_{n}\) è denso. Inoltre
+\begin{equation*}
+\bigcap_{n \in \omega} B_{n} = X\setminus \bigcup_{n \in\omega} \operatorname{Cl}_{X}(A_{n}) \subseteq X\setminus A_{n} = X\setminus U
+\end{equation*}
+
+Pertanto \(U\cap \left(\bigcap_{n \in \omega} B_{n}\right) = \emptyset\). Siccome \(\bigcap_{n \in\omega} B_{n}\) è denso, allora \(U=\emptyset\).
+
+Segue che ogni aperto non vuoto di \(X\) è non magro.\qed
+
+* Esercizio 3
+
+Let \(X\) be a metrizable topological space. Prove by induction on \( 1 \leq \alpha < \omega_1 \) that:
+a. \( \bm{\Sigma}^0_\alpha(X) \) is closed under countable unions and finite intersections;
+b. \( \bm{\Pi}^0_\alpha(X) \) is closed under countable intersections and finite unions;
+c. \( \bm{\Delta}^0_\alpha(X) \) is a Boolean algebra, i.e., it is closed under complements, finite unions, and finite intersections.
+
+** References :noexport:
+
+Vedi [[id:7bed6b5c-96ea-4a3d-900f-88ce51f5de7f][Gerarchia di Borel]]
+
+** Soluzione
+
+*** Caso base: \(\alpha=1\)
+
+a. Unione di aperti è aperta e intersezione finita di aperti è aperta.
+b. Intersezione di chiusi è chiusa e unione finita di chiusi è chiusa.
+c. Il complementare di un clopen è ancora un clopen, così come unioni e intersezioni finite.
+
+*** Passo induttivo
+
+Sia l'enunciato vero per ogni \(\beta<\alpha\).
+
+**** Classi additive
+
+- Siano, per ogni \(n \in\omega\), \(A_{n} \in \bm{\Sigma}^0_\alpha(X)\). Per definizione, per ogni \(n \in\omega\), esistono degli \(A_{n}^{m} \in \bm{\Pi}^0_{\beta_{n}^{m}}(X)\), con \(\beta_{n}^{m}<\alpha\), tali che
+  \begin{equation*}
+	A_{n} = \bigcup_{m \in \omega} A_{n}^{m}
+  \end{equation*}
+  Allora si ha che
+  \begin{equation*}
+	\bigcup_{n \in \omega} A_{n} = \bigcup_{n,m \in \omega} A_{n}^{m}
+  \end{equation*}
+  che è ancora una unione numerabile, ed è quindi un elemento di \(\bm{\Sigma}^0_\alpha(X)\).
+
+- Siano \(U, V \in \bm{\Sigma}^0_\alpha(X)\). Per definizione esistono degli \(U_{n} \in \bm{\Pi}^0_{\beta^{U}_{n}}(X)\) e degli \(V_{m} \in \bm{\Pi}^0_{\beta^{V}_{m}}(X)\), con \(\beta_{n}^{U}, \beta_{m}^{V} <\alpha\) tali che
+  \begin{equation*}
+	U = \bigcup_{n \in \omega} U_{n},\quad V = \bigcup_{m \in \omega} V_{m}
+  \end{equation*}
+
+  Detto \(\beta_{n,m} \coloneqq \max\set{\beta_{n}^{V},\beta_{m}^{U}}<\alpha\), si ha che
+  \begin{equation*}
+	U\cap V = \left(\bigcup_{n \in\omega} U_{n}\right)\cap\left(\bigcup_{m \in \omega} V_{m}\right) = \bigcup_{n,m \in \omega} (U_{n}\cap V_{m})
+  \end{equation*}
+  Per ipotesi induttiva, per ogni \(n,m\) si ha \(U_{n}\cap V_{m} \in \bm{\Pi}^0_{\beta_{n,m}}(X)\) e pertanto \(U\cap V \in \bm{\Sigma}^0_\alpha(X)\)
+
+
+**** Classi moltiplicative
+
+- Siano, per ogni \(n \in\omega\), \(A_{n} \in \bm{\Pi}^0_\alpha(X)\). Per definizione, per ogni \(n \in\omega\), esistono degli \(A_{n}^{m} \in \bm{\Sigma}^0_{\beta_{n}^{m}}(X)\), con \(\beta_{n}^{m}<\alpha\), tali che
+  \begin{equation*}
+	A_{n} = \bigcap_{m \in \omega} A_{n}^{m}
+  \end{equation*}
+  Allora si ha che
+  \begin{equation*}
+	\bigcap_{n \in \omega} A_{n} = \bigcap_{n,m \in \omega} A_{n}^{m}
+  \end{equation*}
+  che è ancora una intersezione numerabile, ed è quindi un elemento di \(\bm{\Pi}^0_\alpha(X)\).
+
+- Siano \(U, V \in \bm{\Pi}^0_\alpha(X)\). Allora \((X\setminus U), (X\setminus V) \in \bm{\Sigma}^0_\alpha(X)\)
+  \begin{align*}
+	X\setminus (U\cup V) = (X\setminus U)\cap (X\setminus V)
+  \end{align*}
+  e siccome \(\bm{\Sigma}^0_\alpha(X)\) è chiuso per intersezioni finite, allora \(X\setminus (U\cup V)\) è un elemento di \(\bm{\Sigma}^0_\alpha(X)\), ovvero
+  \begin{equation*}
+	U\cup V \in \bm{\Pi}^0_\alpha(X).
+  \end{equation*}
+
+
+**** Classi ambigue
+
+- Sia \(U \in \bm{\Delta}^0_\alpha(X)\). Allora \(U \in \bm{\Sigma}^0_\alpha(X)\cap \bm{\Pi}^0_\alpha(X)\), ovvero esistono
+  \begin{equation*}
+	A_{n} \in \bm{\Pi}^0_{\beta_{n}}(X),\qquad B_{m} \in \bm{\Sigma}^0_{\beta^{m}}(X)
+  \end{equation*}
+  con \(\beta_{n},\beta^{m} <\alpha\) tali che
+  \begin{equation*}
+	U=\bigcup_{n \in \omega} A_{n},\qquad U = \bigcap_{m \in \omega} B_{m}.
+  \end{equation*}
+
+  Pertanto si ha che
+  \begin{align*}
+	X\setminus U &= X \setminus \left(\bigcup_{n \in \omega} A_{n}\right) = \bigcap_{n \in\omega} (X\setminus A_{n})\\
+	X\setminus U &= X\setminus \left(\bigcap_{m \in \omega} B_{m}\right) = \bigcup_{m \in \omega} (X\setminus B_{m})
+  \end{align*}
+
+  Se \(A_{n} \in \bm{\Pi}^0_{\beta_{n}}(X)\) allora \(X\setminus A_{n} \in \bm{\Sigma}^0_{\beta_{n}}(X)\), e pertanto \(X\setminus U \in \bm{\Pi}^0_\alpha(X)\).
+
+  Se \(B_{m} \in \bm{\Sigma}^0_{\beta^{m}}(X)\) allora \(X\setminus B_{m} \in \bm{\Pi}^0_{\beta^{m}}(X)\), e pertanto \(X\setminus U \in \bm{\Sigma}^0_\alpha(X)\).
+
+  Dunque \(X\setminus U \in \bm{\Sigma}^0_\alpha(X)\cap \bm{\Pi}^0_\alpha(X) = \bm{\Delta}^0_\alpha(X)\).
+
+- Siccome sia \(\bm{\Pi}^0_\alpha(X)\) che \(\bm{\Sigma}^0_\alpha(X)\) sono chiusi per unioni e intersezioni finite, allora
+  \[
+  \bm{\Pi}^0_\alpha(X)\cap \bm{\Sigma}^0_\alpha(X) = \bm{\Delta}^0_\alpha(X)
+  \]
+  è chiuso per unioni e intersezioni finite.\qed
+
+* Esercizio 4
+
+Let \( Y \subseteq X \) be Polish spaces. Show that for every \( \alpha \geq 3 \),
+\[
+\bm{\Delta}^0_\alpha(Y) = \bm{\Delta}^0_\alpha(X) \upharpoonright Y,
+\]
+where as usual \( \bm{\Delta}^0_\alpha(X) \upharpoonright Y = \{ A \cap Y \mid A \in \Delta^0_\alpha(X) \} \).
+
+** Soluzione
+
+Si richiama il Lemma 2.1.5(vi):
+\begin{align*}
+\bm{\Sigma}^{0}_{\alpha}(Y) &= \bm{\Sigma}^{0}_{\alpha}(X)\upharpoonright Y;\\
+\bm{\Pi}^{0}_{\alpha}(Y) &= \bm{\Pi}^{0}_{\alpha}(X)\upharpoonright Y.
+\end{align*}
+
+*** Inclusione ``\(\subseteq\)''
+
+Sia \(A \in \bm{\Delta}^{0}_{\alpha}(Y) = \bm{\Sigma}^{0}_{\alpha}(Y) \cap \bm{\Pi}^{0}_{\alpha}(Y)\). Allora esistono \(B \in \bm{\Sigma}^{0}_{\alpha}(X)\) e \(C \in \bm{\Pi}^{0}_{\alpha}(X)\) tali che
+\begin{equation*}
+A = B\cap Y,\quad A= C\cap Y
+\end{equation*}
+
+Siccome \(Y \subseteq X\) è polacco, [[id:d8583078-e2dc-4cc8-b43f-5b658d116402][allora]] \(Y\) è un [[id:a2035152-35a7-4522-a9f2-c5776c2c5c50][sottoinsieme \(\bm{G}_{\delta}\)]] di \(X\), ovvero \(Y \in \bm{\Pi}^{0}_{2}(X)\). Poiché \(\alpha\ge 3\), \(\bm{\Pi}^{0}_{2}(X) \subseteq \bm{\Pi}^{0}_{\alpha}(X), \bm{\Sigma}^{0}_{\alpha}(X)\): \(Y \in \bm{\Sigma}^{0}_{\alpha}(X)\) e \(Y \in \bm{\Pi}^{0}_{\alpha}(X)\), e quindi, poiché entrambe le classi \(\bm{\Sigma}_{\alpha}^{0}(X), \bm{\Pi}^{0}_{\alpha}(X)\) sono chiuse per intersezioni finite:
+\begin{equation*}
+A=B\cap Y \in \bm{\Sigma}^{0}_{\alpha}(X),\qquad A=C\cap Y \in \bm{\Pi}^{0}_{\alpha}(X)
+\end{equation*}
+ovvero \(A \in \bm{\Delta}^{0}_{\alpha}(X)\). Inoltre \(A \subseteq Y\), e pertanto
+\begin{equation*}
+A = A\cap Y \in \bm{\Delta}^{0}_{\alpha}(X)\upharpoonright Y = \set{V\cap Y\mid V \in \bm{\Delta}^{0}_{\alpha}(X)}.
+\end{equation*}
+
+*** Inclusione ``\(\supseteq\)''
+
+Sia \(A \in \bm{\Delta}^{0}_{\alpha}(X)\), ovvero \(A\cap Y \in \bm{\Delta}^{0}_{\alpha}(X)\upharpoonright Y\).
+
+Allora
+- \(A \in \bm{\Sigma}^{0}_{\alpha}(X)\), e quindi \(A\cap Y \in \bm{\Sigma}^{0}_{\alpha}(Y)\);
+- \(A \in \bm{\Pi}^{0}_{\alpha}(X)\), e quindi \(A\cap Y \in \bm{\Pi}^{0}_{\alpha}(Y)\).
+
+Pertanto
+\begin{equation*}
+(A\cap Y) \in \bm{\Sigma}^{0}_{\alpha}(Y)\cap \bm{\Pi}^{0}_{\alpha}(Y) = \bm{\Delta}^{0}_{\alpha}(Y).\qedd
+\end{equation*}
+
+* Esercizio 5
+
+Given a continuous function \( f : [0, 1] \to \mathbb{R} \), let
+\[
+D_f = \set{ x \in [0, 1] \mid f' \text{ exists}}.
+\]
+(At endpoints we take one-sided derivatives.) Prove that \( D_f \in \bm{\Pi}^{0}_{3}\left([0,1]\right) \).
+
+** Dimostrazione
+
+Si osserva che \(x \in D_{f}\) se e solo se \(x \in [0,1]\) e per ogni \(\varepsilon \in \R^{+}\) esiste \(\delta \in \R^{ +}\) tale che per ogni \(p, q \in [0,1]\):
+\begin{equation*}
+0<|p-x|,|q-x|< \delta
+\quad\implies\quad
+\left|\frac{f(p)-f(x)}{p-x}-\frac{f(q)-f(x)}{q-x}\right|\le\varepsilon
+\end{equation*}
+se e solo se \(x \in [0,1]\) e per ogni \(\varepsilon \in \Q^{+}\) esiste \(\delta \in \Q^{ +}\) tale che per ogni \(p, q \in [0,1]\cap \Q\):
+\begin{equation*}
+0<|p-x|,|q-x|< \delta
+\quad\implies\quad
+\left|\frac{f(p)-f(x)}{p-x}-\frac{f(q)-f(x)}{q-x}\right|\le\varepsilon
+\end{equation*}
+ovvero
+\begin{equation*}
+\left(
+\begin{aligned}
+0<|p-x| \,&\mathord{\wedge}\,|p-x|< \delta\\
+&\mathord{\wedge}\\
+0<|q-x| \,&\mathord{\wedge}\,|q-x|<\delta
+\end{aligned}
+\right)
+\quad\implies\quad
+\left|\frac{f(p)-f(x)}{p-x}-\frac{f(q)-f(x)}{q-x}\right|\le\varepsilon
+\end{equation*}
+ovvero
+\begin{equation*}
+\lnot\,\left(
+\begin{aligned}
+0<|p-x| \,&\mathord{\wedge}\,|p-x|< \delta\\
+&\mathord{\wedge}\\
+0<|q-x| \,&\mathord{\wedge}\,|q-x|<\delta
+\end{aligned}
+\right)
+\,\lor\,
+\left|\frac{f(p)-f(x)}{p-x}-\frac{f(q)-f(x)}{q-x}\right|\le\varepsilon
+\end{equation*}
+ovvero
+\begin{equation*}
+0\ge |p-x| \,\lor\, |p-x|\ge \delta \,\lor\, 0\ge|q-x| \,\lor\, |q-x|\ge \delta
+\,\lor\, \left|\frac{f(p)-f(x)}{p-x}-\frac{f(q)-f(x)}{q-x}\right|\le\varepsilon.
+\end{equation*}
+
+Siano quindi
+\begin{align*}
+A_{p} &\coloneqq \set{x \in [0,1]\,\tc\, |p-x|=0} = \set{p}\\
+B_{p,\delta} &\coloneqq \set{x \in [0,1]\,\tc\, |p-x|\ge \delta}\\
+C_{q} &\coloneqq \set{x \in [0,1]\,\tc\, |q-x|=0} = \set{q}\\
+D_{q,\delta} &\coloneqq \set{x \in [0,1]\,\tc\, |q-x|\ge \delta}\\
+E_{p,q}^{\varepsilon} &\coloneqq \set{x \in [0,1]\,\tc\,\left|\frac{f(p)-f(x)}{p-x}-\frac{f(q)-f(x)}{q-x}\right|\le\varepsilon}
+\end{align*}
+
+Vale dunque l'uguaglianza
+\begin{equation*}
+D_{f} = \bigcap_{\varepsilon \in \Q^{+}} \bigcup_{\delta \in \Q^{ +}} \bigcap_{p,q \in [0,1]\cap \Q } A_{p}\cup B_{p,\delta}\cup C_{q}\cup D_{q,\delta}\cup E_{p,q}^{\varepsilon},
+\end{equation*}
+e pertanto:
+- l'insieme \(V_{p,q}^{\varepsilon,\delta} \coloneqq A_{p}\cup B_{p,\delta}\cup C_{q}\cup D_{q,\delta}\cup E_{p,q}^{\varepsilon}\) è chiuso, in quanto unione di tre chiusi:
+  - \(B_{p,\delta}\) e \(D_{q,\delta}\) sono chiusi;
+  - si consideri ora la funzione continua:
+    \begin{align*}
+		F: [0,1]\setminus\set{p,q} &\longrightarrow \R\\
+		x&\longmapsto \frac{f(p)-f(x)}{p-x}-\frac{f(q)-f(x)}{q-x}
+    \end{align*}
+    pertanto \(E_{p,q}^{\varepsilon} = F^{-1}\left([-\varepsilon,\varepsilon]\right)\) è un chiuso di \([0,1]\setminus\set{p,q}\); esiste quindi un **chiuso** \(W\) di \([0,1]\) tale che
+    \begin{equation*}
+		E_{p,q}^{\varepsilon} = \left([0,1]\setminus\set{p,q}\right) \cap W = W\setminus\set{p,q}
+    \end{equation*}
+    per cui vale questa uguaglianza
+    \begin{equation*}
+		W= E_{p,q}^{\varepsilon} \cup\set{p,q} = E_{p,q}^{\varepsilon} \cup A_{p}\cup C_{q};
+    \end{equation*}
+- l'insieme \(\bigcap_{p,q \in [0,1]\cap \Q} V_{p,q}^{\varepsilon,\delta}\) è chiuso, poiché intersezione di chiusi;
+- l'insieme \(\bigcup_{\delta \in \Q^{ +}} \bigcap_{p,q \in [0,1]\cap \Q } V_{p,q}^{\varepsilon,\delta}\) è un \(\bm{\Sigma}^0_2(X)\), poiché unione numerabile di chiusi;
+- l'insieme \(D_{f}\) è un \(\bm{\Pi}^0_3(X)\) poiché è intersezione numerabile di \(\bm{\Sigma}^0_2(X)\).\qed
