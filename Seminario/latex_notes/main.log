@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.8.21)  30 MAY 2025 11:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.8.21)  30 MAY 2025 16:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2236,7 +2236,7 @@ Here is how much of TeX's memory you used:
  77047 multiletter control sequences out of 15000+600000
  631716 words of font info for 162 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,17n,119p,1604b,1345s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,17n,119p,1604b,1350s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/20
 19/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2019/texmf-d
@@ -2262,7 +2262,7 @@ l/texlive/2019/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/
 2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texl
 ive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/t
 exlive/2019/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on main.pdf (15 pages, 383250 bytes).
+Output written on main.pdf (15 pages, 383140 bytes).
 PDF statistics:
  343 PDF objects out of 1000 (max. 8388607)
  276 compressed objects within 3 object streams
