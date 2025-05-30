@@ -744,9 +744,9 @@ Sia quindi \(\sigma\) la strategia vincente di I in questo gioco di Choquet.
 
 Nel gioco \(G^{**}(A)\), il giocatore I pone \(U_{0} \coloneqq Y\). Si costruisce per induzione la strategia vincente per I.
 
-Al passo \(n+1\)-esimo, sia \((U_{0},V_{0},\dots, U_{n}, V_{n})\) la sequenza di insiemi giocati. Si pone, per ogni \(i\le n\): \(V_{i}'\coloneqq V_{i}\cap W_{i}\), e si sceglie \(U_{n+1}\) come l'unico sottoinsieme aperto non vuoto di \(V_{n}\) tale che
+Al passo \(n+1\)-esimo, sia \(\langle U_{0},V_{0},\dots, U_{n}, V_{n}\rangle\) la sequenza di insiemi giocati. Si pone, per ogni \(i\le n\): \(V_{i}'\coloneqq V_{i}\cap W_{i}\), e si sceglie \(U_{n+1}\) come l'unico sottoinsieme aperto non vuoto di \(V_{n}\) tale che
 \begin{equation*}
-(V_{0}', U_{1}, V_{1}', U_{2},\dots, V_{n}', U_{n+1}) \in\sigma.
+\langle V_{0}', U_{1}, V_{1}', U_{2},\dots, V_{n}', U_{n+1}\rangle \in\sigma.
 \end{equation*}
 
 Allora \(\bigcap_{n \in \omega} U_{n}\neq\emptyset\) e inoltre
@@ -762,13 +762,13 @@ Si costruisce una strategia \(\sigma'\) per I, vincente, e tale che l'insieme gi
 \operatorname{diam}(U_{n})<2^{-n}.
 \end{equation*}
 
-Al passo \(n+1\), sia \((U_{0},V_{0},\dots,U_{n}, V_{n})\) la sequenza di insiemi giocati, e sia \(v_{n} \in V_{n}\). Si definisce
+Al passo \(n+1\), sia \(\langle U_{0},V_{0},\dots,U_{n}, V_{n}\rangle\) la sequenza di insiemi giocati, e sia \(v_{n} \in V_{n}\). Si definisce
 \begin{equation*}
 V_{n}'\coloneqq V_{n}\cap B_{d}(v_{n}, 2^{-n-1}), \qquad \operatorname{diam}(V_{n}) \le 2^{-n}
 \end{equation*}
 che è un aperto non vuoto. Si pone infine \(U_{n+1}\) come l'unico sottoinsieme aperto di \(V_{n}'\) tale che
 \begin{equation*}
-(U_{0},V_{0},\dots,U_{n}, V_{n}', U_{n+1}) \in \sigma.
+\langle U_{0},V_{0},\dots,U_{n}, V_{n}', U_{n+1}\rangle \in \sigma.
 \end{equation*}
 
 Questo \(U_{n+1}\) è la risposta secondo la strategia \(\sigma'\), in quanto \(\operatorname{diam}(U_{n})\le \operatorname{diam}(V_{n}')\le 2^{-n}\).
