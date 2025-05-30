@@ -1998,10 +1998,11 @@
     <bcf:citekey order="0" nocite="1">*</bcf:citekey>
     <bcf:citekey order="1">sep</bcf:citekey>
     <bcf:citekey order="2">kechris</bcf:citekey>
-    <bcf:citekey order="3">mathoverflow</bcf:citekey>
-    <bcf:citekey order="4">kechris</bcf:citekey>
-    <bcf:citekey order="5">lmr</bcf:citekey>
+    <bcf:citekey order="3">kechris</bcf:citekey>
+    <bcf:citekey order="4">mathoverflow</bcf:citekey>
+    <bcf:citekey order="5">kechris</bcf:citekey>
     <bcf:citekey order="6">lmr</bcf:citekey>
+    <bcf:citekey order="7">lmr</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

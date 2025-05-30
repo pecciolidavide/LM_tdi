@@ -275,7 +275,7 @@
 
 \theoremstyle{definition}% default
 \newtheorem{thm}{Teorema}[section]
-\newtheorem{GS}[thm]{Teorema di Gale-Stewart}
+\newtheorem{GaleStewart}[thm]{Teorema di Gale-Stewart}
 \newtheorem{LS}[thm]{Teorema di Lusin-Sierpiński}
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposizione}
@@ -457,9 +457,9 @@ C' \coloneqq \set{x \in A^{\omega}\mid \left[\exists\, n (x\upharpoonright n \no
 
 Sia \(A\) uno {spazio topologico} {discreto} e sia \(A^{\omega}\) dotato della {topologia prodotto}.
 
-\begin{GS}\label{sec:orgf56b48c}
-Sia \(T\) un {albero} {potato} non vuoto su \(A\). Se \(C \subseteq [T]\) è {aperto} o {chiuso} in \([T]\) e {Sottospazio topologico}}, allora {il gioco} \(G(T,C)\) è {determinato}.
-\end{GS}
+\begin{GaleStewart}\label{sec:orgf56b48c}
+Sia \(T\) un {albero} {potato} non vuoto su \(A\). Se \(C \subseteq [T]\) è {aperto} o {chiuso} in \([T]\), allora {il gioco} \(G(T,C)\) è {determinato}.
+\end{GaleStewart}
 
 %% \section{Ripasso TDI}
 %% \label{sec:orgffd436a}
@@ -581,7 +581,7 @@ e, poiché il gioco è {totale}, il giocatore II vince se
 
 \begin{thm}
 Uno {spazio topologico} \(X\) è uno {spazio topologico di Baire} se e solo se il giocatore I {non ha una {strategia} {vincente}} nel {gioco di Choquet} \(G_{X}\).
-\end{Thm}
+\end{thm}
 
 \begin{defn}
 Uno spazio topologico \(X\) è detto \uline{spazio di Choquet} se il giocatore II ha una strategia vincente in \(G_{X}\).
@@ -591,6 +591,8 @@ Uno spazio topologico \(X\) è detto \uline{spazio di Choquet} se il giocatore I
 Se il giocatore I non ha una strategia vincente, {non è detto} che il giocatore II ne abbia una.
 
 Viceversa, però, se II ha una strategia vincente, allora necessariamente I non ne ha una. Quindi ogni spazio di Choquet è uno spazio topologico di Baire.
+
+Inoltre, dal Teorema 8.17 di \cite{kechris}, ogni spazio Polacco è uno spazio di Choquet.
 \end{oss}
 
 \begin{prop}
@@ -611,7 +613,7 @@ Il \uline{gioco di Banach-Mazur} (detto anche \uline{**-gioco}) di \(A\), denota
 	{\text{II}} \&\& {V_0} \&\& {V_1} \&\& \cdots
 \end{tikzcd}
 \end{equation*}
-\hyperref[sec:org32c74c6]{tali che} \(U_{0}\supseteq V_{0}\supseteq U_{1}\supseteq V_{1}\supseteq \dots\)
+tali che \(U_{0}\supseteq V_{0}\supseteq U_{1}\supseteq V_{1}\supseteq \dots\)
 
 Il giocatore II vince se
 \begin{equation*}
@@ -729,14 +731,14 @@ Se \(X\) è uno {spazio topologico} {di Choquet} non {vuoto} ed esiste una {dist
 \bigcap_{n \in\omega} W_{n} \subseteq Y \setminus A.
 \end{equation*}
 
-\hyperref[sec:orge945bdd]{Poiché} \(Y\) è uno \hyperref[sec:org12a4e1c]{spazio di Choquet}, allora nel \hyperref[sec:org21a45cb]{gioco}:
+Poiché \(Y\) è uno spazio di Choquet, allora nel gioco:
 \begin{equation*}
 \begin{tikzcd}[ampersand replacement=\&,cramped, sep=tiny]
 	{\text{I}} \&\& {B_1} \&\& {B_2} \&\& \dots \\
 	{\text{II}} \& {A_0} \&\& {A_1} \&\& \dots
 \end{tikzcd}
 \end{equation*}
-con gli aperti non vuoti \(Y\supseteq V_{0}\supseteq U_{1}\supseteq V_{1}\supseteq \dots\) in cui I vince sse \(\bigcap_{n \in \omega}{B_{n}} \neq \emptyset\), I ha una \hyperref[sec:org1db90c5]{strategia vincente}. Questo infatti è un gioco di Choquet a giocatori invertiti.
+con gli aperti non vuoti \(Y\supseteq V_{0}\supseteq U_{1}\supseteq V_{1}\supseteq \dots\) in cui I vince sse \(\bigcap_{n \in \omega}{B_{n}} \neq \emptyset\), I ha una {strategia vincente}. Questo infatti è un gioco di Choquet a giocatori invertiti.
 
 Sia quindi \(\sigma\) la strategia vincente di I in questo gioco di Choquet.
 
@@ -914,7 +916,7 @@ s &\longmapsto \left(f(s),g(s)\right)
 \end{align*}
 \end{itemize}
 
-Sia ora dunque \(F \subseteq X\times\omega^{\omega}\) aperto o chiuso, sia \(F'\coloneqq [T]\setminus\psi^{-1}(F)\) aperto o chiuso, e si consideri il \hyperref[sec:org32c74c6]{Gioco di Gale-Stewart con posizioni ammissibili} \(G(T,F')\).
+Sia ora dunque \(F \subseteq X\times\omega^{\omega}\) aperto o chiuso, sia \(F'\coloneqq [T]\setminus\psi^{-1}(F)\) aperto o chiuso, e si consideri il {gioco di Gale-Stewart con posizioni ammissibili} \(G(T,F')\).
 
 Per il {Teorema \ref{sec:orgf56b48c}}, questo è determinato, poiché \(F'\) è aperto o chiuso; ovvero esattamente uno tra i giocatori I e II ha una strategia vincente.
 
