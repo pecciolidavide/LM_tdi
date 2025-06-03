@@ -783,13 +783,21 @@ e inoltre
 \end{equation*}
 Segue che \(\bigcap_{n \in \omega} U_{n} = \set{x}\), con \(x \in U_{0}\setminus A\).
 
-Si definisce l'aperto
+Sia quindi
 \begin{equation*}
-W_{n} \coloneqq \bigcup_{\langle U_{0},V_{0},\dots,U_{n}\rangle \in \sigma'} U_{n}.
+W\coloneqq \set{x \in U_{0}\mid
+\exists\, (U_{i}, V_{i})_{i \in \omega} \in [\sigma']\ x \in \bigcap_{n \in \omega} U_{i}}
 \end{equation*}
-Questo è denso in \(U_{0}\): se \(B \subseteq U_{0}\) è aperto, allora sicuramente \(\langle U_{0},B\rangle \in \sigma'\). Si costruisce \(\langle U_{0},B,U_{1},V_{1},\dots,U_{n}\rangle \in \sigma'\), e in particolare \(U_{n} \subseteq B\) e pertanto \(W_{n}\cap B\supseteq U_{n}\neq\emptyset\).
+\begin{itemize}
+\item \(W\) è denso in \(U_{0}\), poiché per ogni \(B \subseteq U_{0}\) esiste \(p = (U_{i}, V_{i})_{i \in \omega} \in [\sigma']\) tale che \(V_{0} = B\), e, siccome \(p \in [\sigma']\) allora
+\begin{equation*}
+  \bigcap_{n \in \omega} U_{i} = \set{x} \subseteq U_{1} \subseteq V_{0} = B
+\end{equation*}
+e dunque \(W\cap B\neq \emptyset\).
+\item Inoltre \(W \subseteq U_{0}\setminus A\), per costruzione di \(\sigma'\).
+\end{itemize}
 
-Inoltre \(\bigcap_{n \in \omega} W_{n} \subseteq U_{0}\setminus A\), dunque la tesi.
+Pertanto \(A\) è magro in \(U_{0}\).
 \end{proof}
 
 \begin{lem}\label{sec:org29f61ee}

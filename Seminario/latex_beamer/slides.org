@@ -11,14 +11,13 @@
 #+LaTeX_HEADER: \institute[]{Università degli Studi di Torino}
 #+LaTeX_HEADER: \input{header_beamer.tex}
 #+LaTeX_HEADER: \hypersetup{pdfpagemode=FullScreen}
-#+OPTIONS: H:2 toc:nil
+#+OPTIONS: H:1 toc:nil
 #+LATEX_HEADER: \renewcommand{\href}[2]{#2}
 
-* Teoria dei Giochi
 
-** Gioco Logico
+* Gioco Logico
 
-*** Definizione 1.1
+** Definizione 1.1
 :PROPERTIES:
 :BEAMER_env: block
 :END:
@@ -35,7 +34,7 @@ Un _gioco logico_ è una quadrupla \(\mathcal{G} \coloneqq (\Omega, f, W_{\text{
 
 Gli elementi di \(\Omega^{<\omega}\) sono chiamati _posizioni del gioco_ \(\mathcal{G}\), mentre un elemento di \(\Omega^{\omega}\) è detto _giocata_ di \(\mathcal{G}\).
 
-** DA TOGLIERE
+* DATOGLIERE
 
 I giocatori I e II giocano scegliendo a turno elementi di \(\Omega\). La funzione di turno \(f\) associa a ciascuna posizione uno dei due giocatori: se
 \begin{equation*}
@@ -45,40 +44,40 @@ allora l'elemento \(a_{n+1}\) sarà scelto dal giocatore I.
 
 Si dirà che il giocatore I _vince la giocata \(\bm{a}\)_ se \(\bm{a} \in W_{\text{I}}\); si dirà che il giocatore II _vince la giocata \(\bm{b}\)_ se \(\bm{b} \in W_{\text{II}}\).
 
-*** Definizione 1.2
+** Definizione 1.2
 :PROPERTIES:
 :BEAMER_env: block
 :END:
 
 Un gioco è detto _totale_ se \(\Omega^{\omega} \subseteq W_{\text{I}}\cup W_{\text{II}}\).
 
-** Strategia per un gioco logico
+* Strategia per un gioco logico
 
 Una strategia per un giocatore è un insieme di regole che descrivono esattamente come un giocatore debba giocare, in base a tutte le mosse precedenti.
 
-Una strategia è dettoa _vincente_ per un giocatore se questo vince ogni giocata in cui ne fa uso, a prescindere dalle mosse dell'altro giocatore.
+Una strategia è detta _vincente_ per un giocatore se questo vince ogni giocata in cui ne fa uso, a prescindere dalle mosse dell'altro giocatore.
 
-*** Definizione 1.4
+** Definizione 1.4
 :PROPERTIES:
 :BEAMER_env: block
 :END:
 
 Un gioco si dice _determinato_ se esiste una strategia vincente per I o per II.
 
-** Giochi logici equivalenti
+# ** Giochi logici equivalenti
 
-*** Definizione 1.5
-:PROPERTIES:
-:BEAMER_env: block
-:END:
+# *** Definizione 1.5
+# :PROPERTIES:
+# :BEAMER_env: block
+# :END:
 
-Due [[id:90b2021f-dbe8-499f-8c79-32379384fdb8][giochi logici]] \(\mathcal{G}\) e \(\mathcal{G'}\) con giocatori I e II sono detti _equivalenti_ se sono soddisfate entrambe le seguenti ipotsi:
-a. esiste una [[id:2f1132b9-a68c-42dc-b889-f9ea0565677f][strategia vincente]] per I in \(\mathcal{G}\) sse esiste una [[id:2f1132b9-a68c-42dc-b889-f9ea0565677f][strategia vincente]] per I in \(\mathcal{G}'\)
-b. esiste una [[id:2f1132b9-a68c-42dc-b889-f9ea0565677f][strategia vincente]] per II in \(\mathcal{G}\) sse esiste una [[id:2f1132b9-a68c-42dc-b889-f9ea0565677f][strategia vincente]] per II in \(\mathcal{G}'\)
+# Due [[id:90b2021f-dbe8-499f-8c79-32379384fdb8][giochi logici]] \(\mathcal{G}\) e \(\mathcal{G'}\) con giocatori I e II sono detti _equivalenti_ se sono soddisfate entrambe le seguenti ipotsi:
+# a. esiste una [[id:2f1132b9-a68c-42dc-b889-f9ea0565677f][strategia vincente]] per I in \(\mathcal{G}\) sse esiste una [[id:2f1132b9-a68c-42dc-b889-f9ea0565677f][strategia vincente]] per I in \(\mathcal{G}'\)
+# b. esiste una [[id:2f1132b9-a68c-42dc-b889-f9ea0565677f][strategia vincente]] per II in \(\mathcal{G}\) sse esiste una [[id:2f1132b9-a68c-42dc-b889-f9ea0565677f][strategia vincente]] per II in \(\mathcal{G}'\)
 
-** Giochi di Gale-Stewart
+* Giochi di Gale-Stewart
 
-*** Definizione 1.6
+** Definizione 1.6
 :PROPERTIES:
 :BEAMER_env: block
 :END:
@@ -95,7 +94,7 @@ dove la [[id:40832c72-9f3d-442f-b03a-d8a1ae32774f][funzione]] \(\psi: A^{<\omega
 \end{cases}
 \end{equation*}
 
-** DA TOGLIERE
+* DATOGLIERE
 
 Pertanto il gioco può essere codificato come segue:
 \begin{equation*}
@@ -106,7 +105,7 @@ Pertanto il gioco può essere codificato come segue:
 \end{equation*}
 e il giocatore I vince se e solo se \((a_{n})_{n \in \omega} \in C\).
 
-** Strategia per un gioco di Gale-Stewart
+* Strategia per un gioco di Gale-Stewart
 Si specializza la definizione di [[id:2f1132b9-a68c-42dc-b889-f9ea0565677f][strategia per un gioco logico]] al caso particolare di un gioco di Gale-Stewart.
 
 Una strategia per un gioco \(G(A,C)\) è un [[id:f6a088d6-177a-4efe-94de-06619dfaa3ec][albero]] \(\sigma \subseteq A^{<\omega}\) tale che:
@@ -118,33 +117,31 @@ Una strategia per un gioco \(G(A,C)\) è un [[id:f6a088d6-177a-4efe-94de-06619df
 
 Una strategia è detta _vincente_ se il suo [[id:8338ba93-b2e9-4671-9097-4c88f5b51d46][corpo]] \([\sigma] \in A\).
 
-** Gioco di Gale-Stewart con posizioni ammissibili
+* Gioco di Gale-Stewart con posizioni ammissibili
 
 Spesso è comodo considerare giochi in cui I e II non possano giocare ogni elemento di \(A\), ma debbano seguire delle _regole_. Quindi, è necessario dare un alberto potato non vuoto \(T \subseteq A^{<\omega}\), che determina le [[id:3fa552b8-abc8-4a29-9f39-144dd774974d][_posizioni ammissibili_]].
 
-In questa situazione I e II si alternano giocando \(\langle a_{0},\dots,a_{n},\dots,\rangle\) in maniera tale che, ad ogni passo \(n \in \omega\)
+In questa situazione I e II si alternano giocando \((a_{i})_{i \in \omega}\) in maniera tale che, ad ogni passo \(n \in \omega\)
 \begin{equation*}
 \langle a_{0},\dots,a_{n}\rangle \in T
 \end{equation*}
 
 Si scriverà, in questo caso, \(G(T, C)\).
 
-** Teorema di Gale-Stewart
+* Teorema di Gale-Stewart
 
 Sia \(A\) uno [[id:0739c4de-6fe4-43d3-bca9-33455ef06da8][spazio topologico]] [[id:6d05dcb7-b447-4583-91f0-9f3228435c27][discreto]] e sia \(A^{\omega}\) dotato della [[id:88fa98ee-2e42-41b3-b12e-b7a4075399da][topologia prodotto]].
 
-*** Teorema di Gale-Stewart 1.7
+** Teorema di Gale-Stewart 1.7
 :PROPERTIES:
 :BEAMER_env: alertblock
 :END:
 
 Sia \(T\) un [[id:f6a088d6-177a-4efe-94de-06619dfaa3ec][albero]] [[id:a2f6fcaa-d386-4adb-a8b8-34e590e42140][potato]] non vuoto su \(A\). Se \(C \subseteq [T]\) è [[id:0739c4de-6fe4-43d3-bca9-33455ef06da8][aperto]] o [[id:0739c4de-6fe4-43d3-bca9-33455ef06da8][chiuso]] in \([T]\), allora [[id:20f27458-a0b1-4721-bd7b-04d5e882308f][il gioco]] \(G(T,C)\) è [[id:2f1132b9-a68c-42dc-b889-f9ea0565677f][determinato]].
 
-* Insiemi Analitici e BP
+* Gioco di Choquet
 
-** Gioco di Choquet
-
-*** Definizione 2.1
+** Definizione 2.1
 :PROPERTIES:
 :BEAMER_env: block
 :END:
@@ -163,30 +160,30 @@ Il giocatore II vince se
 \bigcap_{n \in \omega} V_{n} = \bigcap_{n \in \omega} U_{n} \neq \emptyset.
 \end{equation*}
 
-** DA TOGLIERE
+* DATOGLIERE
 
-*** Teorema 2.2
+** Teorema 2.2
 :PROPERTIES:
 :BEAMER_env: alertblock
 :END:
 
 Uno [[id:0739c4de-6fe4-43d3-bca9-33455ef06da8][spazio topologico]] \(X\) è uno [[id:6232eb32-a530-4c1b-aefc-403acfd7c057][spazio topologico di Baire]] se e solo se il giocatore I _non ha una [[id:25fecfe5-10ce-4072-bba1-12024479dbca][strategia]] [[id:25fecfe5-10ce-4072-bba1-12024479dbca][vincente]]_ nel [[id:eafe31ae-c3a4-4c01-97e0-a6848b6a6dc6][gioco di Choquet]] \(G_{X}\).
 
-*** Definizione 2.3
+** Definizione 2.3
 :PROPERTIES:
 :BEAMER_env: block
 :END:
 
 Uno spazio topologico \(X\) è detto _spazio di Choquet_ se il giocatore II ha una strategia vincente in \(G_{X}\).
 
-*** DA TOGLIERE
+* DATOGLIERE
 In particolare, ogni spazio Polacco è uno spazio di Choquet.
 
-** Gioco di Banach-Mazur
+* Gioco di Banach-Mazur
 
 Sia \(X\) uno [[id:0739c4de-6fe4-43d3-bca9-33455ef06da8][spazio topologico]] non vuoto, e sia \(A \subseteq X\).
 
-*** Definizione 2.5
+** Definizione 2.5
 :PROPERTIES:
 :BEAMER_env: block
 :END:
@@ -205,16 +202,16 @@ Il giocatore II vince se
 \bigcap_{n \in \omega} U_{n} = \bigcap_{n \in \omega} V_{n} \subseteq A.
 \end{equation*}
 
-** DA TOGLIERE
+* DATOGLIERE
 
-*** Teorema 2.6
+** Teorema 2.6
 :PROPERTIES:
 :BEAMER_env: alertblock
 :END:
 
 Sia \(X\) uno [[id:0739c4de-6fe4-43d3-bca9-33455ef06da8][spazio topologico]] [[id:259b30b8-3c7e-407f-a372-95199bd724fa][non vuoto]], e sia \(A \subseteq X\) un [[id:fdc86b04-828f-4f24-8cdf-948211d93a95][sottoinsieme]] qualsiasi. Allora \(A\) è [[id:41953408-de97-4240-bed0-37f9de8706c4][comagro]] se e solo se il giocatore II ha una [[id:25fecfe5-10ce-4072-bba1-12024479dbca][strategia vincente]] nel [[id:00eb3064-f9f9-47c4-9eac-473caaf438a7][gioco di Banach-Mazur]] \(G^{**}(A)\).
 
-*** Teorema 2.7
+** Teorema 2.7
 :PROPERTIES:
 :BEAMER_env: alertblock
 :END:
@@ -223,13 +220,83 @@ Se \(X\) è uno [[id:0739c4de-6fe4-43d3-bca9-33455ef06da8][spazio topologico]] [
 
 \(A\) è [[id:41953408-de97-4240-bed0-37f9de8706c4][magro]] in un [[id:0739c4de-6fe4-43d3-bca9-33455ef06da8][aperto]] non vuoto se e solo se il giocatore I ha una [[id:25fecfe5-10ce-4072-bba1-12024479dbca][strategia vincente]] nel [[id:00eb3064-f9f9-47c4-9eac-473caaf438a7][gioco di Banach-Mazur]] \(G^{**}(A)\).
 
-** DA TOGLIERE
+* Dimostrazione Teorema 2.7 (\(\Rightarrow\))
 
-Dimostrazione Teorema 2.6/2.7???
+Se \(A\) è magro in \(Y \subseteq X\), sia per ogni \(n \in \omega\): \(W_{n} \subseteq Y\) aperto denso di \(Y\), con
+\begin{equation*}
+\bigcap_{n \in\omega} W_{n} \subseteq Y \setminus A.
+\end{equation*}
 
-** DA TOGLIERE
+[[id:6fa7e368-c56e-4443-ac39-f47bf5a0cf64][Poiché]] \(Y\) è uno [[id:5db440b3-d225-491e-95e4-c365595a2bca][spazio di Choquet]], allora nel [[id:118a42bc-7263-46fd-92c5-85c108080240][gioco]]:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped, sep=tiny]
+	{\text{I}} \&\& {B_1} \&\& {B_2} \&\& \dots \\
+	{\text{II}} \& {A_0} \&\& {A_1} \&\& \dots
+\end{tikzcd}
+\end{equation*}
+con gli aperti non vuoti \(Y\supseteq V_{0}\supseteq U_{1}\supseteq V_{1}\supseteq \dots\) in cui I vince sse \(\bigcap_{n \in \omega}{B_{n}} \neq \emptyset\), I ha una [[id:25fecfe5-10ce-4072-bba1-12024479dbca][strategia vincente]]. Questo infatti è un gioco di Choquet a giocatori invertiti.
 
-*** Lemma 2.8
+Sia quindi \(\sigma\) la strategia vincente di I in questo gioco di Choquet.\hfill \textit{(cont.)}
+
+* Dimostrazione Teorema 2.7 (\(\Rightarrow\)) (cont.)
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+
+Nel gioco \(G^{**}(A)\), il giocatore I pone \(U_{0} \coloneqq Y\). Si costruisce per induzione la strategia vincente per I.
+
+Al passo \(n+1\)-esimo, sia \((U_{0},V_{0},\dots, U_{n}, V_{n})\) la sequenza di insiemi giocati. Si pone, per ogni \(i\le n\): \(V_{i}'\coloneqq V_{i}\cap W_{i}\), e si sceglie \(U_{n+1}\) come l'unico sottoinsieme aperto non vuoto di \(V_{n}\) tale che
+\begin{equation*}
+(V_{0}', U_{1}, V_{1}', U_{2},\dots, V_{n}', U_{n+1}) \in\sigma.
+\end{equation*}
+
+Allora \(\bigcap_{n \in \omega} U_{n}\neq\emptyset\) e inoltre
+\begin{equation*}
+\bigcap_{n \in\omega} U_{n} = \bigcap_{n \in\omega} V_{n}' \subseteq \bigcap_{n \in \omega} W_{n} \subseteq Y\setminus A
+\end{equation*}
+e dunque \(\bigcap_{n \in\omega} U_{n} \not\subseteq A\).\qed
+
+* Dimostrazione Teorema 2.7 (\(\Leftarrow\))
+
+Sia \(\sigma\) una strategia vincente per I in \(G^{**}(A)\), e sia \(U_{0}\) l'elemento di partenza per \(\sigma\).
+
+Esiste allora una strategia \(\sigma'\) per I, vincente, e tale che l'insieme giocato al passo \(n\)-esimo \(U_{n}\) abbia diametro (in una metrica fissata):
+\begin{equation*}
+\operatorname{diam}(U_{n})<2^{-n}.
+\end{equation*}
+
+# Al passo \(n+1\), sia \((U_{0},V_{0},\dots,U_{n}, V_{n})\) la sequenza di insiemi giocati, e sia \(v_{n} \in V_{n}\). Si definisce
+# \begin{equation*}
+# V_{n}'\coloneqq V_{n}\cap B_{d}(v_{n}, 2^{-n-1}), \qquad \operatorname{diam}(V_{n}) \le 2^{-n}
+# \end{equation*}
+# che è un aperto non vuoto. Si pone infine \(U_{n+1}\) come l'unico sottoinsieme aperto di \(V_{n}'\) tale che
+# \begin{equation*}
+# (U_{0},V_{0},\dots,U_{n}, V_{n}', U_{n+1}) \in \sigma.
+# \end{equation*}
+
+# Questo \(U_{n+1}\) è la risposta secondo la strategia \(\sigma'\), in quanto \(\operatorname{diam}(U_{n})\le \operatorname{diam}(V_{n}')\le 2^{-n}\).
+
+Allora \(\bigcap_{n \in \omega} U_{n} = \set{x}\), con \(x \in U_{0}\setminus A\).\hfill \textit{(cont.)}
+
+* Dimostrazione Teorema 2.7 (\(\Leftarrow\)) (cont.)
+
+Sia quindi
+\begin{equation*}
+W\coloneqq \set{x \in U_{0}\mid
+\exists\, (U_{i}, V_{i})_{i \in \omega} \in [\sigma']\ x \in \bigcap_{n \in \omega} U_{i}}
+\end{equation*}
+- \(W\) è denso in \(U_{0}\), poiché per ogni \(B \subseteq U_{0}\) esiste \(p = (U_{i}, V_{i})_{i \in \omega} \in [\sigma']\) tale che \(V_{0} = B\), e, siccome \(p \in [\sigma']\) allora
+  \begin{equation*}
+	\bigcap_{n \in \omega} U_{i} = \set{x} \subseteq U_{1} \subseteq V_{0} = B
+  \end{equation*}
+  e dunque \(W\cap B\neq \emptyset\).
+- Inoltre \(W \subseteq U_{0}\setminus A\), per costruzione di \(\sigma'\).
+
+Pertanto \(A\) è magro in \(U_{0}\).\qed
+
+* DATOGLIERE
+
+** Lemma 2.8
 :PROPERTIES:
 :BEAMER_env: alertblock
 :END:
@@ -238,9 +305,9 @@ Sia \(X\) uno [[id:0739c4de-6fe4-43d3-bca9-33455ef06da8][spazio topologico]] [[i
 
 Se per ogni aperto \(U \subseteq X\) il [[id:00eb3064-f9f9-47c4-9eac-473caaf438a7][gioco]] \(G^{**}\left((X\setminus A)\cup U\right)\) è [[id:2f1132b9-a68c-42dc-b889-f9ea0565677f][determinato]] allora \(A \subseteq X\) ha [[id:a18bc557-1ac7-4d19-8cd8-ad3923e1a68f][BP]].
 
-** DA TOGLIERE
+* DATOGLIERE
 
-*** Definizione 2.9
+** Definizione 2.9
 :PROPERTIES:
 :BEAMER_env: block
 :END:
@@ -250,11 +317,11 @@ Una _base debole_ per uno spazio topologico \((X,\tau)\) è una collezione di ap
 A_{\alpha_{0}} \subseteq U.
 \end{equation*}
 
-** Gioco di Banach-Mazur unfolded
+* Gioco di Banach-Mazur unfolded
 
 Sia \(X\) uno [[id:c0d47e62-8d50-44c0-984a-c115c0ea2c40][spazio polacco]] non vuoto con una [[id:59033095-a7ca-4c79-92a9-c93654eb71f3][metrica]] fissata e sia \(\mathcal{W}\) una [[id:65536d5e-4a41-4b05-ad27-2594c896da4d][base debole]] [[id:43e8fa42-e06f-40fa-871f-cbc9b2387484][numerabile]] di \(X\).
 
-*** Definizione 2.10
+** Definizione 2.10
 :PROPERTIES:
 :BEAMER_env: block
 :END:
@@ -269,10 +336,10 @@ Dato \(F \subseteq X\times \omega^{\omega}\), il _gioco di Banach-Mazur unfolded
 tali che:
 - per ogni \(i \in \omega\): \(U_{i}, V_{i} \in \mathcal{W}\), \(y_{n} \in \omega\);
 - \(\operatorname{diam}(U_{n}), \operatorname{diam}(V_{n}) < 2^{-n}\);
-- \(U_{0}\supseteq V_{0}\supseteq U_{1}\supseteq V_{1}\supseteq \dots\)\hfill (continua\dots)
+- \(U_{0}\supseteq V_{0}\supseteq U_{1}\supseteq V_{1}\supseteq \dots\)\hfill \textit{(cont.)}
 
-** DA TOGLIERE
-*** Definizione 2.10
+* DATOGLIERE
+** Definizione 2.10 (cont.)
 :PROPERTIES:
 :BEAMER_env: block
 :END:
@@ -286,16 +353,16 @@ e \(y\coloneqq (y_{i})_{i \in \omega} \in \omega^{\omega}\), il _giocatore II vi
 (x,y) \in F \subseteq X\times \omega^{\omega}.
 \end{equation*}
 
-*** Lemma 2.11
+** Lemma 2.11
 :PROPERTIES:
 :BEAMER_env: alertblock
 :END:
 
 Se \(F\) è aperto o chiuso di \(X\times\omega^{\omega}\), allora \(G^{**}_{\text{u}}(F)\) è determinato.
 
-** DA TOGLIERE
+* DATOGLIERE
 
-*** Teorema 2.12
+** Teorema 2.12
 :PROPERTIES:
 :BEAMER_env: alertblock
 :END:
@@ -306,21 +373,68 @@ Dato \(F \subseteq X\times \omega^{\omega}\) si consideri il [[id:a72d8a72-675b-
 a. se I ha una [[id:25fecfe5-10ce-4072-bba1-12024479dbca][strategia]] [[id:25fecfe5-10ce-4072-bba1-12024479dbca][vincente]] in \(G^{**}_{\text{u}}(F)\), allora \(A\) è magro in un aperto non vuoto di \(X\);
 b. se II ha una [[id:25fecfe5-10ce-4072-bba1-12024479dbca][strategia]] [[id:25fecfe5-10ce-4072-bba1-12024479dbca][vincente]] in \(G^{**}_{\text{u}}(F)\) allora \(A\) è comagro.
 
-** DA TOGLIERE
+* Dimostrazione Teorema 2.12(1)
 
-Dimostrazione teorema 2.12
+   Sia \(\sigma\) una [[id:25fecfe5-10ce-4072-bba1-12024479dbca][strategia]] [[id:25fecfe5-10ce-4072-bba1-12024479dbca][vincente]] per I, e sia \(U_{0}\) la prima mossa. Si mostra che \(A\) è [[id:41953408-de97-4240-bed0-37f9de8706c4][magro]] in \(U_{0}\).
 
+   Per ogni \(a \in \omega\) e per ogni \(p \in \sigma\) della forma:
+   \begin{equation*}
+	p=\langle
+		U_{0},({y}_{0}, V_{0}), \dots, U_{n-1}, ({y}_{n-1}, V_{n-1}), U_{n}
+	\rangle
+   \end{equation*}
+   si definisce \(F_{p,a} \subseteq U_{0}\):
+   \begin{align*}
+	F_{p,a} = \{&z \in U_{n}\mid \text{per ogni mossa legale }(a, V_{n})\\
+	&\text{se } U_{n+1}\text{ è l'unico elemento di }\mathcal{W}\text{ tale che}\\
+	&p \concat \langle(a,V_{n}), U_{n+1}\rangle \in \sigma \text{ allora } z \notin U_{n+1}\}
+   \end{align*}
+L'insieme \(F_{p,a}\) è mai denso, poiché chiuso e con interno vuoto.\hfill \textit{(cont.)}
 
-** Teorema di Lusin-Sierpiński
+     # Infatti, se per assurdo \(\operatorname{Int}(F_{p,a}) \neq \emptyset\), allora esiste \(W \in \mathcal{W}\) tale che
+     # \begin{equation*}
+     #    	W \subseteq \operatorname{Int}(F_{p,a}), \quad \operatorname{diam}(W)<2^{-n}
+     # \end{equation*}
+     # pertanto se II gioca \(V_{n} \coloneqq W\) allora I dovrà giocare \(U_{n+1} \subseteq V_{n} \subseteq F_{p,a}\). Ma per definizione \(U_{n+1}\cap F_{p,a} = \emptyset\). Assurdo.
 
-*** Teorema di Lusin-Sierpiński 2.13
+     # Inoltre, se \(\eta \in U_{n}\setminus F_{p,a}\), allora esiste una sequenza
+     # \begin{equation*}
+     #    	p\concat\langle (a,V_{n}), U_{n+1}\rangle \in \sigma
+     # \end{equation*}
+     # con \(\eta \in U_{n+1}\); siccome \(U_{n+1} \cap F_{p,a} = \emptyset\) segue
+     # \begin{equation*}
+     #    	\eta \in U_{n+1} \subseteq U_{n}\setminus F_{p,a} \subseteq X\setminus F_{p,a}
+     # \end{equation*}
+     # ovvero \(F_{p,a}\) chiuso.
+
+* Dimostrazione 2.12(1) (cont.)
+
+  Sia ora \(x \in A\cap U_{0}\). Allora esiste \(y \in \omega^{\omega}\), \(y=(y_{i})_{i \in\omega}\) tale che \((x,y) \in F\).
+
+   Una posizione \(p \in \sigma\):
+   \begin{equation*}
+        p=\langle
+        	U_{0},({y}_{0}, V_{0}), \dots, U_{n-1}, ({y}_{n-1}, V_{n-1}), U_{n}
+        \rangle
+   \end{equation*}
+   è _buona_ per \((x,{y})\) se \(x \in U_{n}\). Siccome \(\sigma\) è una strategia vincente per il giocatore I, allora esiste una posizione \(p_{(x,y)} \in \sigma\) buona per \((x,y)\) e massimale, ovvero ogni estensione di \(p_{(x,y)}\) _non è buona_. Ma allora, se
+   \begin{equation*}
+	p_{(x,y)} = \langle U_{0}, (y_{0},V_{0}),\dots, U_{n}\rangle
+   \end{equation*}
+   si ha che \(x \in F_{p_{(x,y)}, y_{n}}\).
+
+   Pertanto \(A\cap U_{0} \subseteq \bigcup_{p \in \sigma', a \in \omega} F_{p,a}\) è magro.\qed
+
+* Teorema di Lusin-Sierpiński
+
+** Teorema di Lusin-Sierpiński 2.13
 :PROPERTIES:
 :BEAMER_env: alertblock
 :END:
 
 Sia \(X\) uno [[id:c0d47e62-8d50-44c0-984a-c115c0ea2c40][spazio polacco]]. Allora ogni [[id:648c8718-f653-4932-9c00-900d90560720][insieme analitico]] di \(X\) ha la [[id:a18bc557-1ac7-4d19-8cd8-ad3923e1a68f][Baire Property]].
 
-*** Dimostrazione
+** Dimostrazione
 :PROPERTIES:
 :BEAMER_env: proof
 :END:
@@ -333,8 +447,7 @@ Per il [[id:3c4f7c3f-7f63-4d59-9240-0c60d79e42ad][Teorema di Gale-Stewart]] 1.7 
 
 Per i [[id:8d136b11-9afd-48e7-aea3-dcc74393aff8][Teoremi]] 2.26 e 2.27, allora, il [[id:00eb3064-f9f9-47c4-9eac-473caaf438a7][gioco \(G^{**}(A) = G^{ * *}\left((X\setminus C) \cup U\right)\)]] è determinato: per il Lemma 2.8, quindi \(C\) ha la BP.
 
-* \null
 
-** Bibliografia minimale
+* Bibliografia minimale
 \nocite{*}
 \printbibliography

@@ -18,6 +18,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2}Gioco di Banach-Mazur}{5}{subsection.2.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3}Gioco di Banach-Mazur unfolded}{9}{subsection.2.3}% 
+\contentsline {subsection}{\numberline {2.3}Gioco di Banach-Mazur unfolded}{10}{subsection.2.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4}Teorema di Lusin-Sierpi\IeC {\'n}ski}{11}{subsection.2.4}% 
+\contentsline {subsection}{\numberline {2.4}Teorema di Lusin-Sierpi\IeC {\'n}ski}{12}{subsection.2.4}% 

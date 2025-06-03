@@ -1,4 +1,4 @@
-% Created 2025-05-30 Fri 16:56
+% Created 2025-06-03 Tue 12:33
 % Intended LaTeX compiler: pdflatex
 \documentclass[babel]{beamer}
 
@@ -15,10 +15,8 @@
 \begin{document}
 
 \maketitle
-\section{Teoria dei Giochi}
-\label{sec:org2700ea0}
 
-\begin{frame}[label={sec:orgb34398e}]{Gioco Logico}
+\begin{frame}[label={sec:orgc28c64b}]{Gioco Logico}
 \begin{block}{Definizione 1.1}
 Un \uline{gioco logico} è una quadrupla \(\mathcal{G} \coloneqq (\Omega, f, W_{\text{I}}, W_{\text{II}})\) dove:
 \begin{itemize}
@@ -37,7 +35,7 @@ Un \uline{gioco logico} è una quadrupla \(\mathcal{G} \coloneqq (\Omega, f, W_{
 Gli elementi di \(\Omega^{<\omega}\) sono chiamati \uline{posizioni del gioco} \(\mathcal{G}\), mentre un elemento di \(\Omega^{\omega}\) è detto \uline{giocata} di \(\mathcal{G}\).
 \end{block}
 \end{frame}
-\begin{frame}[label={sec:orgae23e0b}]
+\begin{frame}[label={sec:orga493e04}]
 I giocatori I e II giocano scegliendo a turno elementi di \(\Omega\). La funzione di turno \(f\) associa a ciascuna posizione uno dei due giocatori: se
 \begin{equation*}
 f(a_{0},a_{1},\dots,a_{n}) = \text{I}
@@ -49,24 +47,24 @@ Si dirà che il giocatore I \uline{vince la giocata \(\bm{a}\)} se \(\bm{a} \in 
 Un gioco è detto \uline{totale} se \(\Omega^{\omega} \subseteq W_{\text{I}}\cup W_{\text{II}}\).
 \end{block}
 \end{frame}
-\begin{frame}[label={sec:orgaa22a57}]{Strategia per un gioco logico}
+\begin{frame}[label={sec:org153fabe}]{Strategia per un gioco logico}
 Una strategia per un giocatore è un insieme di regole che descrivono esattamente come un giocatore debba giocare, in base a tutte le mosse precedenti.
 
-Una strategia è dettoa \uline{vincente} per un giocatore se questo vince ogni giocata in cui ne fa uso, a prescindere dalle mosse dell'altro giocatore.
+Una strategia è detta \uline{vincente} per un giocatore se questo vince ogni giocata in cui ne fa uso, a prescindere dalle mosse dell'altro giocatore.
 \begin{block}{Definizione 1.4}
 Un gioco si dice \uline{determinato} se esiste una strategia vincente per I o per II.
 \end{block}
 \end{frame}
-\begin{frame}[label={sec:org84dbf4e}]{Giochi logici equivalenti}
-\begin{block}{Definizione 1.5}
-Due \href{../../../../../../../org/roam/20250513155732-logic_game.org}{giochi logici} \(\mathcal{G}\) e \(\mathcal{G'}\) con giocatori I e II sono detti \uline{equivalenti} se sono soddisfate entrambe le seguenti ipotsi:
-\begin{enumerate}
-\item esiste una \href{../../../../../../../org/roam/20250513155732-logic_game.org}{strategia vincente} per I in \(\mathcal{G}\) sse esiste una \href{../../../../../../../org/roam/20250513155732-logic_game.org}{strategia vincente} per I in \(\mathcal{G}'\)
-\item esiste una \href{../../../../../../../org/roam/20250513155732-logic_game.org}{strategia vincente} per II in \(\mathcal{G}\) sse esiste una \href{../../../../../../../org/roam/20250513155732-logic_game.org}{strategia vincente} per II in \(\mathcal{G}'\)
-\end{enumerate}
-\end{block}
-\end{frame}
-\begin{frame}[label={sec:org6590236}]{Giochi di Gale-Stewart}
+%% \begin{frame}[label={sec:org9e4f6d2}]{Giochi logici equivalenti}
+%% \begin{block}{Definizione 1.5}
+%% Due \href{../../../../../../../org/roam/20250513155732-logic_game.org}{giochi logici} \(\mathcal{G}\) e \(\mathcal{G'}\) con giocatori I e II sono detti \uline{equivalenti} se sono soddisfate entrambe le seguenti ipotsi:
+%% \begin{enumerate}
+%% \item esiste una \href{../../../../../../../org/roam/20250513155732-logic_game.org}{strategia vincente} per I in \(\mathcal{G}\) sse esiste una \href{../../../../../../../org/roam/20250513155732-logic_game.org}{strategia vincente} per I in \(\mathcal{G}'\)
+%% \item esiste una \href{../../../../../../../org/roam/20250513155732-logic_game.org}{strategia vincente} per II in \(\mathcal{G}\) sse esiste una \href{../../../../../../../org/roam/20250513155732-logic_game.org}{strategia vincente} per II in \(\mathcal{G}'\)
+%% \end{enumerate}
+%% \end{block}
+%% \end{frame}
+\begin{frame}[label={sec:org4cc428c}]{Giochi di Gale-Stewart}
 \begin{block}{Definizione 1.6}
 Sia \(A\) un \href{../../../../../../../org/roam/20250130104331-insieme_mk.org}{insieme} non vuoto, e sia \(C \subseteq A^{\omega}\). Si definisce il \uline{gioco di Gale-Stewart} associato ad \(C\) come il \href{../../../../../../../org/roam/20250513155732-logic_game.org}{gioco logico} seguente:
 \begin{equation*}
@@ -81,7 +79,7 @@ dove la \href{../../../../../../../org/roam/20250202170607-classe_relazione_bina
 \end{equation*}
 \end{block}
 \end{frame}
-\begin{frame}[label={sec:org922f952}]
+\begin{frame}[label={sec:orgbd541f3}]
 Pertanto il gioco può essere codificato come segue:
 \begin{equation*}
 \begin{tikzcd}[ampersand replacement=\&,cramped,sep=tiny]
@@ -91,7 +89,7 @@ Pertanto il gioco può essere codificato come segue:
 \end{equation*}
 e il giocatore I vince se e solo se \((a_{n})_{n \in \omega} \in C\).
 \end{frame}
-\begin{frame}[label={sec:orge77dc7e}]{Strategia per un gioco di Gale-Stewart}
+\begin{frame}[label={sec:org46289cb}]{Strategia per un gioco di Gale-Stewart}
 Si specializza la definizione di \href{../../../../../../../org/roam/20250513155732-logic_game.org}{strategia per un gioco logico} al caso particolare di un gioco di Gale-Stewart.
 
 Una strategia per un gioco \(G(A,C)\) è un \href{../../../../../../../org/roam/20250514142154-albero_teoria_descrittiva_degli_insiemi.org}{albero} \(\sigma \subseteq A^{<\omega}\) tale che:
@@ -105,26 +103,24 @@ Una strategia per un gioco \(G(A,C)\) è un \href{../../../../../../../org/roam/
 
 Una strategia è detta \uline{vincente} se il suo \href{../../../../../../../org/roam/20250514142251-corpo_di_un_albero.org}{corpo} \([\sigma] \in A\).
 \end{frame}
-\begin{frame}[label={sec:orgcb9539c}]{Gioco di Gale-Stewart con posizioni ammissibili}
+\begin{frame}[label={sec:orgaf782d8}]{Gioco di Gale-Stewart con posizioni ammissibili}
 Spesso è comodo considerare giochi in cui I e II non possano giocare ogni elemento di \(A\), ma debbano seguire delle \uline{regole}. Quindi, è necessario dare un alberto potato non vuoto \(T \subseteq A^{<\omega}\), che determina le \href{../../../../../../../org/roam/20250514142938-posizioni_ammissibili_in_un_gioco_logico.org}{\uline{posizioni ammissibili}}.
 
-In questa situazione I e II si alternano giocando \(\langle a_{0},\dots,a_{n},\dots,\rangle\) in maniera tale che, ad ogni passo \(n \in \omega\)
+In questa situazione I e II si alternano giocando \((a_{i})_{i \in \omega}\) in maniera tale che, ad ogni passo \(n \in \omega\)
 \begin{equation*}
 \langle a_{0},\dots,a_{n}\rangle \in T
 \end{equation*}
 
 Si scriverà, in questo caso, \(G(T, C)\).
 \end{frame}
-\begin{frame}[label={sec:org0524566}]{Teorema di Gale-Stewart}
+\begin{frame}[label={sec:org2ef3855}]{Teorema di Gale-Stewart}
 Sia \(A\) uno \href{../../../../../../../org/roam/20250103145124-topologia.org}{spazio topologico} \href{../../../../../../../org/roam/20250317165247-topologia_discreta.org}{discreto} e sia \(A^{\omega}\) dotato della \href{../../../../../../../org/roam/20250109154723-topologia_prodotto.org}{topologia prodotto}.
 \begin{alertblock}{Teorema di Gale-Stewart 1.7}
 Sia \(T\) un \href{../../../../../../../org/roam/20250514142154-albero_teoria_descrittiva_degli_insiemi.org}{albero} \href{../../../../../../../org/roam/20250514142208-albero_potato.org}{potato} non vuoto su \(A\). Se \(C \subseteq [T]\) è \href{../../../../../../../org/roam/20250103145124-topologia.org}{aperto} o \href{../../../../../../../org/roam/20250103145124-topologia.org}{chiuso} in \([T]\), allora \href{../../../../../../../org/roam/20250513171520-giochi_di_gale_stewart.org}{il gioco} \(G(T,C)\) è \href{../../../../../../../org/roam/20250513155732-logic_game.org}{determinato}.
 \end{alertblock}
 \end{frame}
-\section{Insiemi Analitici e BP}
-\label{sec:org78afcc0}
 
-\begin{frame}[label={sec:org6ff8b90}]{Gioco di Choquet}
+\begin{frame}[label={sec:org1e115ec}]{Gioco di Choquet}
 \begin{block}{Definizione 2.1}
 Sia \((X,\tau)\) uno \href{../../../../../../../org/roam/20250103145124-topologia.org}{spazio topologico} non vuoto. Il gioco di Choquet \(G_{X}\) è un \href{../../../../../../../org/roam/20250513155732-logic_game.org}{gioco} \href{../../../../../../../org/roam/20250513171520-giochi_di_gale_stewart.org}{di Gale-Stewart} totale codificato come segue: i giocatori I e II si alternano scegliendo sottoinsiemi aperti non vuoti di \(X\):
 \begin{equation*}
@@ -141,7 +137,7 @@ Il giocatore II vince se
 \end{equation*}
 \end{block}
 \end{frame}
-\begin{frame}[label={sec:org8663b73}]
+\begin{frame}[label={sec:org9d69a79}]
 \begin{alertblock}{Teorema 2.2}
 Uno \href{../../../../../../../org/roam/20250103145124-topologia.org}{spazio topologico} \(X\) è uno \href{../../../../../../../org/roam/20250514154101-spazio_topologico_di_baire.org}{spazio topologico di Baire} se e solo se il giocatore I \uline{non ha una \href{../../../../../../../org/roam/20250513171520-giochi_di_gale_stewart.org}{strategia} \href{../../../../../../../org/roam/20250513171520-giochi_di_gale_stewart.org}{vincente}} nel \href{../../../../../../../org/roam/20250514174255-gioco_di_choquet.org}{gioco di Choquet} \(G_{X}\).
 \end{alertblock}
@@ -150,8 +146,9 @@ Uno spazio topologico \(X\) è detto \uline{spazio di Choquet} se il giocatore I
 \end{block}
 
 In particolare, ogni spazio Polacco è uno spazio di Choquet.
+
 \end{frame}
-\begin{frame}[label={sec:org109220f}]{Gioco di Banach-Mazur}
+\begin{frame}[label={sec:org838fb78}]{Gioco di Banach-Mazur}
 Sia \(X\) uno \href{../../../../../../../org/roam/20250103145124-topologia.org}{spazio topologico} non vuoto, e sia \(A \subseteq X\).
 \begin{block}{Definizione 2.5}
 Il \uline{gioco di Banach-Mazur} (o anche **-gioco) di \(A\), denotato con \(G^{ * *}(A)\) oppure con \(G^{ * *}(A,X)\) è un \href{../../../../../../../org/roam/20250513155732-logic_game.org}{gioco} \href{../../../../../../../org/roam/20250513171520-giochi_di_gale_stewart.org}{di Gale-Stewart} codificato come segue: i giocatori I e II si alternano scegliendo sottoinsiemi aperti non vuoti di \(X\)
@@ -169,7 +166,7 @@ Il giocatore II vince se
 \end{equation*}
 \end{block}
 \end{frame}
-\begin{frame}[label={sec:org53ca00e}]
+\begin{frame}[label={sec:org70e3b80}]
 \begin{alertblock}{Teorema 2.6}
 Sia \(X\) uno \href{../../../../../../../org/roam/20250103145124-topologia.org}{spazio topologico} \href{../../../../../../../org/roam/20250131161811-insieme_vuoto_mk.org}{non vuoto}, e sia \(A \subseteq X\) un \href{../../../../../../../org/roam/20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} qualsiasi. Allora \(A\) è \href{../../../../../../../org/roam/20250419122752-insieme_magro.org}{comagro} se e solo se il giocatore II ha una \href{../../../../../../../org/roam/20250513171520-giochi_di_gale_stewart.org}{strategia vincente} nel \href{../../../../../../../org/roam/20250513111844-gioco_di_banach_mazur.org}{gioco di Banach-Mazur} \(G^{**}(A)\).
 \end{alertblock}
@@ -179,17 +176,72 @@ Se \(X\) è uno \href{../../../../../../../org/roam/20250103145124-topologia.org
 \(A\) è \href{../../../../../../../org/roam/20250419122752-insieme_magro.org}{magro} in un \href{../../../../../../../org/roam/20250103145124-topologia.org}{aperto} non vuoto se e solo se il giocatore I ha una \href{../../../../../../../org/roam/20250513171520-giochi_di_gale_stewart.org}{strategia vincente} nel \href{../../../../../../../org/roam/20250513111844-gioco_di_banach_mazur.org}{gioco di Banach-Mazur} \(G^{**}(A)\).
 \end{alertblock}
 \end{frame}
-\begin{frame}[label={sec:org74c9e70}]
-Dimostrazione Teorema 2.6/2.7???
+\begin{frame}[label={sec:orgc8e3bc0}]{Dimostrazione Teorema 2.7 (\(\Rightarrow\))}
+Se \(A\) è magro in \(Y \subseteq X\), sia per ogni \(n \in \omega\): \(W_{n} \subseteq Y\) aperto denso di \(Y\), con
+\begin{equation*}
+\bigcap_{n \in\omega} W_{n} \subseteq Y \setminus A.
+\end{equation*}
+
+\href{../../../../../../../org/roam/20250514174255-gioco_di_choquet.org}{Poiché} \(Y\) è uno \href{../../../../../../../org/roam/20250514174255-gioco_di_choquet.org}{spazio di Choquet}, allora nel \href{../../../../../../../org/roam/20250513171520-giochi_di_gale_stewart.org}{gioco}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped, sep=tiny]
+	{\text{I}} \&\& {B_1} \&\& {B_2} \&\& \dots \\
+	{\text{II}} \& {A_0} \&\& {A_1} \&\& \dots
+\end{tikzcd}
+\end{equation*}
+con gli aperti non vuoti \(Y\supseteq V_{0}\supseteq U_{1}\supseteq V_{1}\supseteq \dots\) in cui I vince sse \(\bigcap_{n \in \omega}{B_{n}} \neq \emptyset\), I ha una \href{../../../../../../../org/roam/20250513171520-giochi_di_gale_stewart.org}{strategia vincente}. Questo infatti è un gioco di Choquet a giocatori invertiti.
+
+Sia quindi \(\sigma\) la strategia vincente di I in questo gioco di Choquet.\hfill \textit{(cont.)}
 \end{frame}
-\begin{frame}[label={sec:org36ff494}]
+\begin{frame}[label={sec:org50d7230}]{Dimostrazione Teorema 2.7 (\(\Rightarrow\)) (cont.)}
+Nel gioco \(G^{**}(A)\), il giocatore I pone \(U_{0} \coloneqq Y\). Si costruisce per induzione la strategia vincente per I.
+
+Al passo \(n+1\)-esimo, sia \((U_{0},V_{0},\dots, U_{n}, V_{n})\) la sequenza di insiemi giocati. Si pone, per ogni \(i\le n\): \(V_{i}'\coloneqq V_{i}\cap W_{i}\), e si sceglie \(U_{n+1}\) come l'unico sottoinsieme aperto non vuoto di \(V_{n}\) tale che
+\begin{equation*}
+(V_{0}', U_{1}, V_{1}', U_{2},\dots, V_{n}', U_{n+1}) \in\sigma.
+\end{equation*}
+
+Allora \(\bigcap_{n \in \omega} U_{n}\neq\emptyset\) e inoltre
+\begin{equation*}
+\bigcap_{n \in\omega} U_{n} = \bigcap_{n \in\omega} V_{n}' \subseteq \bigcap_{n \in \omega} W_{n} \subseteq Y\setminus A
+\end{equation*}
+e dunque \(\bigcap_{n \in\omega} U_{n} \not\subseteq A\).\qed
+\end{frame}
+\begin{frame}[label={sec:org7e23e96}]{Dimostrazione Teorema 2.7 (\(\Leftarrow\))}
+Sia \(\sigma\) una strategia vincente per I in \(G^{**}(A)\), e sia \(U_{0}\) l'elemento di partenza per \(\sigma\).
+
+Esiste allora una strategia \(\sigma'\) per I, vincente, e tale che l'insieme giocato al passo \(n\)-esimo \(U_{n}\) abbia diametro (in una metrica fissata):
+\begin{equation*}
+\operatorname{diam}(U_{n})<2^{-n}.
+\end{equation*}
+
+Allora \(\bigcap_{n \in \omega} U_{n} = \set{x}\), con \(x \in U_{0}\setminus A\).\hfill \textit{(cont.)}
+\end{frame}
+\begin{frame}[label={sec:orga29e24b}]{Dimostrazione Teorema 2.7 (\(\Leftarrow\)) (cont.)}
+Sia quindi
+\begin{equation*}
+W\coloneqq \set{x \in U_{0}\mid
+\exists\, (U_{i}, V_{i})_{i \in \omega} \in [\sigma']\ x \in \bigcap_{n \in \omega} U_{i}}
+\end{equation*}
+\begin{itemize}
+\item \(W\) è denso in \(U_{0}\), poiché per ogni \(B \subseteq U_{0}\) esiste \(p = (U_{i}, V_{i})_{i \in \omega} \in [\sigma']\) tale che \(V_{0} = B\), e, siccome \(p \in [\sigma']\) allora
+\begin{equation*}
+  \bigcap_{n \in \omega} U_{i} = \set{x} \subseteq U_{1} \subseteq V_{0} = B
+\end{equation*}
+e dunque \(W\cap B\neq \emptyset\).
+\item Inoltre \(W \subseteq U_{0}\setminus A\), per costruzione di \(\sigma'\).
+\end{itemize}
+
+Pertanto \(A\) è magro in \(U_{0}\).\qed
+\end{frame}
+\begin{frame}[label={sec:org6bb6658}]
 \begin{alertblock}{Lemma 2.8}
 Sia \(X\) uno \href{../../../../../../../org/roam/20250103145124-topologia.org}{spazio topologico} \href{../../../../../../../org/roam/20250514174255-gioco_di_choquet.org}{di Choquet} non \href{../../../../../../../org/roam/20250131161811-insieme_vuoto_mk.org}{vuoto} tale che esista una \href{../../../../../../../org/roam/20250301193511-spazio_metrico.org}{distanza} \(d\) su \(X\) le cui \href{../../../../../../../org/roam/20250301193511-spazio_metrico.org}{palle aperte} sono aperti di \(X\). Sia \(A \subseteq X\).
 
 Se per ogni aperto \(U \subseteq X\) il \href{../../../../../../../org/roam/20250513111844-gioco_di_banach_mazur.org}{gioco} \(G^{**}\left((X\setminus A)\cup U\right)\) è \href{../../../../../../../org/roam/20250513155732-logic_game.org}{determinato} allora \(A \subseteq X\) ha \href{../../../../../../../org/roam/20250514154039-proprieta_di_baire.org}{BP}.
 \end{alertblock}
 \end{frame}
-\begin{frame}[label={sec:org51bbdfe}]
+\begin{frame}[label={sec:org465e651}]
 \begin{block}{Definizione 2.9}
 Una \uline{base debole} per uno spazio topologico \((X,\tau)\) è una collezione di aperti \(\set{A_{\alpha}}_{\alpha \in \Omega} \subseteq \tau\) tali che, per ogni aperto non vuoto di \(X\), \(\emptyset\neq U \subseteq X\) esista \(\alpha_{0} \in \Omega\) tale che
 \begin{equation*}
@@ -197,7 +249,7 @@ A_{\alpha_{0}} \subseteq U.
 \end{equation*}
 \end{block}
 \end{frame}
-\begin{frame}[label={sec:org0d40b40}]{Gioco di Banach-Mazur unfolded}
+\begin{frame}[label={sec:org0d0e532}]{Gioco di Banach-Mazur unfolded}
 Sia \(X\) uno \href{../../../../../../../org/roam/20250301194013-spazio_polacco.org}{spazio polacco} non vuoto con una \href{../../../../../../../org/roam/20250301193511-spazio_metrico.org}{metrica} fissata e sia \(\mathcal{W}\) una \href{../../../../../../../org/roam/20250525113346-base_debole_di_uno_spazio_topologico.org}{base debole} \href{../../../../../../../org/roam/20250111143651-insieme_numerabile.org}{numerabile} di \(X\).
 \begin{block}{Definizione 2.10}
 Dato \(F \subseteq X\times \omega^{\omega}\), il \uline{gioco di Banach-Mazur unfolded} \(G^{**}_{\text{u}}(F)\) è il \href{../../../../../../../org/roam/20250513155732-logic_game.org}{gioco} \href{../../../../../../../org/roam/20250513171520-giochi_di_gale_stewart.org}{di Gale-Stewart} codificato come segue:
@@ -211,12 +263,12 @@ tali che:
 \begin{itemize}
 \item per ogni \(i \in \omega\): \(U_{i}, V_{i} \in \mathcal{W}\), \(y_{n} \in \omega\);
 \item \(\operatorname{diam}(U_{n}), \operatorname{diam}(V_{n}) < 2^{-n}\);
-\item \(U_{0}\supseteq V_{0}\supseteq U_{1}\supseteq V_{1}\supseteq \dots\)\hfill (continua\dots{})
+\item \(U_{0}\supseteq V_{0}\supseteq U_{1}\supseteq V_{1}\supseteq \dots\)\hfill \textit{(cont.)}
 \end{itemize}
 \end{block}
 \end{frame}
-\begin{frame}[label={sec:org5b7f218}]
-\begin{block}{Definizione 2.10}
+\begin{frame}[label={sec:org27e3d89}]
+\begin{block}{Definizione 2.10 (cont.)}
 Posto
 \begin{equation*}
 \set{x}\coloneqq\bigcap_{i \in \omega} \operatorname{Cl}_{X}(U_{n}) = \bigcap_{i \in \omega} \operatorname{Cl}_{X}(V_{n})
@@ -230,7 +282,7 @@ e \(y\coloneqq (y_{i})_{i \in \omega} \in \omega^{\omega}\), il \uline{giocatore
 Se \(F\) è aperto o chiuso di \(X\times\omega^{\omega}\), allora \(G^{**}_{\text{u}}(F)\) è determinato.
 \end{alertblock}
 \end{frame}
-\begin{frame}[label={sec:org857017c}]
+\begin{frame}[label={sec:orgfeb2e5d}]
 \begin{alertblock}{Teorema 2.12}
 Sia \(X\) uno spazio polacco con una metrica fissata e sia \(\mathcal{W}\) una base debole di X.
 
@@ -241,10 +293,41 @@ Dato \(F \subseteq X\times \omega^{\omega}\) si consideri il \href{../../../../.
 \end{enumerate}
 \end{alertblock}
 \end{frame}
-\begin{frame}[label={sec:org223aa91}]
-Dimostrazione teorema 2.12
+\begin{frame}[label={sec:orgcde9e28}]{Dimostrazione Teorema 2.12(1)}
+Sia \(\sigma\) una \href{../../../../../../../org/roam/20250513171520-giochi_di_gale_stewart.org}{strategia} \href{../../../../../../../org/roam/20250513171520-giochi_di_gale_stewart.org}{vincente} per I, e sia \(U_{0}\) la prima mossa. Si mostra che \(A\) è \href{../../../../../../../org/roam/20250419122752-insieme_magro.org}{magro} in \(U_{0}\).
+
+Per ogni \(a \in \omega\) e per ogni \(p \in \sigma\) della forma:
+\begin{equation*}
+ p=\langle
+ 	U_{0},({y}_{0}, V_{0}), \dots, U_{n-1}, ({y}_{n-1}, V_{n-1}), U_{n}
+ \rangle
+\end{equation*}
+si definisce \(F_{p,a} \subseteq U_{0}\):
+\begin{align*}
+ F_{p,a} = \{&z \in U_{n}\mid \text{per ogni mossa legale }(a, V_{n})\\
+ &\text{se } U_{n+1}\text{ è l'unico elemento di }\mathcal{W}\text{ tale che}\\
+ &p \concat \langle(a,V_{n}), U_{n+1}\rangle \in \sigma \text{ allora } z \notin U_{n+1}\}
+\end{align*}
+L'insieme \(F_{p,a}\) è mai denso, poiché chiuso e con interno vuoto.\hfill \textit{(cont.)}
 \end{frame}
-\begin{frame}[label={sec:org4097097}]{Teorema di Lusin-Sierpiński}
+\begin{frame}[label={sec:orgde780d6}]{Dimostrazione 2.12(1) (cont.)}
+Sia ora \(x \in A\cap U_{0}\). Allora esiste \(y \in \omega^{\omega}\), \(y=(y_{i})_{i \in\omega}\) tale che \((x,y) \in F\).
+
+Una posizione \(p \in \sigma\):
+\begin{equation*}
+     p=\langle
+     	U_{0},({y}_{0}, V_{0}), \dots, U_{n-1}, ({y}_{n-1}, V_{n-1}), U_{n}
+     \rangle
+\end{equation*}
+è \uline{buona} per \((x,{y})\) se \(x \in U_{n}\). Siccome \(\sigma\) è una strategia vincente per il giocatore I, allora esiste una posizione \(p_{(x,y)} \in \sigma\) buona per \((x,y)\) e massimale, ovvero ogni estensione di \(p_{(x,y)}\) \uline{non è buona}. Ma allora, se
+\begin{equation*}
+ p_{(x,y)} = \langle U_{0}, (y_{0},V_{0}),\dots, U_{n}\rangle
+\end{equation*}
+si ha che \(x \in F_{p_{(x,y)}, y_{n}}\).
+
+Pertanto \(A\cap U_{0} \subseteq \bigcup_{p \in \sigma', a \in \omega} F_{p,a}\) è magro.\qed
+\end{frame}
+\begin{frame}[label={sec:org1ea7ae6}]{Teorema di Lusin-Sierpiński}
 \begin{alertblock}{Teorema di Lusin-Sierpiński 2.13}
 Sia \(X\) uno \href{../../../../../../../org/roam/20250301194013-spazio_polacco.org}{spazio polacco}. Allora ogni \href{../../../../../../../org/roam/20250525220742-insieme_analitico.org}{insieme analitico} di \(X\) ha la \href{../../../../../../../org/roam/20250514154039-proprieta_di_baire.org}{Baire Property}.
 \end{alertblock}
@@ -258,10 +341,8 @@ Per il \href{../../../../../../../org/roam/20250514144736-teorema_di_gale_stewar
 Per i \href{../../../../../../../org/roam/20250514174717-teorema_di_caratterizzazione_dei_comagri_tramite_il_gioco_di_banach_mazur.org}{Teoremi} 2.26 e 2.27, allora, il \href{../../../../../../../org/roam/20250513111844-gioco_di_banach_mazur.org}{gioco \(G^{**}(A) = G^{ * *}\left((X\setminus C) \cup U\right)\)} è determinato: per il Lemma 2.8, quindi \(C\) ha la BP.
 \end{proof}
 \end{frame}
-\section{\null}
-\label{sec:orgc3d4485}
 
-\begin{frame}[label={sec:org2d74e23}]{Bibliografia minimale}
+\begin{frame}[label={sec:orgdd9b26a}]{Bibliografia minimale}
 \nocite{*}
 \printbibliography
 \end{frame}

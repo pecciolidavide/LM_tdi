@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.8.21)  30 MAY 2025 16:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.8.21)  3 JUN 2025 12:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2201,7 +2201,7 @@ LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 638.
 
 [5] [6] [7] [8] [9] [10] [11] [12] [13]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 1051
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 1059
 .
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/t1lmtt.fd
@@ -2217,11 +2217,11 @@ Package microtype Info: Character `029' is missing
  [14
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1053.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1053.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1061.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1061.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1053.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1053.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1061.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1061.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: A19BC37EE2ECD4E0260A8D7E58393D0C;732.
@@ -2232,7 +2232,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  74343 strings out of 492616
  1786460 string characters out of 6129481
- 2548794 words of memory out of 5000000
+ 2547795 words of memory out of 5000000
  77047 multiletter control sequences out of 15000+600000
  631716 words of font info for 162 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2262,7 +2262,7 @@ l/texlive/2019/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/
 2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texl
 ive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/t
 exlive/2019/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on main.pdf (15 pages, 383140 bytes).
+Output written on main.pdf (15 pages, 383887 bytes).
 PDF statistics:
  343 PDF objects out of 1000 (max. 8388607)
  276 compressed objects within 3 object streams
